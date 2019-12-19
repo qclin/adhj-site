@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -25,6 +27,34 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-source-airtable`,
+      options: {
+        apiKey: process.env.AIRTABLE_API_KEY, // may instead specify via env, see below
+        tables: [
+          {
+            baseId: `appplGx9D2N4WDHWw`,
+            tableName: `PROJECTS`,
+            // tableView: `YOUR_TABLE_VIEW_NAME`, // optional
+            // queryName: `OPTIONAL_NAME_TO_IDENTIFY_TABLE`, // optional
+            // mapping: { `CASE_SENSITIVE_COLUMN_NAME`: `VALUE_FORMAT` }, // optional, e.g. "text/markdown", "fileNode"
+            // tableLinks: [`CASE`, `SENSITIVE`, `COLUMN`, `NAMES`] // optional, for deep linking to records across tables.
+          },
+          {
+            baseId: `appplGx9D2N4WDHWw`,
+            tableName: `PRESS`,
+          },
+          {
+            baseId: `appplGx9D2N4WDHWw`,
+            tableName: `NEWS`,
+          },
+          {
+            baseId: `appplGx9D2N4WDHWw`,
+            tableName: `DRAWINGS`,
+          },
+        ],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
