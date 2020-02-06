@@ -34,7 +34,10 @@ export default function() {
         {projects.nodes
           .filter(ea => ea.data.THEME === theme)
           .map((item, i) => (
-            <li key={item.recordId} className="project-links dib">
+            <li
+              key={item.recordId}
+              className="project-links project-titles dib"
+            >
               <a>
                 {item.data.YEAR} <br />
                 {item.data.TITLE}

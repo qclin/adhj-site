@@ -19,7 +19,10 @@
   }
 }
 #nav-projects {
-  width: min-content;
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  margin: 0 auto;
 }
 .project-links {
   width: auto;
@@ -32,6 +35,10 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     float: right;
+    background: none;
+    color: white;
+    text-decoration: underline;
+    padding: 1rem;
   }
 }
 .sidenav {
