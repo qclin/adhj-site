@@ -24,10 +24,6 @@ const Layout = ({ children }) => {
       <SideBar />
       <div>
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built by{" "}
-          <a href="https://theholding.page">Studio hold</a>
-        </footer>
       </div>
     </>
   )

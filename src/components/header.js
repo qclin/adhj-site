@@ -9,9 +9,6 @@ const Header = ({ siteTitle }) => (
       href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"
     />
     <link rel="stylesheet" href="https://use.typekit.net/mzt5wyq.css" />
-    <div className="w-10">
-      <Link to="/">{siteTitle}</Link>
-    </div>
   </header>
 )
 

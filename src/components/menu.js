@@ -1,51 +1,13 @@
 import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { THEMES } from "../utils/enums"
+import ProjectNav from "./project-nav"
 
 export default function() {
   const [theme, setTheme] = useState()
-
-  const { projects } = useStaticQuery(graphql`
-    query MenuQuery {
-      projects: allAirtable(
-        filter: {
-          table: { eq: "PROJECTS" }
-          data: { IDENTIFIER: { ne: null } }
-        }
-        sort: { fields: data___YEAR, order: DESC }
-      ) {
-        nodes {
-          data {
-            IDENTIFIER
-            THEME
-            DESCRIPTION
-            TITLE
-            YEAR
-          }
-          recordId
-        }
-      }
-    }
-  `)
-
   return (
     <div id="menu">
-      <ul className={theme && `bg-${getThemeKey(theme)}`} id="nav-projects">
-        {projects.nodes
-          .filter(ea => ea.data.THEME === theme)
-          .map((item, i) => (
-            <li
-              key={item.recordId}
-              className="project-links project-titles dib"
-            >
-              <a>
-                {item.data.YEAR} <br />
-                {item.data.TITLE}
-              </a>
-            </li>
-          ))}
-      </ul>
-      <h3>Projects</h3>
+      <ProjectNav theme={theme} />
       <div id="bottom-docker">
         <ul id="nav-theme">
           {Object.keys(THEMES).map((key, index) => (
@@ -63,10 +25,4 @@ export default function() {
       </div>
     </div>
   )
-}
-
-function getThemeKey(theme) {
-  return Object.keys(THEMES).find((key, index) => {
-    if (THEMES[key] === theme) return key
-  })
 }

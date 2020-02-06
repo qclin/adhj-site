@@ -1,6 +1,4 @@
 import React, { useRef } from "react"
-import ReactDOM from "react-dom"
-import { Spring } from "react-spring/renderprops"
 import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons.cjs"
 
 export default function() {

@@ -18,3 +18,11 @@
 #menu {
   margin: 0 auto;
 }
+.projects {
+  .navigation {
+    color: $very-light-gray-two;
+    a {
+      color: inherit;
+    }
+  }
+}
