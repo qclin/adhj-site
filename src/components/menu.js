@@ -1,8 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import { THEMES } from "../utils/enums"
 
-const Menu = () => {
-  const data = useStaticQuery(graphql`
+export default function() {
+  const [theme, setTheme] = useState()
+
+  const { projects } = useStaticQuery(graphql`
     query MenuQuery {
       projects: allAirtable(
         filter: {
@@ -27,15 +30,29 @@ const Menu = () => {
 
   return (
     <div>
+      <ul className={theme && `bg-${getThemeKey(theme)}`} id="nav-projects">
+        {projects.nodes
+          .filter(ea => ea.data.THEME === theme)
+          .map((item, i) => (
+            <li key={item.recordId} className="project-links dib">
+              <a>
+                {item.data.YEAR} <br />
+                {item.data.TITLE}
+              </a>
+            </li>
+          ))}
+      </ul>
       <h3>Projects</h3>
-
-      <ul>
-        {data.projects.nodes.map((item, i) => (
-          <li key={item.recordId}>
-            <p>
-              {item.data.TITLE}, {item.data.YEAR}
-            </p>
-            <p>{item.data.DESCRIPTION}</p>
+      <ul id="nav-theme">
+        {Object.keys(THEMES).map((key, index) => (
+          <li
+            className={
+              THEMES[key] === theme ? `selected-${key} dib ttu` : "dib ttu"
+            }
+          >
+            <a href={`#${key}`} onClick={() => setTheme(THEMES[key])}>
+              {THEMES[key].replace(" ", "\r\n")}
+            </a>
           </li>
         ))}
       </ul>
@@ -43,4 +60,8 @@ const Menu = () => {
   )
 }
 
-export default Menu
+function getThemeKey(theme) {
+  return Object.keys(THEMES).find((key, index) => {
+    if (THEMES[key] === theme) return key
+  })
+}

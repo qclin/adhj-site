@@ -1,0 +1,64 @@
+#nav-theme {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  li {
+    box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.5);
+  }
+  a {
+    color: $txt-dark;
+    text-decoration: underline;
+    background: #fff;
+    padding: 0 1rem;
+    word-break: break-word;
+  }
+}
+#nav-projects {
+  width: min-content;
+}
+.project-links {
+  width: auto;
+  text-align: center;
+}
+
+#sidePanel {
+  button {
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    float: right;
+  }
+}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
+  &.open {
+    width: 30vh;
+  }
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}

@@ -1,0 +1,46 @@
+$txt-dark: #1f1f1f;
+$primary-blue: #0000ff;
+$orangey-red: #ff3f32;
+$barbie-pink: #ff35bb;
+$bright-light-blue: #31fff8;
+$off-yellow: #f7e338;
+$very-light-gray: #c8c8c8;
+$very-light-gray-two: #e7e7e7;
+$fluorescent-green: #06ff12;
+
+.bg-AS {
+  background: $off-yellow;
+}
+.bg-AG {
+  background: $barbie-pink;
+}
+.bg-EN {
+  background: $fluorescent-green;
+}
+.bg-MY {
+  background: $orangey-red;
+}
+.bg-TT {
+  background: $very-light-gray;
+}
+.bg-EX {
+  background: $bright-light-blue;
+}
+.selected-AS {
+  box-shadow: 7px 5px 3px 4px $off-yellow !important;
+}
+.selected-AG {
+  box-shadow: 7px 5px 3px 4px $barbie-pink !important;
+}
+.selected-EN {
+  box-shadow: 7px 5px 3px 4px $fluorescent-green !important;
+}
+.selected-MY {
+  box-shadow: 7px 5px 3px 4px $orangey-red !important;
+}
+.selected-TT {
+  box-shadow: 7px 5px 3px 4px $very-light-gray !important;
+}
+.selected-EX {
+  box-shadow: 7px 5px 3px 4px $bright-light-blue !important;
+}
