@@ -25,6 +25,18 @@ export default function() {
           backgroundImage: url("01", true),
         }}
       />
+      <ParallaxLayer
+        offset={0}
+        speed={-0.3}
+        onClick={() => parallax.scrollTo(1)}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <img src={url("01")} alt="Collage layer 1" style={{ height: "100%" }} />
+      </ParallaxLayer>
 
       <ParallaxLayer
         offset={0}
@@ -41,7 +53,7 @@ export default function() {
 
       <ParallaxLayer
         offset={0}
-        speed={0.1}
+        speed={0.5}
         onClick={() => parallax.scrollTo(2)}
         style={{
           display: "flex",
