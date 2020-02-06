@@ -29,7 +29,7 @@ export default function() {
   `)
 
   return (
-    <div>
+    <div id="menu">
       <ul className={theme && `bg-${getThemeKey(theme)}`} id="nav-projects">
         {projects.nodes
           .filter(ea => ea.data.THEME === theme)
@@ -43,19 +43,21 @@ export default function() {
           ))}
       </ul>
       <h3>Projects</h3>
-      <ul id="nav-theme">
-        {Object.keys(THEMES).map((key, index) => (
-          <li
-            className={
-              THEMES[key] === theme ? `selected-${key} dib ttu` : "dib ttu"
-            }
-          >
-            <a href={`#${key}`} onClick={() => setTheme(THEMES[key])}>
-              {THEMES[key].replace(" ", "\r\n")}
-            </a>
-          </li>
-        ))}
-      </ul>
+      <div id="bottom-docker">
+        <ul id="nav-theme">
+          {Object.keys(THEMES).map((key, index) => (
+            <li
+              className={
+                THEMES[key] === theme ? `selected-${key} dib ttu` : "dib ttu"
+              }
+            >
+              <a href={`#${key}`} onClick={() => setTheme(THEMES[key])}>
+                {THEMES[key].replace(" ", "\r\n")}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }
