@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import { THEMES } from "../utils/enums"
 import ProjectNav from "./project-nav"
 

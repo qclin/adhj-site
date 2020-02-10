@@ -19,11 +19,14 @@
   }
 }
 #nav-projects {
-  display: flex;
+  display: inline-block;
   justify-content: center;
   width: fit-content;
-  margin: 0 auto;
+  margin: 2rem auto 5rem auto;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
+  max-width: 88%;
+  text-align: center;
+
   li {
     padding: 8px 1rem;
     margin: 0;
@@ -45,6 +48,7 @@
 }
 
 .navigation {
+  vertical-align: top;
   color: white;
   text-decoration: underline;
   padding: 1rem;

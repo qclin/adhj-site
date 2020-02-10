@@ -2,8 +2,22 @@
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const projectData = await graphql(`
+  const sourcedData = await graphql(`
     query {
+      images: allS3ImageAsset(sort: { order: ASC, fields: Key }) {
+        nodes {
+          Key
+          childImageSharp {
+            id
+            fluid {
+              aspectRatio
+              src
+              srcSet
+              sizes
+            }
+          }
+        }
+      }
       projects: allAirtable(
         filter: {
           table: { eq: "PROJECTS" }
@@ -24,13 +38,17 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-  console.log(JSON.stringify(projectData, null, 4))
 
-  projectData.data.projects.nodes.forEach(project => {
-    createPage({
+  const { images, projects } = sourcedData.data
+  projects.nodes.forEach(project => {
+    const projectImages = images.nodes.filter(image => {
+      return image.Key.includes(project.data.IDENTIFIER)
+    })
+
+    return createPage({
       path: `/projects/${project.recordId}`,
       component: require.resolve(`./src/templates/project.js`),
-      context: { project: project.data },
+      context: { project: project.data, images: projectImages },
     })
   })
 }
