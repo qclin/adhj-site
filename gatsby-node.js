@@ -18,7 +18,12 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      projects: allAirtable(filter: { table: { eq: "PROJECTS" } }) {
+      projects: allAirtable(
+        filter: {
+          table: { eq: "PROJECTS" }
+          data: { IDENTIFIER: { ne: null } }
+        }
+      ) {
         nodes {
           data {
             YEAR
@@ -30,21 +35,47 @@ exports.createPages = async ({ graphql, actions }) => {
           recordId
         }
       }
+
+      videos: allAirtable(
+        filter: { table: { eq: "VIDEOS" }, data: { Link: { ne: null } } }
+      ) {
+        nodes {
+          data {
+            IsResearch
+            Link
+            vimeoID
+            TYPE
+            ID
+            PROJECT {
+              data {
+                IDENTIFIER
+              }
+            }
+          }
+        }
+      }
     }
   `)
 
-  const { images, projects } = sourcedData.data
+  const { images, projects, videos } = sourcedData.data
+
   projects.nodes.forEach(node => {
+    let identifier = node.data.IDENTIFIER
+
     const projectImages = images.nodes.filter(image => {
-      return image.Key.includes(node.data.IDENTIFIER)
+      return image.Key.includes(identifier)
+    })
+    const projectMedia = videos.nodes.filter(video => {
+      return video.data.PROJECT[0].data.IDENTIFIER == identifier
     })
 
     return createPage({
-      path: `/projects/${node.data.IDENTIFIER}`,
+      path: `/projects/${identifier}`,
       component: require.resolve(`./src/templates/project.js`),
       context: {
         project: node.data,
         images: projectImages,
+        media: projectMedia,
       },
     })
   })
