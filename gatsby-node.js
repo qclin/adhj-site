@@ -18,20 +18,14 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      projects: allAirtable(
-        filter: {
-          table: { eq: "PROJECTS" }
-          data: { IDENTIFIER: { ne: null } }
-        }
-        sort: { fields: data___YEAR, order: DESC }
-      ) {
+      projects: allAirtable(filter: { table: { eq: "PROJECTS" } }) {
         nodes {
           data {
+            YEAR
+            TITLE
             IDENTIFIER
             THEME
             DESCRIPTION
-            TITLE
-            YEAR
           }
           recordId
         }
@@ -40,15 +34,18 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   const { images, projects } = sourcedData.data
-  projects.nodes.forEach(project => {
+  projects.nodes.forEach(node => {
     const projectImages = images.nodes.filter(image => {
-      return image.Key.includes(project.data.IDENTIFIER)
+      return image.Key.includes(node.data.IDENTIFIER)
     })
 
     return createPage({
-      path: `/projects/${project.recordId}`,
+      path: `/projects/${node.data.IDENTIFIER}`,
       component: require.resolve(`./src/templates/project.js`),
-      context: { project: project.data, images: projectImages },
+      context: {
+        project: node.data,
+        images: projectImages,
+      },
     })
   })
 }

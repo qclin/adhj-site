@@ -11,6 +11,7 @@ export default function({ theme }) {
       ) {
         nodes {
           data {
+            IDENTIFIER
             THEME
             TITLE
             YEAR
@@ -27,7 +28,7 @@ export default function({ theme }) {
         .filter(ea => ea.data.THEME === theme)
         .map((item, i) => (
           <li key={item.recordId} className="project-links project-titles dib">
-            <a href={`/projects/${item.recordId}`}>
+            <a href={`/projects/${item.data.IDENTIFIER}`}>
               {item.data.YEAR} <br />
               {item.data.TITLE}
             </a>

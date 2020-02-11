@@ -1,34 +1,81 @@
 import React, { useRef } from "react"
-import { Stage, Layer, Image, Text } from "react-konva"
-import Konva from "konva"
-import useImage from "use-image"
+import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons.cjs"
 
 export default function() {
-  const [layer1] = useImage("../../Collage_01/01_Environment_101219.png")
-  const [layer2] = useImage("../../Collage_01/02_Environment_101219.png")
-  const [layer3] = useImage("../../Collage_01/03_Environment_101219.png")
-  const [layer4] = useImage("../../Collage_01/04_Environment_101219.png")
-
-  const baseLayer = useRef(null)
-  const secondLayer = useRef(null)
-  const thirdLayer = useRef(null)
-  const fourthLayer = useRef(null)
-
-  var anim = new Konva.Animation(frame => {
-    secondLayer.y((Math.sin(frame.time / 10) + 1) / 2)
-  })
-
-  anim.start()
-
+  const url = name => `"../../Collage_01/${name}_Environment_101219.png`
+  const parallax = useRef(null)
   return (
-    <Stage width="3177" height="1742">
-      <Layer>
-        <Text text="Try click on rect" />
-        <Image image={layer1} ref={baseLayer} />
-        <Image image={layer2} ref={secondLayer} />
-        <Image image={layer3} ref={thirdLayer} />
-        <Image image={layer4} ref={fourthLayer} />
-      </Layer>
-    </Stage>
+    <Parallax id="collage" ref={parallax} horizontal pages={3}>
+      <ParallaxLayer
+        offset={1}
+        speed={1}
+        style={{ border: "#06ff12 solid 2rem" }}
+      />
+      <ParallaxLayer
+        offset={2}
+        speed={1}
+        style={{ border: "#ff35bb solid 2rem" }}
+      />
+      <ParallaxLayer
+        offset={2}
+        speed={-0.3}
+        style={{
+          backgroundSize: "80%",
+          backgroundPosition: "center",
+          backgroundImage: url("01", true),
+        }}
+      />
+      <ParallaxLayer
+        offset={0}
+        speed={-0.3}
+        onClick={() => parallax.scrollTo(1)}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <img src={url("01")} alt="Collage layer 1" style={{ height: "100%" }} />
+      </ParallaxLayer>
+
+      <ParallaxLayer
+        offset={0}
+        speed={0.1}
+        onClick={() => parallax.scrollTo(1)}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <img src={url("02")} alt="Collage layer 1" style={{ height: "100%" }} />
+      </ParallaxLayer>
+
+      <ParallaxLayer
+        offset={0}
+        speed={0.5}
+        onClick={() => parallax.scrollTo(2)}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <img src={url("03")} alt="Collage layer 2" />
+      </ParallaxLayer>
+
+      <ParallaxLayer
+        offset={0}
+        speed={-0}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+        onClick={() => parallax.scrollTo(0)}
+      >
+        <img src={url("04")} alt="Collage layer 2" />
+      </ParallaxLayer>
+    </Parallax>
   )
 }

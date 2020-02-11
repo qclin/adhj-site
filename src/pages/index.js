@@ -1,15 +1,19 @@
-import React from "react"
+import React, { useState } from "react"
 import Layout from "../components/layout"
-import ParaSpring from "../components/paraSpring"
-import Menu from "../components/menu"
+import Collage from "../components/collage"
+import ThemeNavigation from "../components/nav-themes"
+import ProjectNavigation from "../components/nav-projects"
+
 import SEO from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <Menu />
-    <ParaSpring />
-  </Layout>
-)
-
-export default IndexPage
+export default function() {
+  const [theme, setTheme] = useState()
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <ProjectNavigation theme={theme} />
+      <ThemeNavigation theme={theme} setTheme={setTheme} />
+      <Collage />
+    </Layout>
+  )
+}

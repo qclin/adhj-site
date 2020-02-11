@@ -1,29 +1,29 @@
 require("dotenv").config()
 
 const sourceAirtable = {
-  resolve: `gatsby-source-airtable`,
+  resolve: "gatsby-source-airtable",
   options: {
     apiKey: process.env.AIRTABLE_API_KEY, // may instead specify via env, see below
     tables: [
       {
-        baseId: `appplGx9D2N4WDHWw`,
-        tableName: `PROJECTS`,
-        // tableView: `YOUR_TABLE_VIEW_NAME`, // optional
-        // queryName: `OPTIONAL_NAME_TO_IDENTIFY_TABLE`, // optional
-        // mapping: { `CASE_SENSITIVE_COLUMN_NAME`: `VALUE_FORMAT` }, // optional, e.g. "text/markdown", "fileNode"
-        // tableLinks: [`CASE`, `SENSITIVE`, `COLUMN`, `NAMES`] // optional, for deep linking to records across tables.
+        baseId: "appplGx9D2N4WDHWw",
+        tableName: "PROJECTS",
+        // tableView: "YOUR_TABLE_VIEW_NAME", // optional
+        // queryName: "OPTIONAL_NAME_TO_IDENTIFY_TABLE", // optional
+        // mapping: { "CASE_SENSITIVE_COLUMN_NAME": "VALUE_FORMAT" }, // optional, e.g. "text/markdown", "fileNode"
+        // tableLinks: ["CASE", "SENSITIVE", "COLUMN", "NAMES"] // optional, for deep linking to records across tables.
       },
       {
-        baseId: `appplGx9D2N4WDHWw`,
-        tableName: `PRESS`,
+        baseId: "appplGx9D2N4WDHWw",
+        tableName: "PRESS",
       },
       {
-        baseId: `appplGx9D2N4WDHWw`,
-        tableName: `NEWS`,
+        baseId: "appplGx9D2N4WDHWw",
+        tableName: "NEWS",
       },
       {
-        baseId: `appplGx9D2N4WDHWw`,
-        tableName: `DRAWINGS`,
+        baseId: "appplGx9D2N4WDHWw",
+        tableName: "DRAWINGS",
       },
     ],
   },
@@ -31,32 +31,39 @@ const sourceAirtable = {
 
 module.exports = {
   siteMetadata: {
-    title: `Anne Duk Hee Jordan`,
-    description: `Artist site of Anne Duk Hee Jordan`,
-    author: `@studio-hold`,
+    title: "Anne Duk Hee Jordan",
+    description: "Artist site of Anne Duk Hee Jordan",
+    author: "Studio Hold",
+    authorLink: "https://theholding.page/",
+    openGraph: {
+      title: "Anne Duk Hee Jordan",
+      description: "Anne Duk Hee Jordan is a visual artist and food artist.",
+      url: "https://dukhee.de",
+      image: "",
+    },
   },
   plugins: [
-    `gatsby-plugin-sass`,
-    `gatsby-plugin-react-helmet`,
+    "gatsby-plugin-sass",
+    "gatsby-plugin-react-helmet",
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: `images`,
+        name: "images",
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: "gatsby-plugin-manifest",
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        name: "gatsby-starter-default",
+        short_name: "starter",
+        start_url: "/",
+        background_color: "#663399",
+        theme_color: "#663399",
+        display: "minimal-ui",
+        icon: "src/images/gatsby-icon.png", // This path is relative to the root of the site.
       },
     },
     sourceAirtable,
