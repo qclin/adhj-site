@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { THEMES } from "../utils/enums"
 
-export default function({ theme }) {
+export default function({ theme, selectedProjectId }) {
   const { projects } = useStaticQuery(graphql`
     query ProjectLinkQuery {
       projects: allAirtable(
@@ -29,8 +29,14 @@ export default function({ theme }) {
         .map((item, i) => (
           <li key={item.recordId} className="project-links project-titles dib">
             <a href={`/projects/${item.data.IDENTIFIER}`}>
-              {item.data.YEAR} <br />
-              {item.data.TITLE}
+              {item.data.YEAR}
+              <div
+                className={
+                  selectedProjectId == item.data.IDENTIFIER && "selected"
+                }
+              >
+                {item.data.TITLE}{" "}
+              </div>
             </a>
           </li>
         ))}
