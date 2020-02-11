@@ -26,18 +26,22 @@ export default function() {
 
   return (
     <Layout>
-      <SEO title="Drawings" />
-      <section className="w-100">
-        {drawings.nodes.map((item, i) => (
-          <div key={item.recordId} className="drawings w-50 fl">
-            <img src={item.data.LINK} alt={item.data.name} />
-            <caption>
-              {item.data.TITLE} - {item.data.YEAR}
-            </caption>
-          </div>
-        ))}
-      </section>
-      <Link to="/">ADHJ</Link>
+      <main className="info-pages">
+        <Link className="navigation" to="/">
+          H
+        </Link>
+        <SEO title="Drawings" />
+        <section className="w-100">
+          {drawings.nodes.map((item, i) => (
+            <div key={item.recordId} className="drawings w-50 fl">
+              <img src={item.data.LINK} alt={item.data.name} />
+              <caption>
+                {item.data.TITLE} - {item.data.YEAR}
+              </caption>
+            </div>
+          ))}
+        </section>
+      </main>
     </Layout>
   )
 }

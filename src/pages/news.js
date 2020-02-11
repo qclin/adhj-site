@@ -26,15 +26,26 @@ export default function() {
 
   return (
     <Layout>
-      <SEO title="News" />
-      {news.nodes.map((item, i) => (
-        <div key={item.recordId}>
-          <a href={item.data.LINK} target="_blank" rel="noopener noreferrer">
-            {item.data.TITLE} - {item.data.MONTH}, {item.data.YEAR}
-          </a>
-        </div>
-      ))}
-      <Link to="/">ADHJ</Link>
+      <main className="info-pages">
+        <Link className="navigation" to="/">
+          H
+        </Link>
+        <SEO title="News" />
+        <section className="pa5">
+          {news.nodes.map((item, i) => (
+            <div className="large-text mb4" key={item.recordId}>
+              <a
+                href={item.data.LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {item.data.TITLE} <br />
+                {item.data.MONTH}, {item.data.YEAR}
+              </a>
+            </div>
+          ))}
+        </section>
+      </main>
     </Layout>
   )
 }

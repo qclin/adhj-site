@@ -8,6 +8,9 @@ $very-light-gray: #c8c8c8;
 $very-light-gray-two: #e7e7e7;
 $fluorescent-green: #06ff12;
 
+.dark {
+  color: $txt-dark;
+}
 .bg-AS {
   background: $off-yellow;
 }
@@ -43,4 +46,13 @@ $fluorescent-green: #06ff12;
 }
 .selected-EX {
   box-shadow: 7px 5px 3px 4px $bright-light-blue !important;
+}
+
+.info-pages {
+  min-height: 100vh;
+  background: $txt-dark;
+  color: $very-light-gray-two;
+  a {
+    color: $very-light-gray-two;
+  }
 }

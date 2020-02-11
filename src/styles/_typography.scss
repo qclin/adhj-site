@@ -9,14 +9,16 @@ body {
   font-family: "stratos", sans-serif;
 }
 
-html {
+html,
+a {
   cursor: url("/icons/mouse-pink.png"), auto;
 }
 nav,
 #nav-theme,
 h1,
 .navigation,
-.themes {
+.themes,
+.large-text {
   font-family: "stratos", sans-serif;
   font-size: 36px;
   letter-spacing: 2.04px;

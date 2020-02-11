@@ -7,7 +7,7 @@ const SideBar = () => {
     <div id="sidePanel">
       <nav className={open ? "sidenav open" : "sidenav"}>
         <button className="closebtn" onClick={() => setOpen(false)}>
-          &times;
+          x
         </button>
         <Link to="/about/">About</Link>
         <Link to="/drawings/">DRAWINGS</Link>

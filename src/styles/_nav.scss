@@ -47,11 +47,12 @@
 }
 
 .navigation {
+  text-decoration: underline;
   vertical-align: top;
   color: white;
-  text-decoration: underline;
   padding: 0 1rem;
 }
+
 .sidenav {
   height: 100%;
   width: 0;
@@ -59,7 +60,8 @@
   z-index: 1;
   top: 0;
   right: 0;
-  background-color: #111;
+  background-color: $txt-dark;
+  box-shadow: -2px 2px 9px 0 rgba(255, 255, 255, 0.23);
   overflow-x: hidden;
   padding-top: 60px;
   transition: 0.5s;
