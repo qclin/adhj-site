@@ -6,6 +6,7 @@ export default function({
   isProjectPage = false,
   selectedTheme,
   selectedProjectId,
+  canvas,
 }) {
   const [theme, setTheme] = useState(selectedTheme)
 
@@ -22,7 +23,15 @@ export default function({
                   : "dib ttu theme-items"
               }
             >
-              <a href={`#${key}`} onClick={() => setTheme(THEMES[key])}>
+              <a
+                href={`#${key}`}
+                onClick={() => {
+                  setTheme(THEMES[key])
+                  if (!isProjectPage) {
+                    canvas.current.scrollTo(index)
+                  }
+                }}
+              >
                 {THEMES[key].replace(" ", "\r\n")}
               </a>
             </li>

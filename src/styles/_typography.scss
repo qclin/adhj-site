@@ -11,7 +11,7 @@ body {
 
 html,
 a {
-  cursor: url("/icons/mouse-pink.png"), auto;
+  cursor: url("/icons/mouse-pink.png") 30 30, auto; // recenter hot spot by half width & height of the image
 }
 nav,
 #nav-theme,

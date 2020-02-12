@@ -1,80 +1,55 @@
-import React, { useRef } from "react"
+import React from "react"
 import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons.cjs"
 
-export default function() {
-  const url = name => `"../../Collage_01/${name}_Environment_101219.png`
-  const parallax = useRef(null)
+export default function({ canvas }) {
+  const url = name => `"../../collage-layers/${name}.png`
   return (
-    <Parallax id="collage" ref={parallax} horizontal pages={3}>
-      <ParallaxLayer
-        offset={1}
-        speed={1}
-        style={{ border: "#06ff12 solid 2rem" }}
-      />
-      <ParallaxLayer
-        offset={2}
-        speed={1}
-        style={{ border: "#ff35bb solid 2rem" }}
-      />
-      <ParallaxLayer
-        offset={2}
-        speed={-0.3}
-        style={{
-          backgroundSize: "80%",
-          backgroundPosition: "center",
-          backgroundImage: url("01", true),
-        }}
-      />
-      <ParallaxLayer
-        offset={0}
-        speed={-0.3}
-        onClick={() => parallax.scrollTo(1)}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <img src={url("01")} alt="Collage layer 1" style={{ height: "100%" }} />
+    <Parallax id="collage" ref={canvas} horizontal pages={6}>
+      <ParallaxLayer offset={0} speed={1} className="AS-canvas" />
+      <ParallaxLayer offset={1} speed={1} className="AG-canvas" />
+      <ParallaxLayer offset={2} speed={1} className="EN-canvas" />
+      <ParallaxLayer offset={3} speed={1} className="MY-canvas" />
+      <ParallaxLayer offset={4} speed={1} className="TT-canvas" />
+      <ParallaxLayer offset={5} speed={1} className="EX-canvas" />
+
+      <ParallaxLayer offset={2} speed={-0.3} className="canvas-layer">
+        <img
+          src={url("01_Environment")}
+          alt="Environment layer 1"
+          className=""
+        />
       </ParallaxLayer>
 
-      <ParallaxLayer
-        offset={0}
-        speed={0.1}
-        onClick={() => parallax.scrollTo(1)}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <img src={url("02")} alt="Collage layer 1" style={{ height: "100%" }} />
+      <ParallaxLayer offset={2} speed={0.1} className="canvas-layer">
+        <img
+          src={url("02_Environment")}
+          alt="Environment layer 2"
+          className=""
+        />
       </ParallaxLayer>
 
-      <ParallaxLayer
-        offset={0}
-        speed={0.5}
-        onClick={() => parallax.scrollTo(2)}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <img src={url("03")} alt="Collage layer 2" />
+      <ParallaxLayer offset={2} speed={0.5} className="canvas-layer">
+        <img src={url("03_Environment")} alt="Environment layer 3" />
       </ParallaxLayer>
 
-      <ParallaxLayer
-        offset={0}
-        speed={-0}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-        onClick={() => parallax.scrollTo(0)}
-      >
-        <img src={url("04")} alt="Collage layer 2" />
+      <ParallaxLayer offset={2} speed={-0} className="canvas-layer">
+        <img src={url("04_Environment")} alt="Environment layer 4" />
+      </ParallaxLayer>
+
+      <ParallaxLayer offset={3} speed={-0.3} className="canvas-layer">
+        <img src={url("01_Myth")} alt="Myth layer 1" className="" />
+      </ParallaxLayer>
+
+      <ParallaxLayer offset={3} speed={0.1} className="canvas-layer">
+        <img src={url("02_Myth")} alt="Myth layer 2" className="" />
+      </ParallaxLayer>
+
+      <ParallaxLayer offset={3} speed={0.5} className="canvas-layer">
+        <img src={url("03_Myth")} alt="Myth layer 3" />
+      </ParallaxLayer>
+
+      <ParallaxLayer offset={3} speed={-0} className="canvas-layer">
+        <img src={url("04_Myth")} alt="Myth layer 4" />
       </ParallaxLayer>
     </Parallax>
   )

@@ -1,7 +1,8 @@
 import React from "react"
 import Img from "gatsby-image"
 
-export default function({ images }) {
+export default function({ images, captions }) {
+  console.log(captions)
   return (
     <section className="center image-wrapper">
       {images.map(item => (
@@ -13,7 +14,15 @@ export default function({ images }) {
               key={item.Key}
             />
           </figure>
-          <figcaption className="image-captions">{item.Key}</figcaption>
+          <figcaption className="image-captions">
+            {
+              captions[
+                item.Key.split("/")
+                  .pop()
+                  .split(".")[0]
+              ]
+            }
+          </figcaption>
         </div>
       ))}
     </section>

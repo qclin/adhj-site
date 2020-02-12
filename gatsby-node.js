@@ -54,10 +54,25 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      captions: allAirtable(
+        filter: { table: { eq: "CAPTIONS" }, data: { IMAGE_ID: { ne: null } } }
+      ) {
+        nodes {
+          data {
+            IMAGE_ID
+            CAPTION
+            PROJECT {
+              data {
+                IDENTIFIER
+              }
+            }
+          }
+        }
+      }
     }
   `)
 
-  const { images, projects, videos } = sourcedData.data
+  const { images, projects, videos, captions } = sourcedData.data
 
   projects.nodes.forEach(node => {
     let identifier = node.data.IDENTIFIER
@@ -68,6 +83,9 @@ exports.createPages = async ({ graphql, actions }) => {
     const projectMedia = videos.nodes.filter(video => {
       return video.data.PROJECT[0].data.IDENTIFIER == identifier
     })
+    const imageCaptions = captions.nodes.filter(caption => {
+      return caption.data.PROJECT[0].data.IDENTIFIER == identifier
+    })
 
     return createPage({
       path: `/projects/${identifier}`,
@@ -76,6 +94,7 @@ exports.createPages = async ({ graphql, actions }) => {
         project: node.data,
         images: projectImages,
         media: projectMedia,
+        captions: imageCaptions,
       },
     })
   })

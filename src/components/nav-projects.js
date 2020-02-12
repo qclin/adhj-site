@@ -32,7 +32,7 @@ export default function({ theme, selectedProjectId }) {
               {item.data.YEAR}
               <div
                 className={
-                  selectedProjectId == item.data.IDENTIFIER && "selected"
+                  selectedProjectId === item.data.IDENTIFIER && "selected"
                 }
               >
                 {item.data.TITLE}{" "}

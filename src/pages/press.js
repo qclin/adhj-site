@@ -50,15 +50,15 @@ export default function() {
                   {item.data.TITLE}
                 </a>
               ) : (
-                <span
-                  className="measure"
+                <button
+                  className="measure tl no-style"
                   onClick={() => {
                     setPDF(item.data.LINK)
                     setShow(true)
                   }}
                 >
                   {item.data.TITLE}
-                </span>
+                </button>
               )}
 
               <div className="description">
@@ -85,7 +85,11 @@ export default function() {
             height="100%"
           >
             <p>
-              <a href={`../../press-pdfs/${pdf}`} target="_blank">
+              <a
+                href={`../../press-pdfs/${pdf}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 to the PDF!
               </a>
             </p>
