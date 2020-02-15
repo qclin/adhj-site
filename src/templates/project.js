@@ -17,17 +17,15 @@ export default ({ pageContext: { project, images, media, captions } }) => {
   const researchVideos = media.filter(item => item.data.IsResearch)
   const hasResearch = !media.isEmpty && researchVideos.length > 0
   const displayVideos = media.filter(
-    item => item.data.IsResearch === showResearch
+    item => Boolean(item.data.IsResearch) === showResearch
   )
-  console.log(media, hasResearch)
   return (
     <section className={showResearch ? "research projects" : "projects"}>
       <Layout>
         <ThemeNavigation
           selectedTheme={project.THEME}
-          selectedProjectId={project.IDENTIFIER}
           isProjectPage
-          muted={showResearch}
+          isMuted={showResearch}
         />
         {showResearch && (
           <div className="project-titles">
@@ -37,17 +35,15 @@ export default ({ pageContext: { project, images, media, captions } }) => {
           </div>
         )}
         <section className="project-content pv6">
-          <div className="relative">
-            {hasResearch && (
-              <label className="switch">
-                <input
-                  type="checkbox"
-                  onClick={() => setShowResearch(!showResearch)}
-                />
-                <span className="slider round"></span>
-              </label>
-            )}
-          </div>
+          {hasResearch && (
+            <label className="switch">
+              <input
+                type="checkbox"
+                onClick={() => setShowResearch(!showResearch)}
+              />
+              <span className="slider round"></span>
+            </label>
+          )}
 
           <ProjectImages images={images} captions={captionObj} />
           <section className="text-wrapper">

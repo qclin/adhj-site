@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import SideBar from "../components/side-bar"
 
 export default function() {
   const { drawings } = useStaticQuery(graphql`
@@ -28,6 +29,7 @@ export default function() {
     <Layout>
       <main className="info-pages">
         <SEO title="Drawings" />
+        <SideBar />
         <section className="w-100">
           {drawings.nodes.map((item, i) => (
             <div key={item.recordId} className="drawings w-50 fl">

@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import { THEMES } from "../utils/enums"
 
-export default function({ theme, selectedProjectId }) {
+export default function({ theme }) {
   const { projects } = useStaticQuery(graphql`
     query ProjectLinkQuery {
       projects: allAirtable(
@@ -45,16 +45,14 @@ export default function({ theme, selectedProjectId }) {
               key={item.recordId}
               className="project-links project-titles dib"
             >
-              <a href={`/projects/${item.data.IDENTIFIER}`}>
+              <Link
+                activeStyle={{ "text-decoration": "underline" }}
+                to={`/projects/${item.data.IDENTIFIER}`}
+              >
                 {item.data.YEAR}
-                <div
-                  className={
-                    selectedProjectId === item.data.IDENTIFIER ? "selected" : ""
-                  }
-                >
-                  {item.data.TITLE}
-                </div>
-              </a>
+                <br />
+                {item.data.TITLE}
+              </Link>
             </li>
           ))}
       </ul>

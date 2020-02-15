@@ -13,10 +13,18 @@ const SideBar = () => {
           <Link id="home" className="navigation underline" to="/">
             Anne Duk Hee Jordan
           </Link>
-          <Link to="/about/">About</Link>
-          <Link to="/drawings/">Drawings</Link>
-          <Link to="/press/">Press</Link>
-          <Link to="/news/">News</Link>
+          <Link to="/about/" activeStyle={{ color: "#f7e338" }}>
+            About
+          </Link>
+          <Link to="/drawings/" activeStyle={{ color: "#f7e338" }}>
+            Drawings
+          </Link>
+          <Link to="/press/" activeStyle={{ color: "#f7e338" }}>
+            Press
+          </Link>
+          <Link to="/news/" activeStyle={{ color: "#f7e338" }}>
+            News
+          </Link>
         </div>
       </nav>
       <button className="navigation" onClick={() => setOpen(true)}>

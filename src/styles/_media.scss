@@ -20,11 +20,11 @@
     margin: 2rem auto;
   }
   #nav-projects {
-    margin: 2rem auto 5rem auto;
     max-width: 88%;
-    height: 60px;
-    overflow-x: scroll;
-    white-space: nowrap;
+    margin: 0 auto;
+    ul {
+      margin: 2rem auto 5rem auto;
+    }
   }
 
   iframe {

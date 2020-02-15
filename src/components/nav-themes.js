@@ -7,10 +7,9 @@ import SideBar from "./side-bar"
 
 export default function({
   isProjectPage = false,
+  isMuted = false,
   selectedTheme,
-  selectedProjectId,
   canvas,
-  muted = false,
 }) {
   const [theme, setTheme] = useState(selectedTheme)
   const notSelectedStyle = theme
@@ -25,14 +24,9 @@ export default function({
           </Link>
         </div>
       )}
-      {!muted && (
-        <ProjectNavigation
-          theme={theme}
-          selectedProjectId={selectedProjectId}
-        />
-      )}
+      {!isMuted && <ProjectNavigation theme={theme} />}
       <SideBar />
-      {!muted && (
+      {!isMuted && (
         <div id="bottom-docker">
           <ul id="nav-theme" className={isProjectPage && "project-page"}>
             {Object.keys(THEMES).map((key, index) => (
