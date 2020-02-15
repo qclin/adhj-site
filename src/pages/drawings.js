@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -27,9 +27,6 @@ export default function() {
   return (
     <Layout>
       <main className="info-pages">
-        <Link className="navigation" to="/">
-          H
-        </Link>
         <SEO title="Drawings" />
         <section className="w-100">
           {drawings.nodes.map((item, i) => (

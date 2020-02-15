@@ -1,17 +1,13 @@
 import React from "react"
-import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const AboutPage = () => (
   <Layout>
     <main className="info-pages">
-      <Link className="navigation" to="/">
-        H
-      </Link>
       <SEO title="ABOUT" />
-      <section className="pa5">
-        <p className="measure-wide large-text">
+      <section className="text-wrapper">
+        <p className="measure-wide about-text">
           Transience and transformation are the central themes in the work of
           Anne Duk Hee Jordan. Through movement and performance, Jordan gives
           materiality another dimension - she builds motorized sculptures and
@@ -37,7 +33,7 @@ const AboutPage = () => (
           </a>
         </p>
       </section>
-      <footer className="fixed bottom-2 left-2">
+      <footer className="creditation">
         © {new Date().getFullYear()}, Built by{" "}
         <a href="https://theholding.page">Studio hold</a>
       </footer>

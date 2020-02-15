@@ -2,11 +2,10 @@ import React from "react"
 import Img from "gatsby-image"
 
 export default function({ images, captions }) {
-  console.log(captions)
   return (
     <section className="center image-wrapper">
       {images.map(item => (
-        <div className="w-60 margin-auto image-figure" key={item.Key}>
+        <div className="w-60-ns margin-auto image-figure" key={item.Key}>
           <figure>
             <Img
               fluid={item.childImageSharp.fluid}

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -32,12 +32,9 @@ export default function() {
 
   return (
     <Layout>
-      <main className="info-pages ">
-        <Link className="navigation" to="/">
-          H
-        </Link>
+      <main className="info-pages" id="news">
         <SEO title="News" />
-        <section className="pa5">
+        <section className="list-wrapper">
           {press.nodes.map((item, i) => (
             <div className="large-text mb4" key={item.recordId}>
               {item.data.TYPE === "link" ? (
@@ -63,7 +60,9 @@ export default function() {
 
               <div className="description">
                 {item.data.AUTHOR} <i>{item.data.PUBLISHER}</i>.{"  "}
-                {item.data.MONTH} {item.data.YEAR}
+                <span>
+                  {item.data.MONTH} {item.data.YEAR}
+                </span>
               </div>
             </div>
           ))}

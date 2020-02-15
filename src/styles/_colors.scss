@@ -30,22 +30,22 @@ $fluorescent-green: #06ff12;
   background: $bright-light-blue;
 }
 .selected-AS {
-  box-shadow: 7px 5px 3px 4px $off-yellow !important;
+  box-shadow: 5px 5px 4px 2px $off-yellow !important;
 }
 .selected-AG {
-  box-shadow: 7px 5px 3px 4px $barbie-pink !important;
+  box-shadow: 5px 5px 4px 2px $barbie-pink !important;
 }
 .selected-EN {
-  box-shadow: 7px 5px 3px 4px $fluorescent-green !important;
+  box-shadow: 5px 5px 4px 2px $fluorescent-green !important;
 }
 .selected-MY {
-  box-shadow: 7px 5px 3px 4px $orangey-red !important;
+  box-shadow: 5px 5px 4px 2px $orangey-red !important;
 }
 .selected-TT {
-  box-shadow: 7px 5px 3px 4px $very-light-gray !important;
+  box-shadow: 5px 5px 4px 2px $very-light-gray !important;
 }
 .selected-EX {
-  box-shadow: 7px 5px 3px 4px $bright-light-blue !important;
+  box-shadow: 5px 5px 4px 2px $bright-light-blue !important;
 }
 
 .info-pages {
@@ -74,4 +74,7 @@ $fluorescent-green: #06ff12;
 }
 .EX-canvas {
   border: $bright-light-blue solid 1rem;
+}
+.research {
+  background-color: $txt-dark;
 }

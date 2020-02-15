@@ -1,5 +1,4 @@
-import React from "react"
-import { Link } from "gatsby"
+import React, { useState } from "react"
 
 import Layout from "../components/layout"
 import ThemeNavigation from "../components/nav-themes"
@@ -14,39 +13,66 @@ export default ({ pageContext: { project, images, media, captions } }) => {
     }),
     {}
   )
-
+  const [showResearch, setShowResearch] = useState(false)
+  const researchVideos = media.filter(item => item.data.IsResearch)
+  const hasResearch = !media.isEmpty && researchVideos.length > 0
+  const displayVideos = media.filter(
+    item => item.data.IsResearch === showResearch
+  )
+  console.log(media, hasResearch)
   return (
-    <section className="projects">
+    <section className={showResearch ? "research projects" : "projects"}>
       <Layout>
-        <nav className="tc">
-          <div className="navigation fl">
-            <Link to="/">H</Link>
+        <ThemeNavigation
+          selectedTheme={project.THEME}
+          selectedProjectId={project.IDENTIFIER}
+          isProjectPage
+          muted={showResearch}
+        />
+        {showResearch && (
+          <div className="project-titles">
+            {project.YEAR}
+            <br />
+            {project.TITLE}
           </div>
-          <ThemeNavigation
-            selectedTheme={project.THEME}
-            selectedProjectId={project.IDENTIFIER}
-            isProjectPage
-          />
-        </nav>
-        <ProjectImages images={images} captions={captionObj} />
-        <section>
-          <h1>{project.TITLE}</h1>
-          <div className="date">{project.YEAR}</div>
-          <p className="description measure">{project.DESCRIPTION}</p>
-        </section>
-        {!media.isEmpty && (
-          <section>
-            {media.map(
-              item =>
-                item.data.TYPE === "video" && (
-                  <Video
-                    videoId={item.data.vimeoID}
-                    videoTitle={item.data.ID}
-                  />
-                )
-            )}
-          </section>
         )}
+        <section className="project-content pv6">
+          <div className="relative">
+            {hasResearch && (
+              <label className="switch">
+                <input
+                  type="checkbox"
+                  onClick={() => setShowResearch(!showResearch)}
+                />
+                <span className="slider round"></span>
+              </label>
+            )}
+          </div>
+
+          <ProjectImages images={images} captions={captionObj} />
+          <section className="text-wrapper">
+            <h1 className="tc mb4">
+              {project.TITLE}, {project.YEAR}
+            </h1>
+            <p className="description measure">{project.DESCRIPTION}</p>
+          </section>
+
+          {!media.isEmpty && (
+            <section className={showResearch ? "flex mv4" : "mv4"}>
+              {displayVideos.map(
+                item =>
+                  item.data.TYPE === "video" && (
+                    <Video
+                      key={item.data.ID}
+                      videoId={item.data.vimeoID}
+                      videoTitle={item.data.ID}
+                      count={displayVideos.length}
+                    />
+                  )
+              )}
+            </section>
+          )}
+        </section>
       </Layout>
     </section>
   )

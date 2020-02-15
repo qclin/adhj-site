@@ -18,10 +18,11 @@ nav,
 h1,
 .navigation,
 .themes,
-.large-text {
+.about-text {
   font-family: "stratos", sans-serif;
   font-size: 36px;
   letter-spacing: 2.04px;
+  line-height: 1.14;
 }
 
 .image-captions,
@@ -43,4 +44,34 @@ h1,
   font-family: "stratos", sans-serif;
   font-size: 12px;
   letter-spacing: 0.29px;
+}
+
+.large-text {
+  font-family: "stratos", sans-serif;
+  font-size: 24px;
+  letter-spacing: 1.36px;
+  line-height: 1.46;
+}
+
+.sidenav a {
+  font-family: "stratos", sans-serif;
+  font-size: 20px;
+  line-height: 1.7;
+  letter-spacing: 1.08px;
+}
+
+@media (min-width: 768px) {
+  .sidenav a {
+    font-family: "stratos", sans-serif;
+    font-size: 36px;
+    line-height: 1.36;
+    letter-spacing: 1.94px;
+  }
+
+  .large-text {
+    font-family: "stratos", sans-serif;
+    font-size: 36px;
+    letter-spacing: 2.04px;
+    line-height: 1.14;
+  }
 }

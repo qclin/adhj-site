@@ -1,3 +1,9 @@
+nav.project-page {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  width: 100%;
+}
 #bottom-docker {
   position: fixed;
   bottom: 0;
@@ -6,7 +12,6 @@
   justify-content: center;
 }
 #nav-theme {
-  margin: 2rem auto;
   align-items: center;
   li {
     box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.5);
@@ -15,7 +20,8 @@
     color: $txt-dark;
     text-decoration: underline;
     background: #fff;
-    padding: 0 1rem;
+    padding: 0px 1rem;
+    padding-bottom: 4px;
     word-break: break-word;
     white-space: pre-wrap;
   }
@@ -35,9 +41,7 @@
 #nav-projects {
   justify-content: center;
   width: fit-content;
-  margin: 2rem auto 5rem auto;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
-  max-width: 88%;
   text-align: center;
 
   li {
@@ -70,7 +74,6 @@
   text-decoration: underline;
   vertical-align: top;
   color: white;
-  padding: 0 1rem;
 }
 
 .sidenav {
@@ -86,23 +89,24 @@
   padding-top: 60px;
   transition: 0.5s;
   &.open {
-    width: 30vh;
+    width: 100vw;
   }
 }
 
 .sidenav a {
-  padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
-  color: #818181;
+  color: #fff;
   display: block;
   transition: 0.3s;
+  padding: 0 1rem;
 }
 
 .sidenav .closebtn {
   position: absolute;
+  right: 0;
+  padding: 1rem;
   top: 0;
-  right: 25px;
-  font-size: 36px;
+  font-size: 28px;
+  letter-spacing: 1.55px;
   margin-left: 50px;
 }
