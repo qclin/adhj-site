@@ -14,6 +14,21 @@
     text-decoration: underline;
   }
 }
-.holds-the-iframe {
-  background: url("/icons/loading.gif") center center no-repeat;
+
+.video {
+  position: relative;
+}
+.flex .background {
+  color: #fff;
+}
+.background {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  font-size: 36px;
+  color: black;
+  overflow: hidden;
 }

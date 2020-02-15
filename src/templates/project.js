@@ -54,7 +54,7 @@ export default ({ pageContext: { project, images, media, captions } }) => {
           </section>
 
           {!media.isEmpty && (
-            <section className={showResearch ? "flex mv4" : "mv4"}>
+            <section className={showResearch ? "flex mv4" : "mv4 full-height"}>
               {displayVideos.map(
                 item =>
                   item.data.TYPE === "video" && (

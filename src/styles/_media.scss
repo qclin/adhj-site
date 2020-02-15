@@ -26,10 +26,17 @@
       margin: 2rem auto 5rem auto;
     }
   }
-
+  .full-height {
+    iframe {
+      height: 100vh;
+    }
+  }
   iframe {
-    height: 50vh;
+    height: 100%;
     max-width: 100vw;
+  }
+  .flex iframe {
+    z-index: 2;
   }
   .sidenav.open {
     width: 20vw;
