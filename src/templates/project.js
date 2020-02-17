@@ -6,14 +6,7 @@ import ProjectImages from "../components/project-images"
 import Video from "../components/video"
 import Research from "./research"
 
-export default ({ pageContext: { project, images, media, captions } }) => {
-  const captionObj = captions.reduce(
-    (accumulator, target) => ({
-      ...accumulator,
-      [target.data.IMAGE_ID]: target.data.CAPTION,
-    }),
-    {}
-  )
+export default ({ pageContext: { project, images, media } }) => {
   const [showResearch, setShowResearch] = useState(false)
   const researchVideos = media.filter(item => item.data.IsResearch)
   const hasResearch = !media.isEmpty && researchVideos.length > 0
@@ -41,7 +34,7 @@ export default ({ pageContext: { project, images, media, captions } }) => {
           </div>
         )}
         <section className="project-content pv6">
-          <ProjectImages images={images} captions={captionObj} />
+          <ProjectImages images={images} />
           <section className="text-wrapper">
             <h1 className="tc mb4">
               {project.TITLE}, {project.YEAR}

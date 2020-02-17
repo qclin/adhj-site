@@ -25,11 +25,6 @@ const sourceAirtable = {
       },
       {
         baseId: process.env.AIRTABLE_BASE_ID,
-        tableName: "CAPTIONS",
-        tableLinks: ["PROJECT"], // optional, for deep linking to records across tables.
-      },
-      {
-        baseId: process.env.AIRTABLE_BASE_ID,
         tableName: "VIDEOS",
         tableLinks: ["PROJECT"],
       },
