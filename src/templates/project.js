@@ -9,8 +9,12 @@ import Research from "./research"
 export default ({ pageContext: { project, images, media } }) => {
   const [showResearch, setShowResearch] = useState(false)
   const researchVideos = media.filter(item => item.data.IsResearch)
-  const hasResearch = !media.isEmpty && researchVideos.length > 0
   const displayVideos = media.filter(item => !Boolean(item.data.IsResearch))
+  const displayImages = images.filter(item => item.Key.includes("Media"))
+  const researchImages = images.filter(item => item.Key.includes("Research"))
+  const hasResearch =
+    (!media.isEmpty && researchVideos.length > 0) || researchImages.length > 0
+  console.log(project.IDENTIFIER, researchImages)
   return (
     <section className={showResearch ? "research projects" : "projects"}>
       <Layout>
@@ -20,7 +24,11 @@ export default ({ pageContext: { project, images, media } }) => {
           isMuted={showResearch}
         />
         {showResearch && (
-          <Research project={project} videos={researchVideos} images={images} />
+          <Research
+            project={project}
+            videos={researchVideos}
+            images={researchImages}
+          />
         )}
         {hasResearch && (
           <div className="fixed right-2 top-2">
@@ -34,7 +42,7 @@ export default ({ pageContext: { project, images, media } }) => {
           </div>
         )}
         <section className="project-content pv6">
-          <ProjectImages images={images} />
+          <ProjectImages images={displayImages} />
           <section className="text-wrapper">
             <h1 className="tc mb4">
               {project.TITLE}, {project.YEAR}

@@ -69,7 +69,6 @@ exports.createPages = async ({ graphql, actions }) => {
     const projectMedia = videos.nodes.filter(video => {
       return video.data.PROJECT[0].data.IDENTIFIER == identifier
     })
-
     return createPage({
       path: `/projects/${identifier}`,
       component: require.resolve(`./src/templates/project.js`),

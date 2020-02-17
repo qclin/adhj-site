@@ -1,18 +1,20 @@
 .research {
   min-height: 100vh;
-  .display-videos,
-  .text-wrapper,
-  .image-wrapper {
+  color: #fff;
+  h1 {
+    text-decoration: underline;
+    position: fixed;
+    padding: 1rem;
+    bottom: 3rem;
+  }
+  .project-content {
     display: none;
   }
 
   .project-titles {
-    color: #fff;
-    margin: 0 auto;
-    padding-top: 1rem;
-    width: fit-content;
-    text-align: center;
-    text-decoration: underline;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
   }
   .video {
     display: inline-block;
