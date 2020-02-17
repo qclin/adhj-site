@@ -25,7 +25,6 @@ h1,
   line-height: 1.14;
 }
 
-.image-captions,
 .project-titles {
   font-family: "stratos", sans-serif;
   font-size: 18px;
@@ -35,12 +34,17 @@ h1,
 .description {
   font-family: "stratos", sans-serif;
   font-size: 22px;
-  letter-spacing: 0.59;
+  letter-spacing: 0.59px;
   line-height: 1.32;
   white-space: pre-wrap;
-  margin: 0 auto;
 }
-
+.details {
+  font-family: "stratos", sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.44px;
+  font-weight: 300;
+  white-space: pre-wrap;
+}
 .date {
   font-family: "stratos", sans-serif;
   font-size: 12px;

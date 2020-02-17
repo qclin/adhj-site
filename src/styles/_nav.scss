@@ -6,13 +6,51 @@ nav.project-page {
 }
 .project-page {
   #nav-projects {
+    position: relative;
+    height: 60px;
+
     ul {
-      height: 60px;
+      margin: 0;
       overflow-x: scroll;
       white-space: nowrap;
     }
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      pointer-events: none;
+      width: 15%;
+      height: 100%;
+    }
+    &:before {
+      left: 0;
+    }
+
+    &:after {
+      right: 0;
+    }
   }
 }
+
+// ::-webkit-scrollbar {
+//   width: 0px; /* Remove scrollbar space */
+//   background: transparent; /* Optional: just make scrollbar invisible */
+// }
+// /* Optional: show position indicator in red */
+// ::-webkit-scrollbar-thumb {
+//   background: transparent;
+// }
+
+.scrollbar-container {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-container::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
 #bottom-docker {
   position: fixed;
   bottom: 0;

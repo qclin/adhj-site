@@ -13,21 +13,117 @@ $fluorescent-green: #06ff12;
 }
 .bg-AS {
   background: $off-yellow;
+  &#nav-projects {
+    &:before {
+      background-image: linear-gradient(
+        to left,
+        rgba(255, 255, 255, 0),
+        $off-yellow 90%
+      );
+    }
+    &:after {
+      background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0),
+        $off-yellow 90%
+      );
+    }
+  }
 }
 .bg-AG {
   background: $barbie-pink;
+  &#nav-projects {
+    &:before {
+      background-image: linear-gradient(
+        to left,
+        rgba(255, 255, 255, 0),
+        $barbie-pink 90%
+      );
+    }
+    &:after {
+      background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0),
+        $barbie-pink 90%
+      );
+    }
+  }
 }
 .bg-EN {
   background: $fluorescent-green;
+  &#nav-projects {
+    &:before {
+      background-image: linear-gradient(
+        to left,
+        rgba(255, 255, 255, 0),
+        $fluorescent-green 90%
+      );
+    }
+    &:after {
+      background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0),
+        $fluorescent-green 90%
+      );
+    }
+  }
 }
 .bg-MY {
   background: $orangey-red;
+  &#nav-projects {
+    &:before {
+      background-image: linear-gradient(
+        to left,
+        rgba(255, 255, 255, 0),
+        $orangey-red 90%
+      );
+    }
+    &:after {
+      background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0),
+        $orangey-red 90%
+      );
+    }
+  }
 }
 .bg-TT {
   background: $very-light-gray;
+  &#nav-projects {
+    &:before {
+      background-image: linear-gradient(
+        to left,
+        rgba(255, 255, 255, 0),
+        $very-light-gray 90%
+      );
+    }
+    &:after {
+      background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0),
+        $very-light-gray 90%
+      );
+    }
+  }
 }
 .bg-EX {
   background: $bright-light-blue;
+  &#nav-projects {
+    &:before {
+      background-image: linear-gradient(
+        to left,
+        rgba(255, 255, 255, 0),
+        $bright-light-blue 90%
+      );
+    }
+    &:after {
+      background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0),
+        $bright-light-blue 90%
+      );
+    }
+  }
 }
 .selected-AS {
   box-shadow: 5px 5px 4px 2px $off-yellow !important;

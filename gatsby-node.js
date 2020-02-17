@@ -8,14 +8,14 @@ exports.createPages = async ({ graphql, actions }) => {
         nodes {
           Key
           childImageSharp {
-            id
-            fluid {
-              aspectRatio
+            fluid(sizes: "100") {
               src
               srcSet
+              aspectRatio
               sizes
             }
           }
+          id
         }
       }
       projects: allAirtable(
@@ -31,6 +31,7 @@ exports.createPages = async ({ graphql, actions }) => {
             IDENTIFIER
             THEME
             DESCRIPTION
+            DETAILS
           }
           recordId
         }

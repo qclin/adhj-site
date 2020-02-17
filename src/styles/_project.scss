@@ -1,10 +1,11 @@
 .research {
-  .text-wrapper {
-    display: none;
-  }
+  min-height: 100vh;
+  .display-videos,
+  .text-wrapper,
   .image-wrapper {
     display: none;
   }
+
   .project-titles {
     color: #fff;
     margin: 0 auto;
@@ -13,22 +14,15 @@
     text-align: center;
     text-decoration: underline;
   }
+  .video {
+    display: inline-block;
+  }
 }
 
 .video {
   position: relative;
 }
-.flex .background {
-  color: #fff;
-}
-.background {
-  position: absolute;
-  top: 50%;
-  left: 35%;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-  font-size: 36px;
-  color: black;
-  overflow: hidden;
+
+.text-block {
+  margin: 0 auto;
 }

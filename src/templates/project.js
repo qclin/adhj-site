@@ -2,8 +2,9 @@ import React, { useState } from "react"
 
 import Layout from "../components/layout"
 import ThemeNavigation from "../components/nav-themes"
-import ProjectImages from "../components/project-images" // moving to sub files with fragments
+import ProjectImages from "../components/project-images"
 import Video from "../components/video"
+import Research from "./research"
 
 export default ({ pageContext: { project, images, media, captions } }) => {
   const captionObj = captions.reduce(
@@ -16,9 +17,7 @@ export default ({ pageContext: { project, images, media, captions } }) => {
   const [showResearch, setShowResearch] = useState(false)
   const researchVideos = media.filter(item => item.data.IsResearch)
   const hasResearch = !media.isEmpty && researchVideos.length > 0
-  const displayVideos = media.filter(
-    item => Boolean(item.data.IsResearch) === showResearch
-  )
+  const displayVideos = media.filter(item => !Boolean(item.data.IsResearch))
   return (
     <section className={showResearch ? "research projects" : "projects"}>
       <Layout>
@@ -28,14 +27,10 @@ export default ({ pageContext: { project, images, media, captions } }) => {
           isMuted={showResearch}
         />
         {showResearch && (
-          <div className="project-titles">
-            {project.YEAR}
-            <br />
-            {project.TITLE}
-          </div>
+          <Research project={project} videos={researchVideos} images={images} />
         )}
-        <section className="project-content pv6">
-          {hasResearch && (
+        {hasResearch && (
+          <div className="fixed right-2 top-2">
             <label className="switch">
               <input
                 type="checkbox"
@@ -43,18 +38,22 @@ export default ({ pageContext: { project, images, media, captions } }) => {
               />
               <span className="slider round"></span>
             </label>
-          )}
-
+          </div>
+        )}
+        <section className="project-content pv6">
           <ProjectImages images={images} captions={captionObj} />
           <section className="text-wrapper">
             <h1 className="tc mb4">
               {project.TITLE}, {project.YEAR}
             </h1>
-            <p className="description measure">{project.DESCRIPTION}</p>
+            <div className="measure-wide text-block">
+              <p className="description">{project.DESCRIPTION}</p>
+              <p className="details">{project.DETAILS}</p>
+            </div>
           </section>
 
           {!media.isEmpty && (
-            <section className={showResearch ? "flex mv4" : "mv4 full-height"}>
+            <section className="mv4 full-height display-videos">
               {displayVideos.map(
                 item =>
                   item.data.TYPE === "video" && (
@@ -62,7 +61,6 @@ export default ({ pageContext: { project, images, media, captions } }) => {
                       key={item.data.ID}
                       videoId={item.data.vimeoID}
                       videoTitle={item.data.ID}
-                      count={displayVideos.length}
                     />
                   )
               )}

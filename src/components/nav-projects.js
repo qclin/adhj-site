@@ -36,7 +36,7 @@ export default function({ theme }) {
       ref={projectTitles}
     >
       {truncated && <span> prev </span>}
-      <ul>
+      <ul className="scrollbar-container">
         <span>{truncated}</span>
         {projects.nodes
           .filter(ea => ea.data.THEME === theme)
