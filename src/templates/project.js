@@ -14,7 +14,7 @@ export default ({ pageContext: { project, images, media } }) => {
   const researchImages = images.filter(item => item.Key.includes("Research"))
   const hasResearch =
     (!media.isEmpty && researchVideos.length > 0) || researchImages.length > 0
-  console.log(project.IDENTIFIER, researchImages)
+
   return (
     <section className={showResearch ? "research projects" : "projects"}>
       <Layout>

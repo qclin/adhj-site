@@ -1,0 +1,42 @@
+.slick-prev:before {
+  content: "" !important;
+}
+
+.slick-next {
+  right: 39px !important;
+}
+
+.slick-next:before {
+  content: "ᐳ" !important;
+  left: -50px !important;
+}
+.slick-prev,
+.slick-next {
+  z-index: 10;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-family: "stratos", sans-serif !important;
+  font-size: 50px !important;
+}
+
+.carousel {
+  margin: 0 auto;
+
+  img {
+    margin-left: 5%;
+    // margin: 0 auto;
+    max-width: 95%;
+    max-height: 100vh;
+  }
+}
+
+.slick-slider,
+.slick-track {
+  height: inherit;
+  line-height: 0;
+}
+.slick-list {
+  text-align: center;
+}
