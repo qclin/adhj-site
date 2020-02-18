@@ -18,7 +18,7 @@ nav.project-page {
     &:after {
       content: "";
       position: absolute;
-      z-index: 1;
+      z-index: 0;
       top: 0;
       pointer-events: none;
       width: 15%;
