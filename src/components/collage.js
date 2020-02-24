@@ -11,46 +11,74 @@ export default function({ canvas }) {
       <ParallaxLayer offset={3} speed={1} className="MY-canvas" />
       <ParallaxLayer offset={4} speed={1} className="TT-canvas" />
       <ParallaxLayer offset={5} speed={1} className="EX-canvas" />
-
-      <ParallaxLayer offset={2} speed={-0.3} className="canvas-layer">
+      <ParallaxLayer offset={0} speed={-0.3} className="canvas-layer">
         <img
-          src={url("01_Environment")}
+          src="../../2_ALL_TOP_COLLAGE.png"
           alt="Environment layer 1"
           className=""
         />
       </ParallaxLayer>
-
-      <ParallaxLayer offset={2} speed={0.1} className="canvas-layer">
+      <ParallaxLayer offset={0} speed={-0.3} className="canvas-layer">
         <img
-          src={url("02_Environment")}
-          alt="Environment layer 2"
+          src="../../3_ALL_MID_COLLAGE.png"
+          alt="Environment layer 1"
           className=""
         />
       </ParallaxLayer>
-
-      <ParallaxLayer offset={2} speed={0.5} className="canvas-layer">
-        <img src={url("03_Environment")} alt="Environment layer 3" />
+      <ParallaxLayer offset={0} speed={-0.3} className="canvas-layer">
+        <img
+          src="../../4_ALL_BACK_COLLAGE.png"
+          alt="Environment layer 1"
+          className=""
+        />
       </ParallaxLayer>
-
-      <ParallaxLayer offset={2} speed={-0} className="canvas-layer">
-        <img src={url("04_Environment")} alt="Environment layer 4" />
-      </ParallaxLayer>
-
-      <ParallaxLayer offset={3} speed={-0.3} className="canvas-layer">
-        <img src={url("01_Myth")} alt="Myth layer 1" className="" />
-      </ParallaxLayer>
-
-      <ParallaxLayer offset={3} speed={0.1} className="canvas-layer">
-        <img src={url("02_Myth")} alt="Myth layer 2" className="" />
-      </ParallaxLayer>
-
-      <ParallaxLayer offset={3} speed={0.5} className="canvas-layer">
-        <img src={url("03_Myth")} alt="Myth layer 3" />
-      </ParallaxLayer>
-
-      <ParallaxLayer offset={3} speed={-0} className="canvas-layer">
-        <img src={url("04_Myth")} alt="Myth layer 4" />
+      <ParallaxLayer offset={0} speed={-0.3} className="canvas-layer">
+        <img
+          src="../../5_ALL_BCKG_COLLAGE.png"
+          alt="Environment layer 1"
+          className=""
+        />
       </ParallaxLayer>
     </Parallax>
   )
 }
+
+//   <ParallaxLayer offset={2} speed={-0.3} className="canvas-layer">
+//     <img
+//       src={url("01_Environment")}
+//       alt="Environment layer 1"
+//       className=""
+//     />
+//   </ParallaxLayer>
+//
+//   <ParallaxLayer offset={2} speed={0.1} className="canvas-layer">
+//     <img
+//       src={url("02_Environment")}
+//       alt="Environment layer 2"
+//       className=""
+//     />
+//   </ParallaxLayer>
+//
+//   <ParallaxLayer offset={2} speed={0.5} className="canvas-layer">
+//     <img src={url("03_Environment")} alt="Environment layer 3" />
+//   </ParallaxLayer>
+//
+//   <ParallaxLayer offset={2} speed={-0} className="canvas-layer">
+//     <img src={url("04_Environment")} alt="Environment layer 4" />
+//   </ParallaxLayer>
+//
+//   <ParallaxLayer offset={3} speed={-0.3} className="canvas-layer">
+//     <img src={url("01_Myth")} alt="Myth layer 1" className="" />
+//   </ParallaxLayer>
+//
+//   <ParallaxLayer offset={3} speed={0.1} className="canvas-layer">
+//     <img src={url("02_Myth")} alt="Myth layer 2" className="" />
+//   </ParallaxLayer>
+//
+//   <ParallaxLayer offset={3} speed={0.5} className="canvas-layer">
+//     <img src={url("03_Myth")} alt="Myth layer 3" />
+//   </ParallaxLayer>
+//
+//   <ParallaxLayer offset={3} speed={-0} className="canvas-layer">
+//     <img src={url("04_Myth")} alt="Myth layer 4" />
+//   </ParallaxLayer>

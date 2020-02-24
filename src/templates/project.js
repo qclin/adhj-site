@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import ThemeNavigation from "../components/nav-themes"
@@ -6,7 +7,57 @@ import ProjectImages from "../components/project-images"
 import Video from "../components/video"
 import Research from "./research"
 
-export default ({ pageContext: { project, images, media } }) => {
+export const query = graphql`
+  query ProjectQuery($identifier: String!) {
+    project: allAirtable(
+      filter: {
+        table: { eq: "PROJECTS" }
+        data: { IDENTIFIER: { eq: $identifier } }
+      }
+    ) {
+      nodes {
+        data {
+          YEAR
+          TITLE
+          IDENTIFIER
+          THEME
+          DESCRIPTION
+          DETAILS
+        }
+        recordId
+      }
+    }
+
+    videos: allAirtable(
+      filter: {
+        table: { eq: "VIDEOS" }
+        data: {
+          Link: { ne: null }
+          PROJECT: { elemMatch: { data: { IDENTIFIER: { eq: $identifier } } } }
+        }
+      }
+    ) {
+      nodes {
+        data {
+          IsResearch
+          Link
+          vimeoID
+          TYPE
+          ID
+          PROJECT {
+            data {
+              IDENTIFIER
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
+export default ({ pageContext: { identifier, images }, data }) => {
+  const project = data.project.nodes[0]
+  const media = data.videos.nodes
   const [showResearch, setShowResearch] = useState(false)
   const researchVideos = media.filter(item => item.data.IsResearch)
   const displayVideos = media.filter(item => !Boolean(item.data.IsResearch))

@@ -26,56 +26,28 @@ exports.createPages = async ({ graphql, actions }) => {
       ) {
         nodes {
           data {
-            YEAR
-            TITLE
             IDENTIFIER
-            THEME
-            DESCRIPTION
-            DETAILS
-          }
-          recordId
-        }
-      }
-
-      videos: allAirtable(
-        filter: { table: { eq: "VIDEOS" }, data: { Link: { ne: null } } }
-      ) {
-        nodes {
-          data {
-            IsResearch
-            Link
-            vimeoID
-            TYPE
-            ID
-            PROJECT {
-              data {
-                IDENTIFIER
-              }
-            }
           }
         }
       }
     }
   `)
 
-  const { images, projects, videos } = sourcedData.data
+  const { images, projects } = sourcedData.data
 
   projects.nodes.forEach(node => {
-    let identifier = node.data.IDENTIFIER
+    const identifier = node.data.IDENTIFIER
 
     const projectImages = images.nodes.filter(image => {
       return image.Key.includes(identifier)
     })
-    const projectMedia = videos.nodes.filter(video => {
-      return video.data.PROJECT[0].data.IDENTIFIER == identifier
-    })
+
     return createPage({
       path: `/projects/${identifier}`,
       component: require.resolve(`./src/templates/project.js`),
       context: {
-        project: node.data,
+        identifier: identifier,
         images: projectImages,
-        media: projectMedia,
       },
     })
   })
