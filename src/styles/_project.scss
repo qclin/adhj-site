@@ -29,8 +29,22 @@
 
 .video {
   position: relative;
+  iframe {
+    width: 100% !important;
+    // height: -webkit-fill-available;
+  }
 }
 
+body,
+html,
+.player,
+.fallback {
+  height: unset !important;
+}
+
+.vp-center {
+  height: unset !important;
+}
 .text-block {
   margin: 0 auto;
 }

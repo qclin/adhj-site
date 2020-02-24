@@ -61,7 +61,7 @@ export default function({ theme }) {
                 >
                   {item.data.YEAR}
                   <br />
-                  {item.data.TITLE}
+                  <span> {item.data.TITLE}</span>
                 </Link>
               </li>
             ))}

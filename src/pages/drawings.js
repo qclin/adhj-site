@@ -50,7 +50,7 @@ export default function() {
         <SideBar />
         <section className="list-wrapper">
           {images.nodes.map((item, idx) => (
-            <div className="w-100 w-40-ns dib ma2">
+            <div className="w-100 w-40-ns dib ma2 mr4">
               <figure>
                 <Img
                   fluid={item.childImageSharp.fluid}

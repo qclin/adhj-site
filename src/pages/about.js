@@ -9,7 +9,7 @@ const AboutPage = () => (
       <SEO title="ABOUT" />
       <SideBar />
       <section className="text-wrapper">
-        <p className="measure-wide about-text">
+        <p className="measure about-text">
           Transience and transformation are the central themes in the work of
           Anne Duk Hee Jordan. Through movement and performance, Jordan gives
           materiality another dimension - she builds motorized sculptures and

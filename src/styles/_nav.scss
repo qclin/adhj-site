@@ -6,7 +6,9 @@ nav.project-page {
 }
 
 .active {
-  text-decoration: underline;
+  span {
+    text-decoration: underline;
+  }
 }
 
 #expandTheme {
@@ -87,10 +89,12 @@ nav.project-page {
 #nav-theme {
   align-items: center;
   .selected {
-    margin-right: 0.5rem;
+    z-index: 30;
+    x a {
+    }
   }
   li {
-    box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.1);
     background: #fff;
     padding: 4px 0.5rem;
   }
@@ -130,6 +134,11 @@ nav.project-page {
 .project-links {
   width: auto;
   text-align: center;
+  &:hover {
+    span {
+      text-decoration: underline;
+    }
+  }
 }
 
 #sidePanel {

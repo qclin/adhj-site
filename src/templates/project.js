@@ -83,6 +83,22 @@ export default ({ pageContext: { identifier, images }, data }) => {
         )}
         <section className="project-content">
           <ProjectImages images={displayImages} />
+          {!media.isEmpty && (
+            <section className="mv4 full-height display-videos">
+              {displayVideos.map(
+                item =>
+                  item.data.TYPE === "video" && (
+                    <div className="w-60-ns margin-auto">
+                      <Video
+                        key={item.data.ID}
+                        videoId={item.data.vimeoID}
+                        videoTitle={item.data.ID}
+                      />
+                    </div>
+                  )
+              )}
+            </section>
+          )}
         </section>
         <header className="tc">
           <h1>
@@ -99,28 +115,13 @@ export default ({ pageContext: { identifier, images }, data }) => {
           )}
         </header>
 
-        <section className="project-content pv3">
+        <section className="project-content pv5">
           <section className="text-wrapper">
             <div className="measure-wide text-block">
               <p className="description">{project.DESCRIPTION}</p>
               <p className="details">{project.DETAILS}</p>
             </div>
           </section>
-
-          {!media.isEmpty && (
-            <section className="mv4 full-height display-videos">
-              {displayVideos.map(
-                item =>
-                  item.data.TYPE === "video" && (
-                    <Video
-                      key={item.data.ID}
-                      videoId={item.data.vimeoID}
-                      videoTitle={item.data.ID}
-                    />
-                  )
-              )}
-            </section>
-          )}
         </section>
       </Layout>
     </section>
