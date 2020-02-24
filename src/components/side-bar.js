@@ -25,6 +25,9 @@ const SideBar = () => {
           <Link to="/news/" activeStyle={{ color: "#f7e338" }}>
             News
           </Link>
+          <Link to="/contact/" activeStyle={{ color: "#f7e338" }}>
+            Contact
+          </Link>
         </div>
       </nav>
       <button className="navigation" onClick={() => setOpen(true)}>

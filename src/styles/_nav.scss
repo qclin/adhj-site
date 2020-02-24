@@ -4,46 +4,72 @@ nav.project-page {
   top: 0;
   width: 100%;
 }
+
+.active {
+  text-decoration: underline;
+}
+
+#expandTheme {
+  background: #fff;
+  height: 32px;
+  line-height: 0px;
+  padding: 0px 5px;
+  position: absolute;
+  left: 1rem;
+  top: -1rem;
+}
 .project-page {
   #nav-projects {
     position: relative;
     height: 60px;
-
     ul {
-      margin: 0;
       overflow-x: scroll;
       white-space: nowrap;
+      padding: 0 2rem;
+      li {
+        display: inline-block;
+      }
     }
-    &:before,
-    &:after {
+    .list {
+      height: inherit;
+    }
+    .list:before,
+    .list:after {
       content: "";
       position: absolute;
       z-index: 0;
       top: 0;
       pointer-events: none;
-      width: 15%;
+      width: 10%;
       height: 100%;
     }
-    &:before {
+    .list:before {
       left: 0;
     }
 
-    &:after {
+    .list:after {
       right: 0;
     }
   }
 }
 
-// ::-webkit-scrollbar {
-//   width: 0px; /* Remove scrollbar space */
-//   background: transparent; /* Optional: just make scrollbar invisible */
-// }
-// /* Optional: show position indicator in red */
-// ::-webkit-scrollbar-thumb {
-//   background: transparent;
-// }
+.controls {
+  top: 0;
+  position: absolute;
+  text-decoration: underline;
+  color: #fff !important;
+  font-style: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
 
+#prev {
+  left: -2rem;
+}
+#next {
+  right: -2rem;
+}
 .scrollbar-container {
+  margin: 0;
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
 }
@@ -60,15 +86,17 @@ nav.project-page {
 }
 #nav-theme {
   align-items: center;
+  .selected {
+    margin-right: 0.5rem;
+  }
   li {
     box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.5);
+    background: #fff;
+    padding: 4px 0.5rem;
   }
   a {
     color: $txt-dark;
     text-decoration: underline;
-    background: #fff;
-    padding: 0px 1rem;
-    padding-bottom: 4px;
     word-break: break-word;
     white-space: pre-wrap;
   }

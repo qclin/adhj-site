@@ -21,43 +21,62 @@ export default function({ theme }) {
       }
     }
   `)
-  const projectTitles = useRef(null)
+  const listWrapper = useRef(null)
   const [truncated, setTruncated] = useState(false)
 
   useEffect(() => {
-    console.log(projectTitles.offsetWidth, projectTitles.scrollWidth)
-    setTruncated(projectTitles.offsetWidth < projectTitles.scrollWidth)
+    setTruncated(
+      listWrapper.current.offsetWidth < listWrapper.current.scrollWidth
+    )
   }, [])
 
+  const handleLeftClick = () => {
+    listWrapper.current.scrollLeft -= 100
+  }
+  const handleRightClick = () => {
+    listWrapper.current.scrollLeft += 100
+  }
+
   return (
-    <div
-      className={theme && `bg-${getThemeKey(theme)}`}
-      id="nav-projects"
-      ref={projectTitles}
-    >
-      {truncated && <span> prev </span>}
-      <ul className="scrollbar-container">
-        <span>{truncated}</span>
-        {projects.nodes
-          .filter(ea => ea.data.THEME === theme)
-          .map((item, i) => (
-            <li
-              key={item.recordId}
-              className="project-links project-titles dib"
-            >
-              <Link
-                activeStyle={{ "text-decoration": "underline" }}
-                to={`/projects/${item.data.IDENTIFIER}`}
-              >
-                {item.data.YEAR}
-                <br />
-                {item.data.TITLE}
-              </Link>
-            </li>
-          ))}
-      </ul>
-      {truncated && <span> > </span>}
-    </div>
+    <nav id="nav-projects">
+      {truncated && (
+        <button
+          id="prev"
+          className="controls no-style"
+          onClick={() => handleLeftClick()}
+        >
+          &#60;
+        </button>
+      )}
+
+      <div className={theme && `bg-${getThemeKey(theme)} list`}>
+        <ul className="scrollbar-container" ref={listWrapper}>
+          {projects.nodes
+            .filter(ea => ea.data.THEME === theme)
+            .map((item, i) => (
+              <li key={item.recordId} className="project-links project-titles">
+                <Link
+                  activeClassName="active"
+                  to={`/projects/${item.data.IDENTIFIER}`}
+                >
+                  {item.data.YEAR}
+                  <br />
+                  {item.data.TITLE}
+                </Link>
+              </li>
+            ))}
+        </ul>
+      </div>
+      {truncated && (
+        <button
+          id="next"
+          className="controls no-style"
+          onClick={() => handleRightClick()}
+        >
+          &#62;
+        </button>
+      )}
+    </nav>
   )
 }
 

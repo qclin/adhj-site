@@ -11,13 +11,17 @@ export default function({
   selectedTheme,
   canvas,
 }) {
-  console.log("selectedTheme ---- ", selectedTheme)
   const [theme, setTheme] = useState(selectedTheme)
+
+  const showThemeList = () => {
+    setTheme(null)
+  }
   const notSelectedStyle = theme
     ? "not-selected dib ttu theme-items"
-    : "dib ttu theme-items"
+    : "selected dib ttu theme-items"
+
   return (
-    <nav className={isProjectPage ? "fixed project-page" : "tc"}>
+    <nav className={isProjectPage ? "fixed project-page" : "tc home-page"}>
       {isProjectPage && (
         <div className="navigation fixed left-0 top-0">
           <Link to="/" className="pa1">
@@ -25,10 +29,19 @@ export default function({
           </Link>
         </div>
       )}
-      {!isMuted && <ProjectNavigation theme={theme} />}
+      {!isMuted && theme && <ProjectNavigation theme={theme} />}
       <SideBar />
       {!isMuted && (
         <div id="bottom-docker">
+          {!isProjectPage && theme && (
+            <button
+              id="expandTheme"
+              className="no-style"
+              onClick={() => showThemeList()}
+            >
+              +
+            </button>
+          )}
           <ul id="nav-theme" className={isProjectPage && "project-page"}>
             {Object.keys(THEMES).map((key, index) => (
               <li

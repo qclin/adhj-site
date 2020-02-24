@@ -67,7 +67,7 @@ export default ({ pageContext: { identifier, images }, data }) => {
     (!media.isEmpty && researchVideos.length > 0) || researchImages.length > 0
 
   return (
-    <section className={showResearch ? "research projects" : "projects"}>
+    <section className={showResearch ? "research projects" : "projects mv6"}>
       <Layout>
         <ThemeNavigation
           selectedTheme={project.THEME}
@@ -81,8 +81,14 @@ export default ({ pageContext: { identifier, images }, data }) => {
             images={researchImages}
           />
         )}
-        {hasResearch && (
-          <div className="fixed right-2 top-2">
+        <section className="project-content">
+          <ProjectImages images={displayImages} />
+        </section>
+        <header className="tc">
+          <h1>
+            {project.TITLE}, {project.YEAR}
+          </h1>
+          {hasResearch && (
             <label className="switch">
               <input
                 type="checkbox"
@@ -90,14 +96,11 @@ export default ({ pageContext: { identifier, images }, data }) => {
               />
               <span className="slider round"></span>
             </label>
-          </div>
-        )}
-        <section className="project-content pv6">
-          <ProjectImages images={displayImages} />
+          )}
+        </header>
+
+        <section className="project-content pv3">
           <section className="text-wrapper">
-            <h1 className="tc mb4">
-              {project.TITLE}, {project.YEAR}
-            </h1>
             <div className="measure-wide text-block">
               <p className="description">{project.DESCRIPTION}</p>
               <p className="details">{project.DETAILS}</p>

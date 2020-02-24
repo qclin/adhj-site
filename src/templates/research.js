@@ -5,11 +5,6 @@ import Video from "../components/video"
 export default ({ project, videos, images }) => {
   return (
     <main>
-      <div className="project-titles fixed tc pv3">
-        {project.YEAR}
-        <br />
-        {project.TITLE}
-      </div>
       <section className="pv6">
         <ProjectImages images={images} isResearch />
         <section className="mv4">

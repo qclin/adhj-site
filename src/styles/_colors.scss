@@ -13,7 +13,7 @@ $fluorescent-green: #06ff12;
 }
 .bg-AS {
   background: $off-yellow;
-  &#nav-projects {
+  &.list {
     &:before {
       background-image: linear-gradient(
         to left,
@@ -32,7 +32,7 @@ $fluorescent-green: #06ff12;
 }
 .bg-AG {
   background: $barbie-pink;
-  &#nav-projects {
+  &.list {
     &:before {
       background-image: linear-gradient(
         to left,
@@ -51,7 +51,7 @@ $fluorescent-green: #06ff12;
 }
 .bg-EN {
   background: $fluorescent-green;
-  &#nav-projects {
+  &.list {
     &:before {
       background-image: linear-gradient(
         to left,
@@ -70,7 +70,7 @@ $fluorescent-green: #06ff12;
 }
 .bg-MY {
   background: $orangey-red;
-  &#nav-projects {
+  &.list {
     &:before {
       background-image: linear-gradient(
         to left,
@@ -89,7 +89,7 @@ $fluorescent-green: #06ff12;
 }
 .bg-TT {
   background: $very-light-gray;
-  &#nav-projects {
+  &.list {
     &:before {
       background-image: linear-gradient(
         to left,
@@ -108,7 +108,7 @@ $fluorescent-green: #06ff12;
 }
 .bg-EX {
   background: $bright-light-blue;
-  &#nav-projects {
+  &.list {
     &:before {
       background-image: linear-gradient(
         to left,
@@ -173,4 +173,70 @@ $fluorescent-green: #06ff12;
 }
 .research {
   background-color: $txt-dark;
+}
+
+.projects {
+  .navigation {
+    color: $very-light-gray-two;
+    a {
+      color: inherit;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .home-page {
+    #nav-projects {
+      .list:before {
+        background-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0),
+          $very-light-gray 90%
+        );
+      }
+
+      .bg-AS.list:before {
+        background-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0),
+          $off-yellow 90%
+        );
+      }
+      .bg-AG.list:before {
+        background-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0),
+          $barbie-pink 90%
+        );
+      }
+      .bg-EN.list:before {
+        background-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0),
+          $fluorescent-green 90%
+        );
+      }
+      .bg-MY.list:before {
+        background-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0),
+          $orangey-red 90%
+        );
+      }
+      .bg-TT.list:before {
+        background-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0),
+          $very-light-gray 90%
+        );
+      }
+      .bg-EX.list:before {
+        background-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0),
+          $bright-light-blue 90%
+        );
+      }
+    }
+  }
 }
