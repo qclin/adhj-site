@@ -11,6 +11,7 @@ export default function({
   selectedTheme,
   canvas,
 }) {
+  console.log("selectedTheme ---- ", selectedTheme)
   const [theme, setTheme] = useState(selectedTheme)
   const notSelectedStyle = theme
     ? "not-selected dib ttu theme-items"

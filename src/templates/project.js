@@ -56,7 +56,7 @@ export const query = graphql`
 `
 
 export default ({ pageContext: { identifier, images }, data }) => {
-  const project = data.project.nodes[0]
+  const project = data.project.nodes[0].data
   const media = data.videos.nodes
   const [showResearch, setShowResearch] = useState(false)
   const researchVideos = media.filter(item => item.data.IsResearch)
