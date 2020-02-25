@@ -19,3 +19,32 @@ button.no-style {
 .navigation.underline {
   text-decoration: underline;
 }
+
+.playButton,
+.muteButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  color: #fff !important;
+  padding: 5px 10px;
+  font-size: 36px !important;
+  display: none;
+}
+
+.display {
+  .video:hover {
+    .playButton {
+      display: block;
+    }
+  }
+}
+.research {
+  .video:hover {
+    .muteButton {
+      display: block;
+    }
+  }
+}

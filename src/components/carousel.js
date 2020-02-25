@@ -13,12 +13,11 @@ export default function ImageCarousel({ images }) {
     centerPadding: "50px",
     adaptiveHeight: true,
   }
-
   return (
     <div className="w-60-ns image-wrapper carousel">
       <Slider {...settings}>
         {images.map(item => (
-          <figure>
+          <figure key={item.Key}>
             <Img fluid={item.childImageSharp.fluid} alt={item.Key} />
           </figure>
         ))}

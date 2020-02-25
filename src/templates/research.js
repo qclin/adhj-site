@@ -16,6 +16,7 @@ export default ({ project, videos, images }) => {
                   videoId={item.data.vimeoID}
                   videoTitle={item.data.ID}
                   count={videos.length}
+                  isResearch
                 />
               )
           )}

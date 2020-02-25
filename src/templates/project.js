@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
@@ -56,9 +56,11 @@ export const query = graphql`
 `
 
 export default ({ pageContext: { identifier, images }, data }) => {
+  const titleHtml = useRef()
   const project = data.project.nodes[0].data
   const media = data.videos.nodes
   const [showResearch, setShowResearch] = useState(false)
+  const [titleOffset, setTitleOffset] = useState()
   const researchVideos = media.filter(item => item.data.IsResearch)
   const displayVideos = media.filter(item => !Boolean(item.data.IsResearch))
   const displayImages = images.filter(item => item.Key.includes("Media"))
@@ -67,7 +69,9 @@ export default ({ pageContext: { identifier, images }, data }) => {
     (!media.isEmpty && researchVideos.length > 0) || researchImages.length > 0
 
   return (
-    <section className={showResearch ? "research projects" : "projects mv6"}>
+    <section
+      className={showResearch ? "research projects" : "display projects mv6"}
+    >
       <Layout>
         <ThemeNavigation
           selectedTheme={project.THEME}
@@ -88,7 +92,7 @@ export default ({ pageContext: { identifier, images }, data }) => {
               {displayVideos.map(
                 item =>
                   item.data.TYPE === "video" && (
-                    <div className="w-60-ns margin-auto">
+                    <div className="mv3" key={item.data.ID}>
                       <Video
                         key={item.data.ID}
                         videoId={item.data.vimeoID}
@@ -100,7 +104,7 @@ export default ({ pageContext: { identifier, images }, data }) => {
             </section>
           )}
         </section>
-        <header className="tc">
+        <header className="tc" ref={titleHtml}>
           <h1>
             {project.TITLE}, {project.YEAR}
           </h1>
@@ -108,7 +112,12 @@ export default ({ pageContext: { identifier, images }, data }) => {
             <label className="switch">
               <input
                 type="checkbox"
-                onClick={() => setShowResearch(!showResearch)}
+                onClick={() => {
+                  setShowResearch(!showResearch)
+                  if (!showResearch) {
+                    window.scrollTo(0, 0)
+                  }
+                }}
               />
               <span className="slider round"></span>
             </label>

@@ -8,7 +8,7 @@
 
 .slick-next:before {
   content: "ᐳ" !important;
-  color: black;
+  color: #fff !important;
   left: -50px !important;
 }
 .slick-prev,
@@ -24,12 +24,14 @@
 
 .carousel {
   margin: 0 auto;
-
+  text-align: center;
   img {
-    margin-left: 5%;
-    // margin: 0 auto;
-    max-width: 95%;
-    max-height: 100vh;
+    width: auto !important;
+    max-height: 90vh;
+    left: 50% !important;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    -webkit-transform: translateX(-50%) !important;
+    transform: translateX(-50%) !important;
   }
 }
 
@@ -40,4 +42,5 @@
 }
 .slick-list {
   text-align: center;
+  height: 70vh !important;
 }

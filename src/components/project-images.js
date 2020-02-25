@@ -34,8 +34,8 @@ export default function ProjectImages({ images, isResearch = false }) {
     <>
       {sortedList.map(fileName =>
         fileName.includes(".") ? (
-          <section className="center">
-            <figure key={fileName} className={wrapperStyle}>
+          <section className="center mv3" key={fileName}>
+            <figure className={wrapperStyle}>
               <Img
                 fluid={imagesByKey[fileName].childImageSharp.fluid}
                 alt={fileName}
@@ -43,7 +43,7 @@ export default function ProjectImages({ images, isResearch = false }) {
             </figure>
           </section>
         ) : (
-          <section className="center">
+          <section className="center mv3" key={fileName}>
             <Carousel images={groupBySeries[fileName]} />
           </section>
         )
@@ -53,17 +53,16 @@ export default function ProjectImages({ images, isResearch = false }) {
 }
 
 function sortAndGroup(array) {
-  var groupBySeries = {}
-  array.forEach((item, index, object) => {
-    if (item.Key.includes("series")) {
-      var fileName = item.Key.split("/").pop()
-      var seriesName = fileName.split("_series")[0]
-      if (groupBySeries[seriesName] == null) {
-        groupBySeries[seriesName] = []
-      }
-      groupBySeries[seriesName].push(item)
+  var groupBySeries = array.reduce((acc, obj) => {
+    var fileName = obj.Key.split("/").pop()
+    var seriesName = fileName.split("_series")[0]
+    if (!acc[seriesName]) {
+      acc[seriesName] = []
     }
-  })
+    acc[seriesName].push(obj)
+    return acc
+  }, {})
+
   const seriesNames = Object.keys(groupBySeries)
 
   const singleImages = array.filter(item => !item.Key.includes("series"))
