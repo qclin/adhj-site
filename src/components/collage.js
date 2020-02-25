@@ -43,7 +43,7 @@ export default function({ canvas }) {
   var AGStrawberries = collageObj.AG.filter(layer =>
     layer.Key.includes("Strawberries")
   )
-  console.log(AGLayers, collage)
+
   return (
     <Parallax id="collage" ref={canvas} horizontal pages={6}>
       <ParallaxLayer offset={0} speed={1} className="AS-canvas" />

@@ -93,6 +93,9 @@
 
 // mobile screen
 @media (max-width: 768px) {
+  .controls {
+    display: none;
+  }
   .links {
     margin: 0 2rem;
   }
@@ -114,7 +117,8 @@
       position: relative;
       ul {
         height: 30vh;
-        overflow: scroll;
+        overflow-y: scroll;
+        padding-bottom: 2rem;
       }
       .list:before {
         content: "";

@@ -23,7 +23,7 @@ export default function({ theme }) {
   `)
   const listWrapper = useRef(null)
   const [truncated, setTruncated] = useState(false)
-
+  const themedProjects = projects.nodes.filter(ea => ea.data.THEME === theme)
   useEffect(() => {
     setTruncated(
       listWrapper.current.offsetWidth < listWrapper.current.scrollWidth
@@ -36,6 +36,19 @@ export default function({ theme }) {
   const handleRightClick = () => {
     listWrapper.current.scrollLeft += 100
   }
+  // const handleOnScroll = () => {
+  //   var dummy_x = listWrapper.current.offsetWidth
+  //   var diff =
+  //     listWrapper.current.scrollLeft -
+  //     (listWrapper.current.scrollWidth - listWrapper.current.offsetWidth)
+  //   if (diff > 0) {
+  //     listWrapper.current.scrollTo(diff, 0)
+  //   } else if (listWrapper.current.scrollLeft == 0) {
+  //     listWrapper.current.scrollTo(dummy_x, 0)
+  //   } else if (diff == 0) {
+  //     listWrapper.current.scrollTo(0, 0)
+  //   }
+  // }
 
   return (
     <nav id="nav-projects">
@@ -51,20 +64,18 @@ export default function({ theme }) {
 
       <div className={theme && `bg-${getThemeKey(theme)} list`}>
         <ul className="scrollbar-container" ref={listWrapper}>
-          {projects.nodes
-            .filter(ea => ea.data.THEME === theme)
-            .map((item, i) => (
-              <li key={item.recordId} className="project-links project-titles">
-                <Link
-                  activeClassName="active"
-                  to={`/projects/${item.data.IDENTIFIER}`}
-                >
-                  {item.data.YEAR}
-                  <br />
-                  <span> {item.data.TITLE}</span>
-                </Link>
-              </li>
-            ))}
+          {themedProjects.map((item, i) => (
+            <li key={item.recordId} className="project-links project-titles">
+              <Link
+                activeClassName="active"
+                to={`/projects/${item.data.IDENTIFIER}`}
+              >
+                {item.data.YEAR}
+                <br />
+                <span> {item.data.TITLE}</span>
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
       {truncated && (

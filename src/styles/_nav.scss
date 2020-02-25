@@ -5,6 +5,10 @@ nav.project-page {
   width: 100%;
 }
 
+::scrollbar {
+  display: none;
+}
+
 .active {
   span {
     text-decoration: underline;

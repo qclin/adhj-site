@@ -1,147 +1,80 @@
 $txt-dark: #1f1f1f;
 $primary-blue: #0000ff;
 $orangey-red: #ff3f32;
+$orangey-red-alpha: rgba(255, 63, 50, 0);
 $barbie-pink: #ff35bb;
+$barbie-pink-alpha: rgba(255, 53, 187, 0);
 $bright-light-blue: #31fff8;
+$bright-light-blue-alpha: rgba(49, 255, 248, 0);
 $off-yellow: #f7e338;
+$off-yellow-alpha: rgba(247, 227, 56, 0);
 $very-light-gray: #c8c8c8;
+$very-light-gray-alpha: rgba(200, 200, 200, 0);
 $very-light-gray-two: #e7e7e7;
 $fluorescent-green: #06ff12;
+$fluorescent-green-alpha: rgba(6, 255, 18, 0);
+
+@mixin gradient($alpha, $transparent, $direction) {
+  background: linear-gradient(to $direction, $transparent, $alpha 90%);
+}
+
+@mixin sideGradient($color, $alpha) {
+  background: $color;
+  &.list {
+    &:before {
+      background: linear-gradient(to left, $alpha, $color 90%);
+    }
+    &:after {
+      background: linear-gradient(to right, $alpha, $color 90%);
+    }
+  }
+}
+
+@mixin selectedShadow($color) {
+  box-shadow: 5px 5px 4px 2px $color !important;
+}
 
 .dark {
   color: $txt-dark;
 }
+
 .bg-AS {
-  background: $off-yellow;
-  &.list {
-    &:before {
-      background-image: linear-gradient(
-        to left,
-        rgba(255, 255, 255, 0),
-        $off-yellow 90%
-      );
-    }
-    &:after {
-      background-image: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0),
-        $off-yellow 90%
-      );
-    }
-  }
+  @include sideGradient($off-yellow, $off-yellow-alpha);
 }
 .bg-AG {
-  background: $barbie-pink;
-  &.list {
-    &:before {
-      background-image: linear-gradient(
-        to left,
-        rgba(255, 255, 255, 0),
-        $barbie-pink 90%
-      );
-    }
-    &:after {
-      background-image: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0),
-        $barbie-pink 90%
-      );
-    }
-  }
+  @include sideGradient($barbie-pink, $barbie-pink-alpha);
 }
+
 .bg-EN {
-  background: $fluorescent-green;
-  &.list {
-    &:before {
-      background-image: linear-gradient(
-        to left,
-        rgba(255, 255, 255, 0),
-        $fluorescent-green 90%
-      );
-    }
-    &:after {
-      background-image: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0),
-        $fluorescent-green 90%
-      );
-    }
-  }
+  @include sideGradient($fluorescent-green, $fluorescent-green-alpha);
 }
 .bg-MY {
-  background: $orangey-red;
-  &.list {
-    &:before {
-      background-image: linear-gradient(
-        to left,
-        rgba(255, 255, 255, 0),
-        $orangey-red 90%
-      );
-    }
-    &:after {
-      background-image: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0),
-        $orangey-red 90%
-      );
-    }
-  }
+  @include sideGradient($orangey-red, $orangey-red-alpha);
 }
+
 .bg-TT {
-  background: $very-light-gray;
-  &.list {
-    &:before {
-      background-image: linear-gradient(
-        to left,
-        rgba(255, 255, 255, 0),
-        $very-light-gray 90%
-      );
-    }
-    &:after {
-      background-image: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0),
-        $very-light-gray 90%
-      );
-    }
-  }
+  @include sideGradient($very-light-gray, $very-light-gray-alpha);
 }
 .bg-EX {
-  background: $bright-light-blue;
-  &.list {
-    &:before {
-      background-image: linear-gradient(
-        to left,
-        rgba(255, 255, 255, 0),
-        $bright-light-blue 90%
-      );
-    }
-    &:after {
-      background-image: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0),
-        $bright-light-blue 90%
-      );
-    }
-  }
+  @include sideGradient($bright-light-blue, $bright-light-blue-alpha);
 }
 .selected-AS {
-  box-shadow: 5px 5px 4px 2px $off-yellow !important;
+  @include selectedShadow($off-yellow);
 }
 .selected-AG {
-  box-shadow: 5px 5px 4px 2px $barbie-pink !important;
+  @include selectedShadow($barbie-pink);
 }
 .selected-EN {
-  box-shadow: 5px 5px 4px 2px $fluorescent-green !important;
+  @include selectedShadow($fluorescent-green);
 }
 .selected-MY {
-  box-shadow: 5px 5px 4px 2px $orangey-red !important;
+  @include selectedShadow($orangey-red);
 }
 .selected-TT {
-  box-shadow: 5px 5px 4px 2px $very-light-gray !important;
+  @include selectedShadow($very-light-gray);
 }
 .selected-EX {
-  box-shadow: 5px 5px 4px 2px $bright-light-blue !important;
+  @include selectedShadow($bright-light-blue);
 }
 
 .info-pages {
@@ -188,7 +121,7 @@ $fluorescent-green: #06ff12;
   .home-page {
     #nav-projects {
       .list:before {
-        background-image: linear-gradient(
+        background: linear-gradient(
           to bottom,
           rgba(255, 255, 255, 0),
           $very-light-gray 90%
@@ -196,42 +129,42 @@ $fluorescent-green: #06ff12;
       }
 
       .bg-AS.list:before {
-        background-image: linear-gradient(
+        background: linear-gradient(
           to bottom,
-          rgba(255, 255, 255, 0),
+          $off-yellow-alpha,
           $off-yellow 90%
         );
       }
       .bg-AG.list:before {
-        background-image: linear-gradient(
+        background: linear-gradient(
           to bottom,
-          rgba(255, 255, 255, 0),
+          $barbie-pink-alpha,
           $barbie-pink 90%
         );
       }
       .bg-EN.list:before {
-        background-image: linear-gradient(
+        background: linear-gradient(
           to bottom,
-          rgba(255, 255, 255, 0),
+          $fluorescent-green-alpha,
           $fluorescent-green 90%
         );
       }
       .bg-MY.list:before {
-        background-image: linear-gradient(
+        background: linear-gradient(
           to bottom,
-          rgba(255, 255, 255, 0),
+          $orangey-red-alpha,
           $orangey-red 90%
         );
       }
       .bg-TT.list:before {
-        background-image: linear-gradient(
+        background: linear-gradient(
           to bottom,
           rgba(255, 255, 255, 0),
           $very-light-gray 90%
         );
       }
       .bg-EX.list:before {
-        background-image: linear-gradient(
+        background: linear-gradient(
           to bottom,
           rgba(255, 255, 255, 0),
           $bright-light-blue 90%
