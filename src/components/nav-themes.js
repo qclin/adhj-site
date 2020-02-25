@@ -47,8 +47,8 @@ export default function({
               <li
                 className={
                   THEMES[key] === theme
-                    ? `selected-${key} selected dib ttu`
-                    : notSelectedStyle
+                    ? `selected-${key} selected dib ttu ${key}`
+                    : `${notSelectedStyle} ${key} `
                 }
                 key={key}
               >

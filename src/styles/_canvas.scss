@@ -1,26 +1,28 @@
-.canvas-layer {
-  display: flex;
-  alignitems: center;
-  justifycontent: center;
-}
-
 #collage {
   top: 0;
   z-index: -10;
-  img {
-    max-width: 100%;
-    &.collage-layer {
+  max-width: 100%;
+  .collage-layer {
+    width: 100%;
+    height: 100%;
+    div {
+      display: none;
+    }
+    img {
       object-fit: cover;
+      position: relative !important;
     }
   }
 }
 
-// Desktop
+// Tablet
 @media (min-width: 768px) {
   #collage {
-    img.collage-layer {
-      width: 100%;
-      height: auto;
+    .collage-layer {
+      img {
+        min-width: 100% !important;
+        min-height: 100% !important;
+      }
     }
   }
 }
@@ -28,9 +30,11 @@
 // Mobile
 @media (max-width: 768px) {
   #collage {
-    img.collage-layer {
-      height: 100%;
-      width: auto;
+    .collage-layer {
+      img {
+        height: 100% !important;
+        width: auto !important;
+      }
     }
   }
 }

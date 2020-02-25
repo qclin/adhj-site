@@ -26,6 +26,7 @@ nav.project-page {
     height: 60px;
     ul {
       overflow-x: scroll;
+      overflow-y: hidden;
       white-space: nowrap;
       padding: 0 2rem;
       li {
@@ -142,6 +143,7 @@ nav.project-page {
 }
 
 #sidePanel {
+  z-index: 10;
   button {
     border: none;
     -webkit-appearance: none;
@@ -189,5 +191,4 @@ nav.project-page {
   top: 0;
   font-size: 28px;
   letter-spacing: 1.55px;
-  margin-left: 50px;
 }

@@ -1,10 +1,49 @@
 import React from "react"
+import Img from "gatsby-image"
+import { useStaticQuery, graphql } from "gatsby"
+
 import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons.cjs"
 
 export default function({ canvas }) {
-  const url = name => `"../../collage-layers/${name}.png`
-  var strawberries = [...Array(13).keys()]
+  const { collage } = useStaticQuery(graphql`
+    query collageQuery {
+      collage: allS3ImageAsset(
+        sort: { order: DESC, fields: Key }
+        filter: { Key: { regex: "/01_COLLAGE/" } }
+      ) {
+        nodes {
+          Key
+          childImageSharp {
+            fluid(sizes: "100") {
+              src
+              srcSet
+              aspectRatio
+              sizes
+            }
+          }
+          id
+        }
+      }
+    }
+  `)
 
+  var collageObj = collage.nodes.reduce((acc, obj) => {
+    var themeKey = obj.Key.split("/")[1]
+    if (!acc[themeKey]) {
+      acc[themeKey] = []
+    }
+    acc[themeKey].push(obj)
+    return acc
+  }, {})
+
+  var AGLayers = collageObj.AG.filter(
+    layer => !layer.Key.includes("Strawberries")
+  )
+
+  var AGStrawberries = collageObj.AG.filter(layer =>
+    layer.Key.includes("Strawberries")
+  )
+  console.log(AGLayers, collage)
   return (
     <Parallax id="collage" ref={canvas} horizontal pages={6}>
       <ParallaxLayer offset={0} speed={1} className="AS-canvas" />
@@ -14,217 +53,108 @@ export default function({ canvas }) {
       <ParallaxLayer offset={4} speed={1} className="TT-canvas" />
       <ParallaxLayer offset={5} speed={1} className="EX-canvas" />
       <section id="AS-canvas">
-        <ParallaxLayer offset={0} speed={-0.3} className="canvas-layer">
-          <img
-            className="collage-layer"
-            src={url("AS/05_AS")}
-            alt="Artificial Stupidity 1"
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={0} speed={0.1} className="canvas-layer">
-          <img
-            className="collage-layer"
-            src={url("AS/04_AS")}
-            alt="Artificial Stupidity 2"
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={0} speed={0.5} className="canvas-layer">
-          <img
-            className="collage-layer"
-            src={url("AS/03_AS")}
-            alt="Artificial Stupidity 3"
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={0} speed={-0.2} className="canvas-layer">
-          <img
-            className="collage-layer"
-            src={url("AS/02_AS")}
-            alt="Artificial Stupidity 4"
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={0} speed={-0} className="canvas-layer">
-          <img
-            className="collage-layer"
-            src={url("AS/01_AS")}
-            alt="Artificial Stupidity 5"
-          />
-        </ParallaxLayer>
-      </section>
-
-      <section id="AG-canvas">
-        <ParallaxLayer offset={1} speed={-0} className="canvas-layer">
-          <img
-            className="collage-layer"
-            src={url("AG/05_AG")}
-            alt="Agitation layer 4"
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={1} speed={0.5} className="canvas-layer">
-          <img
-            className="collage-layer"
-            src={url("AG/04_AG")}
-            alt="Agitation layer 3"
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={1} speed={0.1} className="canvas-layer">
-          <img
-            className="collage-layer"
-            src={url("AG/03_AG")}
-            alt="Agitation layer 2"
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={1} speed={0.3} className="canvas-layer">
-          <img
-            className="collage-layer"
-            src={url("AG/02_AG")}
-            alt="Agitation layer 1"
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer>
-          {strawberries.map((value, index) => (
-            <img
-              className="strawberries"
-              src={url(`AG/Strawberries/AG__strawberry_${index + 1}`)}
-              alt="strawberries"
+        {collageObj.AS.map((layer, index) => (
+          <ParallaxLayer
+            offset={0}
+            speed={index * 0.1}
+            className="canvas-layer"
+            key={`AS-${index}`}
+          >
+            <Img
+              fluid={layer.childImageSharp.fluid}
+              objectPosition="0% 0%"
+              alt={`Artificial Stupidity ${index}`}
+              className="collage-layer"
             />
-          ))}
-        </ParallaxLayer>
+          </ParallaxLayer>
+        ))}
       </section>
-
+      <section id="AG-canvas">
+        {AGLayers.map((layer, index) => (
+          <ParallaxLayer
+            offset={1}
+            speed={index * 0.1}
+            className="canvas-layer"
+            key={`AG-${index}`}
+          >
+            <Img
+              fluid={layer.childImageSharp.fluid}
+              objectPosition="0% 0%"
+              alt={`Agitation ${index}`}
+              className="collage-layer"
+            />
+          </ParallaxLayer>
+        ))}
+      </section>
       <section id="EN-canvas">
-        <ParallaxLayer offset={2} speed={0.3} className="canvas-layer">
-          <img
-            className="collage-layer"
-            src={url("EN/05_EN")}
-            alt="Environment 1"
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={2} speed={0.1} className="canvas-layer">
-          <img
-            className="collage-layer"
-            src={url("EN/04_EN")}
-            alt="Environment 2"
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={2} speed={0.5} className="canvas-layer">
-          <img
-            className="collage-layer"
-            src={url("EN/03_EN")}
-            alt="Environment 3"
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={2} speed={-0.2} className="canvas-layer">
-          <img
-            className="collage-layer"
-            src={url("EN/02_EN")}
-            alt="Environment 4"
-          />
-        </ParallaxLayer>
+        {collageObj.EN.map((layer, index) => (
+          <ParallaxLayer
+            offset={2}
+            speed={index * 0.1}
+            className="canvas-layer"
+            key={`EN-${index}`}
+          >
+            <Img
+              fluid={layer.childImageSharp.fluid}
+              objectPosition="0% 0%"
+              alt={`Environment ${index}`}
+              className="collage-layer"
+            />
+          </ParallaxLayer>
+        ))}
       </section>
 
       <section id="MY-canvas">
-        <ParallaxLayer offset={3} speed={0} className="canvas-layer">
-          <img className="collage-layer" src={url("MY/05_MY")} alt="Myth 1" />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={3} speed={0.1} className="canvas-layer">
-          <img className="collage-layer" src={url("MY/04_MY")} alt="Myth 2" />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={3} speed={0.5} className="canvas-layer">
-          <img className="collage-layer" src={url("MY/03_MY")} alt="Myth 3" />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={3} speed={-0.2} className="canvas-layer">
-          <img className="collage-layer" src={url("MY/02_MY")} alt="Myth 4" />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={3} speed={0} className="canvas-layer">
-          <img
-            className="collage-layer"
-            src={url("MY/01_MY_Animation")}
-            alt="Myth 5"
-          />
-        </ParallaxLayer>
+        {collageObj.MY.map((layer, index) => (
+          <ParallaxLayer
+            offset={3}
+            speed={index * 0.1}
+            className="canvas-layer"
+            key={`MY-${index}`}
+          >
+            <Img
+              fluid={layer.childImageSharp.fluid}
+              objectPosition="0% 0%"
+              alt={`Myth ${index}`}
+              className="collage-layer"
+            />
+          </ParallaxLayer>
+        ))}
       </section>
 
       <section id="TT-canvas">
-        <ParallaxLayer offset={4} speed={0} className="canvas-layer">
-          <img
-            className="collage-layer"
-            src={url("TT/05_TT")}
-            alt="Time Travels 1"
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={4} speed={0.1} className="canvas-layer">
-          <img
-            className="collage-layer"
-            src={url("TT/04_TT")}
-            alt="Time Travels 2"
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={4} speed={0.5} className="canvas-layer">
-          <img
-            className="collage-layer"
-            src={url("TT/03_TT")}
-            alt="Time Travels 3"
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={4} speed={0} className="canvas-layer">
-          <img
-            className="collage-layer"
-            src={url("TT/02_TT")}
-            alt="Time Travels 4"
-          />
-        </ParallaxLayer>
+        {collageObj.TT.map((layer, index) => (
+          <ParallaxLayer
+            offset={4}
+            speed={index * 0.1}
+            className="canvas-layer"
+            key={`TT-${index}`}
+          >
+            <Img
+              fluid={layer.childImageSharp.fluid}
+              objectPosition="0% 0%"
+              alt={`Time Travels ${index}`}
+              className="collage-layer"
+            />
+          </ParallaxLayer>
+        ))}
       </section>
-
       <section id="EX-canvas">
-        <ParallaxLayer offset={5} speed={0.3} className="canvas-layer">
-          <img
-            className="collage-layer"
-            src={url("EX/05_EX")}
-            alt="Existence 1"
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={5} speed={0.1} className="canvas-layer">
-          <img
-            className="collage-layer"
-            src={url("EX/04_EX")}
-            alt="Existence 2"
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={5} speed={0.5} className="canvas-layer">
-          <img
-            className="collage-layer"
-            src={url("EX/03_EX")}
-            alt="Existence 3"
-          />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={5} speed={0} className="canvas-layer">
-          <img
-            className="collage-layer"
-            src={url("EX/02_EX")}
-            alt="Existence 4"
-          />
-        </ParallaxLayer>
+        {collageObj.EX.map((layer, index) => (
+          <ParallaxLayer
+            offset={5}
+            speed={index * 0.1}
+            className="canvas-layer"
+            key={`EX-${index}`}
+          >
+            <Img
+              fluid={layer.childImageSharp.fluid}
+              objectPosition="0% 0%"
+              alt={`Existence ${index}`}
+              className="collage-layer"
+            />
+          </ParallaxLayer>
+        ))}
       </section>
     </Parallax>
   )

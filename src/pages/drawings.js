@@ -45,7 +45,7 @@ export default function() {
 
   return (
     <Layout>
-      <main className="info-pages">
+      <main className="info-pages" id="drawings">
         <SEO title="Drawings" />
         <SideBar />
         <section className="list-wrapper">
@@ -65,12 +65,3 @@ export default function() {
     </Layout>
   )
 }
-
-// {drawings.nodes.map((item, i) => (
-//   <div key={item.recordId} className="drawings w-50 fl">
-//     <img src={item.data.LINK} alt={item.data.name} />
-//     <caption>
-//       {item.data.TITLE} - {item.data.YEAR}
-//     </caption>
-//   </div>
-// ))}

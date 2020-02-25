@@ -21,6 +21,16 @@
   }
   #nav-theme {
     margin: 2rem auto;
+    li {
+      position: relative;
+      &.EN {
+        top: 1rem;
+      }
+      &.AS,
+      &.TT {
+        top: -1rem;
+      }
+    }
   }
 
   .projects {
@@ -60,7 +70,6 @@
   }
   .sidenav.open {
     width: 20vw;
-    min-width: 300px;
   }
 
   .research {

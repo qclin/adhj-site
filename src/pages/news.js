@@ -27,7 +27,7 @@ export default function() {
 
   return (
     <Layout>
-      <main className="info-pages">
+      <main className="info-pages" id="press">
         <SEO title="News" />
         <SideBar />
         <section className="list-wrapper">
