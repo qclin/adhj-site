@@ -11,7 +11,6 @@ export default ({
   const flexLayout = count < 5 ? count : 4
   const [playing, setPlaying] = useState(isResearch)
   const [mute, setMute] = useState(false)
-  console.log(isResearch)
 
   return (
     <div className="video" style={{ width: `calc(100vw/${flexLayout})` }}>

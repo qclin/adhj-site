@@ -17,8 +17,8 @@ export default function({
     setTheme(null)
   }
   const notSelectedStyle = theme
-    ? "not-selected dib ttu theme-items"
-    : "selected dib ttu theme-items"
+    ? "not-selected dib ttu theme-items tl"
+    : "selected dib ttu theme-items tl"
 
   return (
     <nav className={isProjectPage ? "fixed project-page" : "tc home-page"}>
@@ -47,7 +47,7 @@ export default function({
               <li
                 className={
                   THEMES[key] === theme
-                    ? `selected-${key} selected dib ttu ${key}`
+                    ? `selected-${key} selected dib ttu tl ${key}`
                     : `${notSelectedStyle} ${key} `
                 }
                 key={key}

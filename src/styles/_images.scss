@@ -1,9 +1,16 @@
-.image-figure {
+figure.image-figure {
   margin-bottom: 3rem;
-  figure {
-    margin-bottom: 0;
-    img {
-      margin-bottom: 0;
-    }
+
+  img {
+    max-height: 70vh;
+    width: auto !important;
+    margin: 0 auto;
+    left: 50% !important;
+    transform: translate(-50%, 0);
   }
+}
+
+.gatsby-image-wrapper div {
+  padding: 0;
+  padding-bottom: 0 !important;
 }

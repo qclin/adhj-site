@@ -10,7 +10,7 @@ const ContactPage = () => (
       <SideBar />
       <section className="text-wrapper contact-text">
         <p>
-          Studio Air Jordan Anne Duk Hee Jordan <br />
+          Studio Air Jordan <br />
           Bergstrasse 26 <br />
           DE Berlin <br />
         </p>

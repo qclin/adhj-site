@@ -46,12 +46,6 @@ export default function({ canvas }) {
 
   return (
     <Parallax id="collage" ref={canvas} horizontal pages={6}>
-      <ParallaxLayer offset={0} speed={1} className="AS-canvas" />
-      <ParallaxLayer offset={1} speed={1} className="AG-canvas" />
-      <ParallaxLayer offset={2} speed={1} className="EN-canvas" />
-      <ParallaxLayer offset={3} speed={1} className="MY-canvas" />
-      <ParallaxLayer offset={4} speed={1} className="TT-canvas" />
-      <ParallaxLayer offset={5} speed={1} className="EX-canvas" />
       <section id="AS-canvas">
         {collageObj.AS.map((layer, index) => (
           <ParallaxLayer

@@ -36,6 +36,7 @@ export default function({ theme }) {
   const handleRightClick = () => {
     listWrapper.current.scrollLeft += 100
   }
+
   // const handleOnScroll = () => {
   //   var dummy_x = listWrapper.current.offsetWidth
   //   var diff =
@@ -51,7 +52,7 @@ export default function({ theme }) {
   // }
 
   return (
-    <nav id="nav-projects">
+    <nav id="nav-projects" className="w-60-ns">
       {truncated && (
         <button
           id="prev"
