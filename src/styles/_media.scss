@@ -1,82 +1,33 @@
 @media (min-width: 768px) {
-  #expandTheme {
-    display: none;
+  .full-width {
+    width: 100vw;
   }
-  .navigation {
-    padding: 0 1rem;
-  }
-  #home {
-    text-align: center;
-    margin-bottom: 5rem;
-    text-align: center;
-    margin: 2rem 0;
-  }
-  .sidenav a {
-    text-align: center;
-  }
-  .creditation {
-    position: fixed;
-    bottom: 2rem;
-    left: 2rem;
-  }
-  #nav-theme {
-    margin: 2rem auto;
-    li {
-      position: relative;
-      &.EN {
-        top: 1rem;
-      }
-      &.AS,
-      &.TT {
-        top: -1rem;
-      }
-    }
+  .half-width {
+    width: 50vw;
   }
 
-  .projects {
-    #nav-projects {
-      max-width: 60%;
-    }
+  .third-width {
+    width: 33vw;
   }
-  .home-page {
-    #nav-projects {
-      max-width: 80%;
-      li {
-        display: inline-block;
-      }
-    }
+  .quarter-width {
+    width: 25vw;
   }
-  #nav-projects {
-    margin: 0 auto;
-    text-align: left;
-    ul {
-      margin: 1rem auto 5rem auto;
-    }
-  }
-  .full-height {
-    iframe {
-      // height: 100vh;
-    }
-  }
+}
+
+.full-height {
   iframe {
-    height: -webkit-fill-available;
-    max-width: 100vw;
-    #player {
-      width: 100vw;
-    }
+    // height: 100vh;
   }
-  .flex iframe {
-    z-index: 2;
+}
+iframe {
+  height: -webkit-fill-available;
+  max-width: 100vw;
+  #player {
+    width: 100vw;
   }
-  .sidenav.open {
-    width: 20vw;
-  }
-
-  .research {
-    h1 {
-      bottom: 3rem;
-    }
-  }
+}
+.flex iframe {
+  z-index: 2;
 }
 
 // laptop
@@ -99,10 +50,10 @@
   .links {
     margin: 0 2rem;
   }
-  #home {
-    position: fixed;
-    top: 1rem;
-  }
+  // #home {
+  //   position: fixed;
+  //   top: 1rem;
+  // }
   .creditation {
     padding: 1rem;
   }
@@ -138,11 +89,11 @@
   }
   #nav-theme {
     margin: 0;
+    vertical-align: center;
+    text-align: center;
     li {
-      margin-bottom: 2rem;
-    }
-    .selected {
       margin-bottom: 1rem;
+      width: fit-content;
     }
     .not-selected {
       display: none;
@@ -164,4 +115,36 @@
 
 // extra small mobile screen
 @media (max-width: 320px) {
+}
+
+.playButton,
+.muteButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  color: #fff !important;
+  padding: 5px 10px;
+  font-size: 36px !important;
+  display: none;
+}
+
+.display {
+  .video:hover {
+    .playButton {
+      display: block;
+    }
+  }
+}
+.research {
+  .video:hover {
+    .muteButton {
+      display: block;
+    }
+  }
+}
+
+@media (min-width: 768px) {
 }

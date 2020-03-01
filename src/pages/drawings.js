@@ -1,10 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-
 import Layout from "../components/layout"
-import SEO from "../components/seo"
-import SideBar from "../components/side-bar"
 
 export default function() {
   const { drawings, images } = useStaticQuery(graphql`
@@ -43,21 +40,35 @@ export default function() {
     }
   `)
 
+  var drawingInfo = drawings.nodes.reduce((acc, obj) => {
+    var id = obj.data.IDENTIFIER
+    acc[id] = obj
+    return acc
+  }, {})
+
+  var imageSet = images.nodes.reduce((acc, obj) => {
+    var fileName = obj.Key.split("/")[1].split(".")[0]
+    acc[fileName] = obj
+    return acc
+  }, {})
+
   return (
-    <Layout>
+    <Layout seoTitle="DRAWINGS">
       <main className="info-pages" id="drawings">
-        <SEO title="Drawings" />
-        <SideBar />
         <section className="list-wrapper">
-          {images.nodes.map((item, idx) => (
+          {Object.keys(imageSet).map((fileName, idx) => (
             <div className="w-100 w-40-ns dib ma2 mr4">
               <figure>
                 <Img
-                  fluid={item.childImageSharp.fluid}
+                  fluid={imageSet[fileName].childImageSharp.fluid}
                   alt={`drawings${idx}`}
                 />
               </figure>
-              <figcaption>{item.Key.split("/")[1].split(".")[0]}</figcaption>
+              <figcaption>
+                {drawingInfo[fileName]
+                  ? drawingInfo[fileName].data.TITLE
+                  : fileName}
+              </figcaption>
             </div>
           ))}
         </section>

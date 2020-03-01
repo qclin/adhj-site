@@ -9,7 +9,7 @@ export default function() {
   const canvas = useRef(null)
 
   return (
-    <Layout>
+    <Layout isHomePage>
       <SEO title="Home" />
       <ThemeNavigation canvas={canvas} />
       <Collage canvas={canvas} />

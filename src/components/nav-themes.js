@@ -1,9 +1,7 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
 
 import { THEMES } from "../utils/enums"
 import ProjectNavigation from "../components/nav-projects"
-import SideBar from "./side-bar"
 
 export default function({
   isProjectPage = false,
@@ -17,20 +15,12 @@ export default function({
     setTheme(null)
   }
   const notSelectedStyle = theme
-    ? "not-selected dib ttu theme-items tl"
-    : "selected dib ttu theme-items tl"
+    ? "not-selected ttu theme-items tl"
+    : "selected ttu theme-items tl"
 
   return (
     <nav className={isProjectPage ? "fixed project-page" : "tc home-page"}>
-      {isProjectPage && (
-        <div className="navigation fixed left-0 top-0">
-          <Link to="/" className="pa1">
-            H
-          </Link>
-        </div>
-      )}
       {!isMuted && theme && <ProjectNavigation theme={theme} />}
-      <SideBar />
       {!isMuted && (
         <div id="bottom-docker">
           {!isProjectPage && theme && (

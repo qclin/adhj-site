@@ -1,13 +1,9 @@
 import React from "react"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
-import SideBar from "../components/side-bar"
 
 const AboutPage = () => (
-  <Layout>
+  <Layout seoTitle="ABOUT">
     <main className="info-pages">
-      <SEO title="ABOUT" />
-      <SideBar />
       <section className="text-wrapper">
         <p className="measure about-text">
           Transience and transformation are the central themes in the work of

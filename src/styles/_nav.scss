@@ -1,6 +1,5 @@
 nav.project-page {
-  position: fixed;
-  z-index: 10;
+  z-index: 3;
   top: 0;
   width: 100%;
 }
@@ -161,6 +160,9 @@ nav.project-page {
   text-decoration: underline;
   vertical-align: top;
   color: white;
+  a {
+    color: inherit;
+  }
 }
 
 .sidenav {
@@ -195,4 +197,83 @@ nav.project-page {
   top: 0;
   font-size: 28px;
   letter-spacing: 1.55px;
+}
+
+@mixin offset {
+  @for $i from 2 through 5 {
+    @if $i != 3 {
+      &:nth-child(#{$i}) {
+        margin-left: $i * 1.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .theme-items {
+    @include offset;
+  }
+}
+@media (min-width: 768px) {
+  .theme-items {
+    display: inline-block;
+  }
+  #expandTheme {
+    display: none;
+  }
+  .navigation {
+    padding: 0 1rem;
+  }
+  #home {
+    text-align: center;
+    margin-bottom: 5rem;
+    text-align: center;
+    margin: 2rem 0;
+  }
+  .sidenav a {
+    text-align: center;
+  }
+  .creditation {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+  }
+  #nav-theme {
+    margin: 2rem auto;
+    li {
+      position: relative;
+      &.EN {
+        top: 1rem;
+      }
+      &.AS,
+      &.TT {
+        top: -1rem;
+      }
+    }
+  }
+
+  .projects {
+    #nav-projects {
+      max-width: 60%;
+    }
+  }
+  .home-page {
+    #nav-projects {
+      max-width: 80%;
+      li {
+        display: inline-block;
+      }
+    }
+  }
+  #nav-projects {
+    margin: 0 auto;
+    text-align: left;
+    ul {
+      margin: 1rem auto 5rem auto;
+    }
+  }
+
+  .sidenav.open {
+    width: 20vw;
+  }
 }

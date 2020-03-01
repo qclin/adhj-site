@@ -14,14 +14,12 @@ export default function ImageCarousel({ images }) {
     adaptiveHeight: true,
   }
   return (
-    <div className="w-60-ns image-wrapper carousel">
-      <Slider {...settings}>
-        {images.map(item => (
-          <figure key={item.Key}>
-            <Img fluid={item.childImageSharp.fluid} alt={item.Key} />
-          </figure>
-        ))}
-      </Slider>
-    </div>
+    <Slider {...settings}>
+      {images.map(item => (
+        <figure key={item.Key}>
+          <Img fluid={item.childImageSharp.fluid} alt={item.Key} />
+        </figure>
+      ))}
+    </Slider>
   )
 }

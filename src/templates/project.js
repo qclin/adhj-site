@@ -44,11 +44,21 @@ export const query = graphql`
           vimeoID
           TYPE
           ID
-          PROJECT {
-            data {
-              IDENTIFIER
-            }
-          }
+        }
+      }
+    }
+    captions: allAirtable(
+      filter: {
+        table: { eq: "CAPTIONS" }
+        data: {
+          PROJECT: { elemMatch: { data: { IDENTIFIER: { eq: $identifier } } } }
+        }
+      }
+    ) {
+      nodes {
+        data {
+          CAPTION
+          IMAGE_ID
         }
       }
     }
@@ -68,6 +78,9 @@ export default ({ pageContext: { identifier, images }, data }) => {
   const hasResearch =
     (!media.isEmpty && researchVideos.length > 0) || researchImages.length > 0
 
+  const captions = keyByImageId(data.captions.nodes)
+  console.log(data.captions, captions)
+
   return (
     <section
       className={showResearch ? "research projects" : "display projects mv6"}
@@ -86,7 +99,7 @@ export default ({ pageContext: { identifier, images }, data }) => {
           />
         )}
         <section className="project-content">
-          <ProjectImages images={displayImages} />
+          <ProjectImages images={displayImages} captions={captions} />
           {!media.isEmpty && (
             <section className="mv4 full-height display-videos">
               {displayVideos.map(
@@ -135,4 +148,12 @@ export default ({ pageContext: { identifier, images }, data }) => {
       </Layout>
     </section>
   )
+}
+
+function keyByImageId(array) {
+  return array.reduce((acc, obj) => {
+    var key = obj.data.IMAGE_ID
+    acc[key] = obj.data
+    return acc
+  }, {})
 }
