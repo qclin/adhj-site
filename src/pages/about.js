@@ -20,7 +20,15 @@ const AboutPage = () => (
           change of perspective. She shifts the focus away from humans towards
           the entire ecology.
         </p>
+
         <p className="mv3 description">
+          <a
+            className="underline db"
+            href="../../CV/DukHee_CV_2020.pdf"
+            target="_blank"
+          >
+            curriculum vitae
+          </a>
           text by{" "}
           <a
             href="https://paulinedoutreluingne.com/"
@@ -29,12 +37,12 @@ const AboutPage = () => (
           >
             Pauline Doutreluingne
           </a>
+          <p>
+            built by <a href="https://theholding.page">Studio hold </a> ©
+            {new Date().getFullYear()}
+          </p>
         </p>
       </section>
-      <footer className="creditation">
-        © {new Date().getFullYear()}, Built by{" "}
-        <a href="https://theholding.page">Studio hold</a>
-      </footer>
     </main>
   </Layout>
 )

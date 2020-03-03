@@ -1,8 +1,13 @@
 import React from "react"
+import { useSpring, animated } from "react-spring"
+
 import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 
 import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons.cjs"
+import ASCanvas from "./collage/ArtificialStupidity"
+import AGCanvas from "./collage/Agitation"
+import ENCanvas from "./collage/Environment"
 
 export default function({ canvas }) {
   const { collage } = useStaticQuery(graphql`
@@ -27,76 +32,20 @@ export default function({ canvas }) {
     }
   `)
 
-  var collageObj = collage.nodes.reduce((acc, obj) => {
-    var themeKey = obj.Key.split("/")[1]
-    if (!acc[themeKey]) {
-      acc[themeKey] = []
-    }
-    acc[themeKey].push(obj)
-    return acc
-  }, {})
+  var collageObj = groupByTheme(collage.nodes)
 
-  var AGLayers = collageObj.AG.filter(
-    layer => !layer.Key.includes("Strawberries")
-  )
+  var MYLights = [...Array(10).keys()]
 
-  var AGStrawberries = collageObj.AG.filter(layer =>
-    layer.Key.includes("Strawberries")
-  )
+  const fadeIn = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+  })
 
   return (
     <Parallax id="collage" ref={canvas} horizontal pages={6}>
-      <section id="AS-canvas">
-        {collageObj.AS.map((layer, index) => (
-          <ParallaxLayer
-            offset={0}
-            speed={index * 0.1}
-            className="canvas-layer"
-            key={`AS-${index}`}
-          >
-            <Img
-              fluid={layer.childImageSharp.fluid}
-              objectPosition="0% 0%"
-              alt={`Artificial Stupidity ${index}`}
-              className="collage-layer"
-            />
-          </ParallaxLayer>
-        ))}
-      </section>
-      <section id="AG-canvas">
-        {AGLayers.map((layer, index) => (
-          <ParallaxLayer
-            offset={1}
-            speed={index * 0.1}
-            className="canvas-layer"
-            key={`AG-${index}`}
-          >
-            <Img
-              fluid={layer.childImageSharp.fluid}
-              objectPosition="0% 0%"
-              alt={`Agitation ${index}`}
-              className="collage-layer"
-            />
-          </ParallaxLayer>
-        ))}
-      </section>
-      <section id="EN-canvas">
-        {collageObj.EN.map((layer, index) => (
-          <ParallaxLayer
-            offset={2}
-            speed={index * 0.1}
-            className="canvas-layer"
-            key={`EN-${index}`}
-          >
-            <Img
-              fluid={layer.childImageSharp.fluid}
-              objectPosition="0% 0%"
-              alt={`Environment ${index}`}
-              className="collage-layer"
-            />
-          </ParallaxLayer>
-        ))}
-      </section>
+      <ASCanvas layers={collageObj.AS} />
+      <AGCanvas layers={collageObj.AG} />
+      <ENCanvas layers={collageObj.EN} />
 
       <section id="MY-canvas">
         {collageObj.MY.map((layer, index) => (
@@ -114,6 +63,13 @@ export default function({ canvas }) {
             />
           </ParallaxLayer>
         ))}
+        <ParallaxLayer offset={3}>
+          <div className="relative h-100">
+            {MYLights.map(item => (
+              <div className="animate-flicker myth-lights"></div>
+            ))}
+          </div>
+        </ParallaxLayer>
       </section>
 
       <section id="TT-canvas">
@@ -152,6 +108,17 @@ export default function({ canvas }) {
       </section>
     </Parallax>
   )
+}
+
+function groupByTheme(nodes) {
+  return nodes.reduce((acc, obj) => {
+    var themeKey = obj.Key.split("/")[1]
+    if (!acc[themeKey]) {
+      acc[themeKey] = []
+    }
+    acc[themeKey].push(obj)
+    return acc
+  }, {})
 }
 
 // NOTE 5 is bottom, 1 is very top

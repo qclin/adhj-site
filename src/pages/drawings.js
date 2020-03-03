@@ -15,7 +15,6 @@ export default function() {
             IDENTIFIER
             TITLE
             YEAR
-            LINK
           }
           recordId
         }
@@ -66,7 +65,8 @@ export default function() {
               </figure>
               <figcaption>
                 {drawingInfo[fileName]
-                  ? drawingInfo[fileName].data.TITLE
+                  ? (drawingInfo[fileName].data.TITLE,
+                    drawingInfo[fileName].data.YEAR)
                   : fileName}
               </figcaption>
             </div>
