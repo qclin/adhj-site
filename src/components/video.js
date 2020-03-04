@@ -17,7 +17,7 @@ export default ({
   }
 
   const [playing, setPlaying] = useState(isResearch)
-  const [mute, setMute] = useState(true)
+  const [mute, setMute] = useState(isResearch)
   const [volume, setVolume] = useState(1)
   const player = useRef()
   return (

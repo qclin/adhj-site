@@ -21,24 +21,25 @@ const AboutPage = () => (
           the entire ecology.
         </p>
 
-        <p className="mv3 description">
+        <p className="mv5 description">
           <a
             className="underline db"
             href="../../CV/DukHee_CV_2020.pdf"
             target="_blank"
           >
-            curriculum vitae
+            CV
           </a>
-          text by{" "}
+          text by
           <a
             href="https://paulinedoutreluingne.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
+            {" "}
             Pauline Doutreluingne
           </a>
           <p>
-            built by <a href="https://theholding.page">Studio hold </a> ©
+            built by <a href="https://theholding.page">Hold </a> ©
             {new Date().getFullYear()}
           </p>
         </p>

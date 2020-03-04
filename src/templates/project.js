@@ -79,7 +79,6 @@ export default ({ pageContext: { identifier, images }, data }) => {
     (!media.isEmpty && researchVideos.length > 0) || researchImages.length > 0
 
   const captions = keyByImageId(data.captions.nodes)
-  console.log(data.captions, captions)
 
   return (
     <section
@@ -99,7 +98,6 @@ export default ({ pageContext: { identifier, images }, data }) => {
           />
         )}
         <section className="project-content">
-          <ProjectImages images={displayImages} captions={captions} />
           {!media.isEmpty && (
             <section className="mv4 full-height display-videos">
               {displayVideos.map(
@@ -144,6 +142,9 @@ export default ({ pageContext: { identifier, images }, data }) => {
               <p className="details">{project.DETAILS}</p>
             </div>
           </section>
+        </section>
+        <section className="project-content pb4">
+          <ProjectImages images={displayImages} captions={captions} />
         </section>
       </Layout>
     </section>

@@ -64,10 +64,14 @@ export default function() {
                 />
               </figure>
               <figcaption>
-                {drawingInfo[fileName]
-                  ? (drawingInfo[fileName].data.TITLE,
-                    drawingInfo[fileName].data.YEAR)
-                  : fileName}
+                {drawingInfo[fileName] ? (
+                  <span>
+                    {drawingInfo[fileName].data.TITLE},{" "}
+                    {drawingInfo[fileName].data.YEAR}
+                  </span>
+                ) : (
+                  fileName
+                )}
               </figcaption>
             </div>
           ))}

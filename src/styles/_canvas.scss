@@ -2,8 +2,10 @@
   top: 0;
   z-index: -10;
   max-width: 100%;
+  background: $txt-dark;
   .collage-layer {
-    width: 100%;
+    overflow: visible !important;
+    width: 108%;
     height: 100%;
     div {
       display: none;
