@@ -60,7 +60,7 @@ module.exports = {
       description:
         "Transience and transformation are the central themes in the work of Anne Duk Hee Jordan. Through movement and performance, Jordan gives materiality another dimension - she builds motorized sculptures and creates edible landscapes. Her sculptures are intended to draw the viewer into the present and open a dialogue between natural phenomena, philosophy and art. Her work is like an interactive fantasy play with the knowledge and theories about the world and our souls.",
       url: "https://dukhee.de",
-      image: "src/images/en_collage.png",
+      image: "./images/en_collage.png",
     },
   },
   plugins: [

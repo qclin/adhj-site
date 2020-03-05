@@ -70,7 +70,7 @@ export default function({ theme }) {
                 to={`/projects/${item.data.IDENTIFIER}`}
                 ref={ref => titleRefs.current.push(ref)}
               >
-                {item.data.YEAR}
+                <span className="date"> {item.data.YEAR} </span>
                 <br />
                 <span> {item.data.TITLE}</span>
               </Link>

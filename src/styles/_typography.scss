@@ -40,7 +40,7 @@ h1,
   white-space: pre-wrap;
 }
 .details {
-  font-family: "stratos", sans-serif;
+  font-family: "stratos-lights", sans-serif;
   font-size: 18px;
   letter-spacing: 0.44px;
   font-weight: 300;
@@ -58,7 +58,9 @@ h1,
   letter-spacing: 1.36px;
   line-height: 1.46;
 }
-
+figcaption {
+  font-family: "stratos-lights", sans-serif;
+}
 .sidenav a {
   font-family: "stratos", sans-serif;
   font-size: 20px;
