@@ -1,25 +1,19 @@
 import React from "react"
 import Img from "gatsby-image"
-import Carousel from "../components/carousel"
+import Carousel from "./carousel"
 import { mergeTwo } from "../utils/helpers"
-
+import ProjectImage from "./project-image"
 export default function ProjectImages({
   images,
   captions,
   isResearch = false,
 }) {
   const hasSeries = images.some(item => item.Key.includes("series"))
-  const wrapperStyle = isResearch
-    ? "w-25-ns pa2 dib image-figure"
-    : "w-60-ns margin-auto image-figure"
-
   if (isResearch || !hasSeries) {
     return (
       <section className="center">
         {images.map(item => (
-          <figure key={item.Key} className={wrapperStyle}>
-            <Img fluid={item.childImageSharp.fluid} alt={item.Key} />
-          </figure>
+          <ProjectImage image={item} key={item.Key} isResearch={isResearch} />
         ))}
       </section>
     )
@@ -38,14 +32,7 @@ export default function ProjectImages({
     <>
       {sortedList.map(fileName =>
         fileName.includes(".") ? (
-          <section className="center mv3" key={fileName}>
-            <figure className={wrapperStyle}>
-              <Img
-                fluid={imagesByKey[fileName].childImageSharp.fluid}
-                alt={fileName}
-              />
-            </figure>
-          </section>
+          <ProjectImage image={imagesByKey[fileName]} key={fileName} />
         ) : (
           <section
             className="center mv3 w-60-ns image-wrapper carousel"
@@ -54,7 +41,6 @@ export default function ProjectImages({
             <Carousel images={groupBySeries[fileName]} />
             {captions && captions[fileName] && (
               <figcaption className="mv3">
-                {" "}
                 {captions[fileName].CAPTION}
               </figcaption>
             )}

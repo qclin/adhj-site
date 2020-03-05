@@ -12,7 +12,6 @@ exports.createPages = async ({ graphql, actions }) => {
               src
               srcSet
               aspectRatio
-              sizes
             }
           }
           id

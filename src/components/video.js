@@ -37,7 +37,15 @@ export default ({
         id="playButton"
         className="no-style playButton"
       >
-        {playing ? <span>&#9616;&#9616;</span> : <span>&#x25b6;</span>}
+        {playing ? (
+          <span>
+            <img src="../icons/Pause.png" />
+          </span>
+        ) : (
+          <span>
+            <img src="../icons/Play.png" />
+          </span>
+        )}
       </button>
       <button
         onClick={() => {

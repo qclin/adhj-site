@@ -7,11 +7,13 @@ import "slick-carousel/slick/slick-theme.css"
 export default function ImageCarousel({ images }) {
   const settings = {
     infinite: true,
-    speed: 1000,
+    speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
     centerPadding: "50px",
     adaptiveHeight: true,
+    fade: true,
+    cssEase: "linear",
   }
   return (
     <Slider {...settings}>

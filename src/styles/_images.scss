@@ -1,15 +1,19 @@
-figure.image-figure {
+.image-figure {
   margin-bottom: 3rem;
+  overflow: hidden;
+}
+
+.portrait {
+  max-height: 80vh;
 
   img {
-    max-height: 70vh;
-    width: auto !important;
+    max-height: 80vh;
     margin: 0 auto;
     left: 50% !important;
+    width: 60vh !important;
     transform: translate(-50%, 0);
   }
 }
-
 .gatsby-image-wrapper div {
   padding: 0;
 }

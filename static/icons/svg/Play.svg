@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="74px" viewBox="0 0 48 74" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Video / Play</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="20.2355326 14 53.4710653 54.3387911 -13 54.3387911"></polygon>
+        <filter x="-10.5%" y="-12.4%" width="121.1%" height="134.7%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Web_Revisions_11.02.2020" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="A-Project-Page-w/-stylised-text" transform="translate(-694.000000, -1511.000000)" fill-rule="nonzero">
+            <g id="Video-/-Play" transform="translate(700.000000, 1514.000000)">
+                <g id="Triangle" transform="translate(20.235533, 34.169396) rotate(90.000000) translate(-20.235533, -34.169396) ">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFFFFF" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

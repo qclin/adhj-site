@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="30px" viewBox="0 0 42 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Toggle / Project</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Toggle-/-Project" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <path d="M15,0 C6.71572875,0 0,6.71572875 0,15 C0,23.2842712 6.71572875,30 15,30 L26.3694248,30 L27,30 C35.2842712,30 42,23.2842712 42,15 C42,6.71572875 35.2842712,0 27,0 L17.0186973,0 L15,0 Z" id="Oval-Copy" stroke="#E7E7E7" stroke-width="2" fill="#E7E7E7" fill-rule="nonzero"></path>
+            <circle id="Oval" fill="#1F1F1F" fill-rule="nonzero" cx="27" cy="15" r="15"></circle>
+            <text id="P" font-family="Stratos-Regular, Stratos" font-size="12" font-weight="normal" letter-spacing="0.2914286" fill="#E7E7E7">
+                <tspan x="24.1742857" y="20">P</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
