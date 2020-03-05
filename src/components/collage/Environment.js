@@ -1,14 +1,15 @@
 import React from "react"
 import Img from "gatsby-image"
+import { remove } from "lodash"
 
 import { ParallaxLayer } from "react-spring/renderprops-addons.cjs"
 
 export default function({ layers }) {
+  const stump = remove(layers, layer => layer.Key.includes("ANIMATION"))
   var ENLayer = layers
-
   return (
     <section id="EN-canvas">
-      {ENLayer.map((layer, index) => (
+      {layers.map((layer, index) => (
         <ParallaxLayer
           offset={2}
           speed={index * 0.1}
@@ -23,6 +24,14 @@ export default function({ layers }) {
           />
         </ParallaxLayer>
       ))}
+      <ParallaxLayer offset={2} speed={0}>
+        <Img
+          className="stump"
+          fluid={stump[0].childImageSharp.fluid}
+          objectPosition="0% 0%"
+          alt={`Environment Sculpture`}
+        />
+      </ParallaxLayer>
     </section>
   )
 }

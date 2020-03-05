@@ -1,6 +1,5 @@
 import React from "react"
 import { useSpring, animated } from "react-spring"
-
 import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -33,7 +32,6 @@ export default function({ canvas }) {
   `)
 
   var collageObj = groupByTheme(collage.nodes)
-
   var MYLights = [...Array(10).keys()]
 
   const fadeIn = useSpring({

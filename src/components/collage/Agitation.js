@@ -1,18 +1,18 @@
 import React from "react"
 import Img from "gatsby-image"
+import { remove } from "lodash"
 
 import { ParallaxLayer } from "react-spring/renderprops-addons.cjs"
 
 export default function({ layers }) {
-  var AGLayers = layers.filter(layer => !layer.Key.includes("Strawberries"))
-
-  var AGStrawberries = layers.filter(layer =>
+  const strawberries = remove(layers, layer =>
     layer.Key.includes("Strawberries")
   )
+  const moreStrawberries = strawberries.concat(strawberries)
 
   return (
     <section id="AG-canvas">
-      {AGLayers.map((layer, index) => (
+      {layers.map((layer, index) => (
         <ParallaxLayer
           offset={1}
           speed={index * 0.1}
@@ -27,7 +27,7 @@ export default function({ layers }) {
           />
         </ParallaxLayer>
       ))}
-      {AGStrawberries.map((layer, index) => (
+      {moreStrawberries.map((layer, index) => (
         <ParallaxLayer
           offset={1}
           speed={0.1}

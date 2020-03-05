@@ -1,15 +1,15 @@
 import React from "react"
 import Img from "gatsby-image"
+import { remove } from "lodash"
 
 import { ParallaxLayer } from "react-spring/renderprops-addons.cjs"
 
 export default function({ layers }) {
-  var ASLayers = layers.filter(layer => !layer.Key.includes("Animation"))
-  var ASJaws = layers.filter(layer => layer.Key.includes("Animation"))
+  var ASJaws = remove(layers, layer => layer.Key.includes("Animation"))
 
   return (
     <section id="AS-canvas">
-      {ASLayers.map((layer, index) =>
+      {layers.map((layer, index) =>
         layer.Key.includes("02") ? (
           <JawLayers layers={ASJaws} />
         ) : (

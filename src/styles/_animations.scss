@@ -20,6 +20,66 @@
   }
   100% {
     opacity: 1;
+    top: random(1000) + 400 + px;
+  }
+}
+@include keyframes(moveAcross) {
+  0% {
+    opacity: 0;
+    left: 10%;
+  }
+  10% {
+    opacity: 1;
+
+    left: 0%;
+    top: 12vh;
+  }
+  50% {
+    left: 40%;
+    top: 12vh;
+  }
+  80% {
+    left: 65%;
+  }
+  85% {
+    left: 85%;
+  }
+  95% {
+    left: 95%;
+    top: 12vh;
+  }
+  100% {
+    left: 110%;
+  }
+}
+@include keyframes(moveRandom) {
+  0% {
+    opacity: 0;
+    transform: translateX(random() * 100%);
+  }
+  10% {
+    opacity: 1;
+
+    transform: translateX(random() * 100%);
+    bottom: 5vh;
+  }
+  50% {
+    transform: translateX(random() * 100%);
+    bottom: 10vh;
+  }
+  80% {
+    transform: translateX(random() * 100%);
+  }
+  85% {
+    transform: translateX(random() * 100%);
+    bottom: 8vh;
+  }
+  95% {
+    transform: translateX(random() * 100%);
+    bottom: 10vh;
+  }
+  100% {
+    transform: translateX(random() * 100%);
   }
 }
 
@@ -61,16 +121,16 @@
 
 .strawberries {
   width: 4rem;
-  @include animation("fadein .2s infinite");
+  @include animation("fadein .2s 5");
 }
 
-@for $i from 0 through 20 {
+@for $i from 0 through 30 {
   .splatter:nth-child(#{$i}) {
-    top: random(900) + 100 + px;
+    top: random(1000) + 100 + px;
     left: random(1400) + 100 + px;
     .strawberries {
-      animation-duration: $i * 0.5 + s;
-      animation-delay: $i + s;
+      animation-duration: 0.5s;
+      animation-delay: $i * 0.2 + s;
     }
   }
 }
@@ -167,4 +227,17 @@
   left: 50vw;
   transform-origin: left center;
   @include animation("rotateReverse 20s linear infinite");
+}
+
+.stump {
+  max-height: 45vh;
+  top: 50%;
+  img {
+    width: auto !important;
+  }
+  animation-direction: alternate-reverse;
+
+  @include animation(
+    "moveRandom 60s cubic-bezier(0.02, 0.01, 0.21, 1) infinite"
+  );
 }
