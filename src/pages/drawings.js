@@ -56,7 +56,7 @@ export default function() {
       <main className="info-pages" id="drawings">
         <section className="list-wrapper">
           {Object.keys(imageSet).map((fileName, idx) => (
-            <div className="w-100 w-40-ns dib ma2 mr4">
+            <div className="w-100 w-40-ns dib ma2 mr4" key={idx}>
               <figure>
                 <Img
                   fluid={imageSet[fileName].childImageSharp.fluid}

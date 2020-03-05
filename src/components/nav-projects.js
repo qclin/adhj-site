@@ -22,12 +22,24 @@ export default function({ theme }) {
     }
   `)
   const listWrapper = useRef(null)
+  const titleRefs = useRef([])
+
   const [truncated, setTruncated] = useState(false)
   const themedProjects = projects.nodes.filter(ea => ea.data.THEME === theme)
   useEffect(() => {
     setTruncated(
       listWrapper.current.offsetWidth < listWrapper.current.scrollWidth
     )
+
+    const active = titleRefs.current.find(
+      title => title.classList.value == "active"
+    )
+    if (active) {
+      listWrapper.current.scrollTo(
+        active.offsetLeft - listWrapper.current.offsetWidth / 2,
+        0
+      )
+    }
   }, [])
 
   const handleLeftClick = () => {
@@ -36,20 +48,6 @@ export default function({ theme }) {
   const handleRightClick = () => {
     listWrapper.current.scrollLeft += 100
   }
-
-  // const handleOnScroll = () => {
-  //   var dummy_x = listWrapper.current.offsetWidth
-  //   var diff =
-  //     listWrapper.current.scrollLeft -
-  //     (listWrapper.current.scrollWidth - listWrapper.current.offsetWidth)
-  //   if (diff > 0) {
-  //     listWrapper.current.scrollTo(diff, 0)
-  //   } else if (listWrapper.current.scrollLeft == 0) {
-  //     listWrapper.current.scrollTo(dummy_x, 0)
-  //   } else if (diff == 0) {
-  //     listWrapper.current.scrollTo(0, 0)
-  //   }
-  // }
 
   return (
     <nav id="nav-projects" className="w-60-ns">
@@ -70,6 +68,7 @@ export default function({ theme }) {
               <Link
                 activeClassName="active"
                 to={`/projects/${item.data.IDENTIFIER}`}
+                ref={ref => titleRefs.current.push(ref)}
               >
                 {item.data.YEAR}
                 <br />

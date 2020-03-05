@@ -18,10 +18,11 @@ export default ({
 
   const [playing, setPlaying] = useState(isResearch)
   const [mute, setMute] = useState(isResearch)
+  const [seek, setSeek] = useState(0)
   const [volume, setVolume] = useState(1)
   const player = useRef()
   return (
-    <div className={`${styleEnum[flexLayout]}-width ma0 dib video`}>
+    <div className={`${styleEnum[flexLayout]}-width ma0 video`}>
       <ReactPlayer
         url={`https://player.vimeo.com/video/${videoId}`}
         width="100%"
@@ -47,6 +48,22 @@ export default ({
           </span>
         )}
       </button>
+      {playing && (
+        <input
+          id="scrub-bar"
+          type="range"
+          min="0"
+          max="1"
+          step="any"
+          defaultValue={seek}
+          onChange={e => {
+            setSeek(e.target.value)
+            console.log(seek)
+            player.current.seekTo(seek)
+          }}
+        />
+      )}
+
       <button
         onClick={() => {
           setMute(!mute)
