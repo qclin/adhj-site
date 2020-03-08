@@ -23,33 +23,17 @@
     top: random(1000) + 400 + px;
   }
 }
-@include keyframes(moveAcross) {
+@include keyframes(grinding) {
   0% {
-    opacity: 0;
-    left: 10%;
-  }
-  10% {
-    opacity: 1;
-
-    left: 0%;
-    top: 12vh;
+    transform: rotate(-30deg);
   }
   50% {
-    left: 40%;
-    top: 12vh;
-  }
-  80% {
-    left: 65%;
-  }
-  85% {
-    left: 85%;
-  }
-  95% {
-    left: 95%;
-    top: 12vh;
+    right: 10%;
+
+    transform: rotate(60deg);
   }
   100% {
-    left: 110%;
+    transform: rotate(-30deg);
   }
 }
 @include keyframes(moveRandom) {
@@ -228,6 +212,17 @@
   @include animation(
     "moveRandom 180s cubic-bezier(0.02, 0.01, 0.21, 1) infinite"
   );
+}
+.crystal {
+  max-height: 35vh;
+  top: 40%;
+  img {
+    left: auto !important;
+    right: 16%;
+    width: auto !important;
+    transform-origin: bottom left;
+    @include animation("grinding 25s ease-in-out infinite");
+  }
 }
 
 #myGermanHeart {
