@@ -121,7 +121,7 @@
 
 .strawberries {
   width: 4rem;
-  @include animation("fadein .2s 5");
+  // @include animation("fadein .2s 5");
 }
 
 @for $i from 0 through 30 {

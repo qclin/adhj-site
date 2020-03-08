@@ -153,6 +153,11 @@ nav.project-page {
     float: right;
     background: none;
   }
+  button.navigation {
+    position: fixed;
+    right: 0;
+    top: 1.5rem;
+  }
 }
 
 .navigation {
@@ -250,25 +255,18 @@ nav.project-page {
       }
     }
   }
+  #nav-projects {
+    max-width: 80%;
+  }
 
-  .projects {
-    #nav-projects {
-      max-width: 60%;
-    }
-  }
-  .home-page {
-    #nav-projects {
-      max-width: 80%;
-      li {
-        display: inline-block;
-      }
-    }
-  }
   #nav-projects {
     margin: 0 auto;
     text-align: left;
     ul {
       margin: 1rem auto 5rem auto;
+      li {
+        display: inline-block;
+      }
     }
   }
 

@@ -66,6 +66,19 @@ iframe {
 
 // laptop
 @media (min-width: 1025px) {
+  .projects {
+    #nav-projects {
+      max-width: 60%;
+    }
+  }
+  .home-page {
+    #nav-projects {
+      max-width: 80%;
+      li {
+        display: inline-block;
+      }
+    }
+  }
 }
 
 // Large - laptop
@@ -107,7 +120,7 @@ iframe {
     padding: 1rem;
   }
   .display {
-    margin-top: 3rem;
+    margin-top: 6rem;
     margin-bottom: 4rem;
   }
   .projects {
@@ -144,7 +157,7 @@ iframe {
   .home-page {
     #bottom-docker {
       .neutral:last-of-type {
-        margin-bottom: 20vh;
+        margin-bottom: 20%;
       }
     }
   }
@@ -184,6 +197,11 @@ iframe {
 @media (max-width: 320px) {
 }
 @media (min-width: 768px) {
+  .research {
+    .reactPlayer {
+      height: auto !important;
+    }
+  }
   .display-videos {
     .reactPlayer {
       height: 70vh !important;

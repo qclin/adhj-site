@@ -112,3 +112,29 @@ figcaption {
     letter-spacing: 1.25px;
   }
 }
+
+/// IPAD
+@media (min-width: 769px) and (max-width: 1024px) {
+  nav,
+  #nav-theme,
+  h1,
+  .navigation,
+  .themes,
+  .controls,
+  .about-text {
+    font-family: "stratos", sans-serif;
+    font-size: 33px;
+    letter-spacing: 0.5px;
+    line-height: 1.14;
+  }
+
+  .info-pages {
+    padding: 4rem;
+  }
+  .sidenav a {
+    font-family: "stratos", sans-serif;
+    font-size: 33px;
+    line-height: 1.36;
+    letter-spacing: 0.5px;
+  }
+}
