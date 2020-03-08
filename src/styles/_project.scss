@@ -7,16 +7,14 @@
     bottom: 0;
     margin: 0;
   }
-  header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    margin: 0;
+  header.tc {
+    margin-top: 0;
   }
+
   .project-content {
     display: none;
   }
-
+  .research-title,
   .project-titles {
     position: fixed;
     left: 50%;
@@ -27,12 +25,27 @@
   }
 }
 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .video {
   position: relative;
+
   iframe {
+    background: url("/icons/Loader.png") center center no-repeat;
+    background-size: 3rem;
     width: 100% !important;
-    // height: -webkit-fill-available;
   }
+}
+.video:after {
+  animation: spin 0.5s linear;
+  position: absolute;
 }
 
 body,

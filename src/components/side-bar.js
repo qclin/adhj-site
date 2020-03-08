@@ -4,7 +4,7 @@ import React, { useState } from "react"
 const SideBar = () => {
   const [open, setOpen] = useState(false)
   return (
-    <div id="sidePanel" className="fixed right-0 top-0">
+    <div id="sidePanel" className="fixed right-0">
       <nav className={open ? "sidenav open" : "sidenav"}>
         <button className="closebtn" onClick={() => setOpen(false)}>
           x

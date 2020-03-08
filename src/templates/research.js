@@ -22,7 +22,7 @@ export default ({ project, videos, images }) => {
           )}
         </section>
       </section>
-      <h1 className="fixed">Research</h1>
+      <h1 className="research-title">Research</h1>
     </main>
   )
 }

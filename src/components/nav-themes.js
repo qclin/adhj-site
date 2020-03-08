@@ -15,12 +15,14 @@ export default function({
     setTheme(null)
   }
   const notSelectedStyle = theme
-    ? "not-selected ttu theme-items tl"
-    : "selected ttu theme-items tl"
+    ? "not-selected theme-items tl"
+    : "neutral theme-items tl"
 
   return (
     <nav className={isProjectPage ? "fixed project-page" : "tc home-page"}>
-      {!isMuted && theme && <ProjectNavigation theme={theme} />}
+      {!isMuted && theme && (
+        <ProjectNavigation theme={theme} isProjectPage={isProjectPage} />
+      )}
       {!isMuted && (
         <div id="bottom-docker">
           {!isProjectPage && theme && (
@@ -37,7 +39,7 @@ export default function({
               <li
                 className={
                   THEMES[key] === theme
-                    ? `selected-${key} selected dib ttu tl ${key}`
+                    ? `selected-${key} selected dib tl ${key}`
                     : `${notSelectedStyle} ${key} `
                 }
                 key={key}

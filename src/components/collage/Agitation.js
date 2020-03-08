@@ -16,7 +16,7 @@ export default function({ layers }) {
         <ParallaxLayer
           offset={1}
           speed={index * 0.1}
-          className="canvas-layer"
+          className={"canvas-layer AG" + index}
           key={`AG-${index}`}
         >
           <Img

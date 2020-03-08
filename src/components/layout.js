@@ -31,8 +31,8 @@ const Layout = ({
       <SEO title={seoTitle} />
       <div>
         {!isHomePage && (
-          <div className="navigation fixed left-0 top-0 z-5">
-            <Link to="/" className="pa1">
+          <div className="navigation fixed left-0 z-5" id="home-link">
+            <Link to="/" className="pa2">
               H
             </Link>
           </div>

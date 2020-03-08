@@ -3,7 +3,7 @@
     opacity: 1;
   }
   50% {
-    opacity: 0;
+    opacity: 0.5;
   }
   100% {
     opacity: 1;
@@ -152,24 +152,12 @@
 }
 @mixin spreadPosition {
   @for $i from 0 through 10 {
-    &:nth-child(even) {
-      background-image: radial-gradient(
-        circle closest-side,
-        #fefee5,
-        #e3af56,
-        transparent,
-        #e3af56
-      );
-    }
-    &:nth-child(odd) {
-      background-image: radial-gradient(
-        circle closest-side,
-        #96b8f0,
-        #5a617a,
-        transparent,
-        #96b8f0
-      );
-    }
+    background-image: radial-gradient(
+      circle closest-side,
+      #fefee5 7%,
+      #e3af56 30%,
+      transparent
+    );
 
     &:nth-child(#{$i}) {
       left: random(100) / 100 * 100%;
@@ -190,7 +178,7 @@
 
 .myth-lights {
   position: absolute;
-  animation: growInSize 5s infinite;
+  // animation: growInSize 5s infinite;
   @include spreadPosition;
 }
 
@@ -238,6 +226,12 @@
   animation-direction: alternate-reverse;
 
   @include animation(
-    "moveRandom 60s cubic-bezier(0.02, 0.01, 0.21, 1) infinite"
+    "moveRandom 180s cubic-bezier(0.02, 0.01, 0.21, 1) infinite"
   );
+}
+
+#myGermanHeart {
+  bottom: 10%;
+  left: -4%;
+  position: absolute;
 }

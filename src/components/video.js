@@ -26,7 +26,7 @@ export default ({
       <ReactPlayer
         url={`https://player.vimeo.com/video/${videoId}`}
         width="100%"
-        height={`calc(70vh)`}
+        className="reactPlayer"
         playing={playing}
         muted={mute}
         volume={volume}
@@ -58,7 +58,6 @@ export default ({
           defaultValue={seek}
           onChange={e => {
             setSeek(e.target.value)
-            console.log(seek)
             player.current.seekTo(seek)
           }}
         />
@@ -87,5 +86,3 @@ export default ({
     </div>
   )
 }
-
-// width={`calc(100vw/${flexLayout})`}

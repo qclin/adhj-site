@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { THEMES } from "../utils/enums"
 
-export default function({ theme }) {
+export default function({ theme, isProjectPage }) {
   const { projects } = useStaticQuery(graphql`
     query ProjectLinkQuery {
       projects: allAirtable(
@@ -48,7 +48,7 @@ export default function({ theme }) {
   const handleRightClick = () => {
     listWrapper.current.scrollLeft += 100
   }
-
+  const projectPageStyle = isProjectPage ? "project-page" : ""
   return (
     <nav id="nav-projects" className="w-60-ns">
       {truncated && (
@@ -61,7 +61,9 @@ export default function({ theme }) {
         </button>
       )}
 
-      <div className={theme && `bg-${getThemeKey(theme)} list`}>
+      <div
+        className={theme && `bg-${getThemeKey(theme)} list ` + projectPageStyle}
+      >
         <ul className="scrollbar-container" ref={listWrapper}>
           {themedProjects.map((item, i) => (
             <li key={item.recordId} className="project-links project-titles">
@@ -72,7 +74,7 @@ export default function({ theme }) {
               >
                 <span className="date"> {item.data.YEAR} </span>
                 <br />
-                <span> {item.data.TITLE}</span>
+                <span className="title"> {item.data.TITLE}</span>
               </Link>
             </li>
           ))}

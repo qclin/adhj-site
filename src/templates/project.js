@@ -79,10 +79,10 @@ export default ({ pageContext: { identifier, images }, data }) => {
     (!media.isEmpty && researchVideos.length > 0) || researchImages.length > 0
 
   const captions = keyByImageId(data.captions.nodes)
-
+  console.log(displayVideos.length > 0)
   return (
     <section
-      className={showResearch ? "research projects" : "display projects mv6"}
+      className={showResearch ? "research projects" : "display projects"}
     >
       <Layout>
         <ThemeNavigation
@@ -90,32 +90,25 @@ export default ({ pageContext: { identifier, images }, data }) => {
           isProjectPage
           isMuted={showResearch}
         />
-        {showResearch && (
-          <Research
-            project={project}
-            videos={researchVideos}
-            images={researchImages}
-          />
+
+        {displayVideos.length > 0 && (
+          <section className="full-height display-videos project-content">
+            {displayVideos.map(
+              item =>
+                item.data.TYPE === "video" && (
+                  <Video
+                    key={item.data.ID}
+                    videoId={item.data.vimeoID}
+                    videoTitle={item.data.ID}
+                  />
+                )
+            )}
+          </section>
         )}
-        <section className="project-content">
-          {!media.isEmpty && (
-            <section className="mv4 full-height display-videos">
-              {displayVideos.map(
-                item =>
-                  item.data.TYPE === "video" && (
-                    <div className="mv3" key={item.data.ID}>
-                      <Video
-                        key={item.data.ID}
-                        videoId={item.data.vimeoID}
-                        videoTitle={item.data.ID}
-                      />
-                    </div>
-                  )
-              )}
-            </section>
-          )}
-        </section>
-        <header className="tc" ref={titleHtml}>
+        <header
+          className={displayVideos.length > 0 ? "tc" : "tc no-videos"}
+          ref={titleHtml}
+        >
           <h1>
             {project.TITLE}, {project.YEAR}
           </h1>
@@ -135,17 +128,22 @@ export default ({ pageContext: { identifier, images }, data }) => {
           )}
         </header>
 
-        <section className="project-content pv5">
-          <section className="text-wrapper">
-            <div className="measure-wide text-block">
-              <p className="description">{project.DESCRIPTION}</p>
-              <p className="details">{project.DETAILS}</p>
-            </div>
-          </section>
+        <section className="text-wrapper project-content">
+          <div className="measure-wide text-block">
+            <p className="description">{project.DESCRIPTION}</p>
+            <p className="details">{project.DETAILS}</p>
+          </div>
         </section>
         <section className="project-content pb4">
           <ProjectImages images={displayImages} captions={captions} />
         </section>
+        {showResearch && (
+          <Research
+            project={project}
+            videos={researchVideos}
+            images={researchImages}
+          />
+        )}
       </Layout>
     </section>
   )

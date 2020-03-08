@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="79px" height="71px" viewBox="0 0 79 71" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="82px" height="71px" viewBox="0 0 82 71" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
-    <title>Video / Loader</title>
+    <title>Oval 2 Copy</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <path d="M8.47434898,8.51347626 C3.23787367,13.7598902 0,21.0018222 0,29 C0,45.0162577 12.9837423,58 29,58 C45.0162577,58 58,45.0162577 58,29 C58,12.9837423 45.0162577,0 29,0" id="path-1"></path>
+        <path d="M815.989268,1546.16014 L837.594171,1529.08741 L833.562959,1527.43198 L836.934141,1554.76118 L841.896529,1554.14905 L838.525347,1526.81985 L837.981228,1522.40884 L834.494135,1525.16443 L812.889231,1542.23716 L815.989268,1546.16014 Z M833.161748,1527.5638 L824.687774,1548.19924 L824.497893,1548.66163 L824.500406,1549.16148 C824.587534,1566.4907 838.663284,1580.5 856,1580.5 C873.39697,1580.5 887.5,1566.39697 887.5,1549 C887.5,1531.60303 873.39697,1517.5 856,1517.5 L856,1522.5 C870.635546,1522.5 882.5,1534.36445 882.5,1549 C882.5,1563.63555 870.635546,1575.5 856,1575.5 C841.415226,1575.5 829.573638,1563.71431 829.500343,1549.13635 L829.312975,1550.09859 L837.78695,1529.46315 L833.161748,1527.5638 Z" id="path-1"></path>
+        <filter x="-9.4%" y="-7.9%" width="118.8%" height="122.2%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
     </defs>
     <g id="Web_Revisions_11.02.2020" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="A-Project-Page-w/-stylised-text" transform="translate(-812.000000, -1516.000000)" fill-rule="nonzero">
-            <g id="Video-/-Loader" transform="translate(827.000000, 1520.000000)">
-                <path id="Oval-2-Copy" d="M-11.0107324,26.1601372 L10.594171,9.08740607 L6.56295886,7.43198262 L9.93414131,34.7611818 L14.8965291,34.1490484 L11.5253467,6.81984925 L10.9812281,2.40883787 L7.49413455,5.1644258 L-14.1107688,22.237157 L-11.0107324,26.1601372 Z M6.16174844,7.56380329 L-2.31222626,28.1992422 L-2.50210728,28.6616319 L-2.49959412,29.1614845 C-2.41246631,46.4906998 11.6632844,60.5 29,60.5 C46.3969696,60.5 60.5,46.3969696 60.5,29 C60.5,11.6030304 46.3969696,-2.5 29,-2.5 L29,2.5 C43.6355459,2.5 55.5,14.3644541 55.5,29 C55.5,43.6355459 43.6355459,55.5 29,55.5 C14.4152264,55.5 2.57363778,43.7143146 2.50034269,29.1363458 L2.31297482,30.0985881 L10.7869495,9.46314922 L6.16174844,7.56380329 Z"></path>
+        <g id="A-Project-Page-w/-stylised-text" transform="translate(-809.000000, -1516.000000)" fill-rule="nonzero">
+            <g id="Oval-2-Copy">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill="#FFFFFF" xlink:href="#path-1"></use>
             </g>
         </g>
     </g>

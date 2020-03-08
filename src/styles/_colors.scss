@@ -19,7 +19,17 @@ $fluorescent-green-alpha: rgba(6, 255, 18, 0);
 }
 
 @mixin sideGradient($color, $alpha) {
-  background: $color;
+  @media (max-width: 786px) {
+    background: $color;
+  }
+  &.project-page {
+    background: $color;
+  }
+  @media (min-width: 786px) {
+    li {
+      background: $color;
+    }
+  }
   &.list {
     &:before {
       background: linear-gradient(to left, $alpha, $color 90%);

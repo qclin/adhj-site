@@ -7,6 +7,9 @@ import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons.cjs"
 import ASCanvas from "./collage/ArtificialStupidity"
 import AGCanvas from "./collage/Agitation"
 import ENCanvas from "./collage/Environment"
+import MYCanvas from "./collage/Myths"
+import TTCanvas from "./collage/TimeTravels"
+import EXCanvas from "./collage/Existence"
 
 export default function({ canvas }) {
   const { collage } = useStaticQuery(graphql`
@@ -32,7 +35,6 @@ export default function({ canvas }) {
   `)
 
   var collageObj = groupByTheme(collage.nodes)
-  var MYLights = [...Array(10).keys()]
 
   const fadeIn = useSpring({
     opacity: 1,
@@ -44,66 +46,9 @@ export default function({ canvas }) {
       <ASCanvas layers={collageObj.AS} />
       <AGCanvas layers={collageObj.AG} />
       <ENCanvas layers={collageObj.EN} />
-
-      <section id="MY-canvas">
-        {collageObj.MY.map((layer, index) => (
-          <ParallaxLayer
-            offset={3}
-            speed={index * 0.1}
-            className="canvas-layer"
-            key={`MY-${index}`}
-          >
-            <Img
-              fluid={layer.childImageSharp.fluid}
-              objectPosition="0% 0%"
-              alt={`Myth ${index}`}
-              className="collage-layer"
-            />
-          </ParallaxLayer>
-        ))}
-        <ParallaxLayer offset={3}>
-          <div className="relative h-100">
-            {MYLights.map(item => (
-              <div className="animate-flicker myth-lights"></div>
-            ))}
-          </div>
-        </ParallaxLayer>
-      </section>
-
-      <section id="TT-canvas">
-        {collageObj.TT.map((layer, index) => (
-          <ParallaxLayer
-            offset={4}
-            speed={index * 0.1}
-            className="canvas-layer"
-            key={`TT-${index}`}
-          >
-            <Img
-              fluid={layer.childImageSharp.fluid}
-              objectPosition="0% 0%"
-              alt={`Time Travels ${index}`}
-              className="collage-layer"
-            />
-          </ParallaxLayer>
-        ))}
-      </section>
-      <section id="EX-canvas">
-        {collageObj.EX.map((layer, index) => (
-          <ParallaxLayer
-            offset={5}
-            speed={index * 0.1}
-            className="canvas-layer"
-            key={`EX-${index}`}
-          >
-            <Img
-              fluid={layer.childImageSharp.fluid}
-              objectPosition="0% 0%"
-              alt={`Existence ${index}`}
-              className="collage-layer"
-            />
-          </ParallaxLayer>
-        ))}
-      </section>
+      <MYCanvas layers={collageObj.MY} />
+      <TTCanvas layers={collageObj.TT} />
+      <EXCanvas layers={collageObj.EX} />
     </Parallax>
   )
 }
