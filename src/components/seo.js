@@ -9,7 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-
+import coverImage from "../images/en_collage.png"
 function SEO({ description, lang, meta, title, image }) {
   const { site } = useStaticQuery(
     graphql`
@@ -51,7 +51,7 @@ function SEO({ description, lang, meta, title, image }) {
         },
         {
           property: `og:image`,
-          content: pageImage,
+          content: coverImage,
         },
         {
           property: `og:description`,
