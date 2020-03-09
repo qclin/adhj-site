@@ -5,10 +5,7 @@ import { remove } from "lodash"
 import { ParallaxLayer } from "react-spring/renderprops-addons.cjs"
 
 export default function({ layers }) {
-  const strawberries = remove(layers, layer =>
-    layer.Key.includes("Strawberries")
-  )
-  const moreStrawberries = strawberries.concat(strawberries)
+  remove(layers, layer => layer.Key.includes("Strawberries"))
 
   return (
     <section id="AG-canvas">
@@ -24,21 +21,6 @@ export default function({ layers }) {
             objectPosition="0% 0%"
             alt={`Agitation ${index}`}
             className="collage-layer"
-          />
-        </ParallaxLayer>
-      ))}
-      {moreStrawberries.map((layer, index) => (
-        <ParallaxLayer
-          offset={1}
-          speed={0.1}
-          className="splatter"
-          key={`AG-Strawberries-${index}`}
-        >
-          <Img
-            fluid={layer.childImageSharp.fluid}
-            objectPosition="0% 0%"
-            alt={`Agitation Strawberries ${index}`}
-            className="strawberries"
           />
         </ParallaxLayer>
       ))}

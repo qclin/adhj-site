@@ -99,7 +99,7 @@ iframe {
     top: 36% !important;
   }
   header.tc {
-    padding: 0 2rem;
+    padding: 1rem 2rem 0;
   }
   header.tc.no-videos {
     margin-top: 8rem;
@@ -157,7 +157,7 @@ iframe {
   .home-page {
     #bottom-docker {
       .neutral:last-of-type {
-        margin-bottom: 20%;
+        margin-bottom: 10%;
       }
     }
   }
@@ -198,8 +198,10 @@ iframe {
 }
 @media (min-width: 768px) {
   .research {
-    .reactPlayer {
-      height: auto !important;
+    .quarter-width {
+      .reactPlayer {
+        height: auto !important;
+      }
     }
   }
   .display-videos {

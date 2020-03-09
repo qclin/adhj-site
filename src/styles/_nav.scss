@@ -150,8 +150,8 @@ nav.project-page {
     border: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    float: right;
     background: none;
+    -webkit-transform: translateZ(0);
   }
   button.navigation {
     position: fixed;
