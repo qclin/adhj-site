@@ -40,11 +40,11 @@ export default ({
       >
         {playing ? (
           <span>
-            <img src="../icons/Pause.png" />
+            <img src="../icons/Pause.png" alt="pause" />
           </span>
         ) : (
           <span>
-            <img src="../icons/Play.png" />
+            <img src="../icons/Play.png" alt="play" />
           </span>
         )}
       </button>

@@ -1,5 +1,4 @@
 import React from "react"
-import Img from "gatsby-image"
 import Carousel from "./carousel"
 import { mergeTwo } from "../utils/helpers"
 import ProjectImage from "./project-image"

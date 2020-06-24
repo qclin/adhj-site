@@ -6,7 +6,6 @@ import { ParallaxLayer } from "react-spring/renderprops-addons.cjs"
 
 export default function({ layers }) {
   const stump = remove(layers, layer => layer.Key.includes("ANIMATION"))
-  var ENLayer = layers
   return (
     <section id="EN-canvas">
       {layers.map((layer, index) => (

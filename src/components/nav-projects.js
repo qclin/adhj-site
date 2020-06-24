@@ -32,7 +32,7 @@ export default function({ theme, isProjectPage }) {
     )
 
     const active = titleRefs.current.find(
-      title => title.classList.value == "active"
+      title => title.classList.value === "active"
     )
     if (active) {
       listWrapper.current.scrollTo(

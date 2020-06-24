@@ -70,7 +70,6 @@ export default ({ pageContext: { identifier, images }, data }) => {
   const project = data.project.nodes[0].data
   const media = data.videos.nodes
   const [showResearch, setShowResearch] = useState(false)
-  const [titleOffset, setTitleOffset] = useState()
   const researchVideos = media.filter(item => item.data.IsResearch)
   const displayVideos = media.filter(item => !Boolean(item.data.IsResearch))
   const displayImages = images.filter(item => item.Key.includes("Media"))

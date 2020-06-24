@@ -1,9 +1,7 @@
 import React from "react"
-import { useSpring, animated } from "react-spring"
-import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 
-import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons.cjs"
+import { Parallax } from "react-spring/renderprops-addons.cjs"
 import ASCanvas from "./collage/ArtificialStupidity"
 import AGCanvas from "./collage/Agitation"
 import ENCanvas from "./collage/Environment"
@@ -35,11 +33,6 @@ export default function({ canvas }) {
   `)
 
   var collageObj = groupByTheme(collage.nodes)
-
-  const fadeIn = useSpring({
-    opacity: 1,
-    from: { opacity: 0 },
-  })
 
   return (
     <Parallax id="collage" ref={canvas} horizontal pages={6}>

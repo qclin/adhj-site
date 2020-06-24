@@ -1,6 +1,5 @@
 import React from "react"
 import Img from "gatsby-image"
-import { remove } from "lodash"
 import germanHeartGIF from "./WIPHeart_GIF_4.gif"
 import { ParallaxLayer } from "react-spring/renderprops-addons.cjs"
 
