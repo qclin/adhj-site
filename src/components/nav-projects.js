@@ -6,8 +6,11 @@ export default function({ theme, isProjectPage }) {
   const { projects } = useStaticQuery(graphql`
     query ProjectLinkQuery {
       projects: allAirtable(
-        filter: { table: { eq: "PROJECTS" } }
+        filter: { table: { eq: "PROJECTS" }
+                  data: { IDENTIFIER: { ne: null }, isDraft: {ne: true} }
+                }
         sort: { fields: data___YEAR, order: DESC }
+        
       ) {
         nodes {
           data {
