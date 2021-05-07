@@ -32,7 +32,7 @@ export const query = graphql`
       filter: {
         table: { eq: "VIDEOS" }
         data: {
-          Link: { ne: null }
+          vimeoID: { ne: null }
           PROJECT: { elemMatch: { data: { IDENTIFIER: { eq: $identifier } } } }
         }
       }
@@ -40,7 +40,6 @@ export const query = graphql`
       nodes {
         data {
           IsResearch
-          Link
           vimeoID
           TYPE
           ID

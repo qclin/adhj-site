@@ -20,7 +20,7 @@ exports.createPages = async ({ graphql, actions }) => {
       projects: allAirtable(
         filter: {
           table: { eq: "PROJECTS" }
-          data: { IDENTIFIER: { ne: null }, isDraft: {ne: true} }
+          data: { IDENTIFIER: { ne: null }, isDraft: { ne: true } }
         }
       ) {
         nodes {
@@ -36,7 +36,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
   projects.nodes.forEach(node => {
     const identifier = node.data.IDENTIFIER
-
 
     const projectImages = images.nodes.filter(image => {
       return image.Key.includes(identifier)
