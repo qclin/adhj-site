@@ -18,7 +18,7 @@
     "gatsby-source-s3-image": "^1.6.144",
     "gatsby-transformer-sharp": "^2.3.7",
     "lodash": "^4.17.15",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.13.0",
