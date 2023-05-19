@@ -1,10 +1,10 @@
 .switch {
   position: relative;
   display: none;
-  width: 40px;
+  width: 95px;
   height: 30px;
   z-index: 2;
-  margin-left: 1rem;
+  margin-left: 0;
 }
 
 .switch input {
@@ -29,17 +29,22 @@
 
 .slider:before {
   position: absolute;
-  content: "";
+  content: "research";
   left: 0;
   height: 26px;
-  width: 26px;
+  padding: 0 8px;
+  color: white; 
+  font-family: stratos,sans-serif;
   background-color: $txt-dark;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  left: 10px; 
 }
 
 input:checked + .slider:before {
+  color: $txt-dark;
   background-color: #fff;
+  content: "project";
 }
 
 input:checked + .slider {
