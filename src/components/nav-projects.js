@@ -7,7 +7,7 @@ export default function({ theme, isProjectPage }) {
     query ProjectLinkQuery {
       projects: allAirtable(
         filter: { table: { eq: "PROJECTS" }
-                  data: { IDENTIFIER: { ne: null }, isDraft: {ne: true} }
+                  data: { IDENTIFIER: { ne: null } }
                 }
         sort: { fields: data___YEAR, order: DESC }
         

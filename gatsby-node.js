@@ -20,7 +20,7 @@ exports.createPages = async ({ graphql, actions }) => {
       projects: allAirtable(
         filter: {
           table: { eq: "PROJECTS" }
-          data: { IDENTIFIER: { ne: null }, isDraft: { ne: true } }
+          data: { IDENTIFIER: { ne: null } }
         }
       ) {
         nodes {
