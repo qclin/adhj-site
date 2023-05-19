@@ -24,7 +24,7 @@ const AboutPage = () => (
         <p className="mv5 description">
           <a
             className="underline db"
-            href="../../CV/DukHee_CV_2020.pdf"
+            href="../../CV/DukHee_CV_2023.pdf"
             target="_blank"
           >
             CV

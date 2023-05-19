@@ -2,7 +2,7 @@ export const THEMES = {
   AS: "Artificial Stupidity",
   AG: "Agitation",
   EN: "Environment",
-  MY: "Myths",
+  DIA: "Diasporic",
   TT: "Time Travels",
   EX: "Existence",
 }
