@@ -6,7 +6,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import SideBar from "./side-bar"
-import SEO from "./seo"
+import Seo from "./seo"
 
 import "./layout.css"
 
@@ -28,7 +28,7 @@ const Layout = ({
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <SEO title={seoTitle} />
+      <Seo title={seoTitle} />
       <div>
         {!isHomePage && (
           <div className="navigation fixed left-0 z-5" id="home-link">

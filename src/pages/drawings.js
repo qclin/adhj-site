@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 
-export default function() {
+const DrawingsCollection = () => {
   const { drawings, images } = useStaticQuery(graphql`
     query drawingsQuery {
       drawings: allAirtable(
@@ -80,3 +80,6 @@ export default function() {
     </Layout>
   )
 }
+
+
+export default DrawingsCollection

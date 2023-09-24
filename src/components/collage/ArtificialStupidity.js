@@ -1,10 +1,10 @@
 import React from "react"
 import Img from "gatsby-image"
-import { remove } from "lodash"
+import remove from "lodash/remove"
 
 import { ParallaxLayer } from "@react-spring/parallax"
 
-export default function({ layers }) {
+const ArtificialStupidityCanvas = ({ layers }) => {
   var ASJaws = remove(layers, layer => layer.Key.includes("Animation"))
 
   return (
@@ -49,3 +49,6 @@ const JawLayers = ({ layers }) => {
     </ParallaxLayer>
   ))
 }
+
+
+export default ArtificialStupidityCanvas

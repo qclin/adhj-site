@@ -1,10 +1,10 @@
 import React from "react"
 import Img from "gatsby-image"
-import { remove } from "lodash"
+import remove from "lodash/remove"
 
 import { ParallaxLayer } from "@react-spring/parallax"
 
-export default function({ layers }) {
+const AgitationCanvas = ({ layers }) => {
   remove(layers, layer => layer.Key.includes("Strawberries"))
 
   return (
@@ -27,3 +27,5 @@ export default function({ layers }) {
     </section>
   )
 }
+
+export default AgitationCanvas 

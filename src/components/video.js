@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react"
 import ReactPlayer from "react-player"
 
-export default ({
+const VideoPlayer = ({
   videoId,
   videoTitle,
   count = 1,
@@ -86,3 +86,6 @@ export default ({
     </div>
   )
 }
+
+
+export default VideoPlayer

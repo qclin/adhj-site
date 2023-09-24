@@ -3,16 +3,18 @@ import Layout from "../components/layout"
 import Collage from "../components/collage"
 import ThemeNavigation from "../components/nav-themes"
 
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
-export default function() {
+const Home = () => {
   const canvas = useRef(null)
 
   return (
     <Layout isHomePage>
-      <SEO title="Home" />
+      <Seo title="Home" />
       <ThemeNavigation canvas={canvas} />
       <Collage canvas={canvas} />
     </Layout>
   )
 }
+
+export default Home

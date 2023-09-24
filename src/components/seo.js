@@ -1,5 +1,5 @@
 /**
- * SEO component that queries for data with
+ * Seocomponent that queries for data with
  *  Gatsby's useStaticQuery React hook
  *
  * See: https://www.gatsbyjs.org/docs/use-static-query/
@@ -30,7 +30,6 @@ function SEO({ description, lang, meta, title, image }) {
     `
   )
 
-  const pageImage = image || site.siteMetadata.openGraph.image
   const metaDescription = description || site.siteMetadata.openGraph.description
 
   return (

@@ -132,7 +132,7 @@
 @mixin clipCircle($size) {
   width: $size;
   height: $size;
-  clip-path: circle($size/2 at center);
+  clip-path: circle(calc($size/2) at center);
 }
 @mixin spreadPosition {
   @for $i from 0 through 10 {
@@ -188,15 +188,15 @@
 
 .jaws:nth-of-type(odd) {
   width: 60vw !important;
-  top: 15%;
-  left: 18vw;
+  top: 15% !important;;
+  left: 18vw !important;;
   transform-origin: left center;
   @include animation("rotate 20s linear infinite");
 }
 .jaws:nth-of-type(even) {
   width: 45vw !important;
-  top: 60%;
-  left: 50vw;
+  top: 60% !important;;
+  left: 50vw !important;;
   transform-origin: left center;
   @include animation("rotateReverse 20s linear infinite");
 }

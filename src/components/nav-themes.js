@@ -3,12 +3,12 @@ import React, { useState } from "react"
 import { THEMES } from "../utils/enums"
 import ProjectNavigation from "../components/nav-projects"
 
-export default function({
+const ThemeNavigation = ({
   isProjectPage = false,
   isMuted = false,
   selectedTheme,
   canvas,
-}) {
+}) => {
   const [theme, setTheme] = useState(selectedTheme)
 
   const showThemeList = () => {
@@ -63,3 +63,5 @@ export default function({
     </nav>
   )
 }
+
+export default ThemeNavigation 

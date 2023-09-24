@@ -1,10 +1,10 @@
 import React from "react"
 import Img from "gatsby-image"
-import { remove } from "lodash"
+import remove from "lodash/remove"
 
 import { ParallaxLayer } from "@react-spring/parallax"
 
-export default function({ layers }) {
+const TimeTravelCanvas = ({ layers })  => {
   const crystal = remove(layers, layer => layer.Key.includes("ANIMATION"))
   const topLayer = remove(layers, layer => layer.Key.includes("02_TT"))
 
@@ -50,3 +50,6 @@ export default function({ layers }) {
     </section>
   )
 }
+
+
+export default TimeTravelCanvas

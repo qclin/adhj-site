@@ -3,31 +3,32 @@ import Img from "gatsby-image"
 import germanHeartGIF from "./WIPHeart_GIF_4.gif"
 import { ParallaxLayer } from "@react-spring/parallax"
 
-export default function({ layers }) {
-  return (
-    <section id="EX-canvas">
-      {layers.map((layer, index) => (
-        <ParallaxLayer
-          offset={5}
-          speed={index * 0.1}
-          className="canvas-layer"
-          key={`EX-${index}`}
-        >
-          <Img
-            fluid={layer.childImageSharp.fluid}
-            objectPosition="0% 0%"
-            alt={`Existence ${index}`}
-            className="collage-layer"
-          />
-        </ParallaxLayer>
-      ))}
-      <ParallaxLayer offset={5} speed={0.1} className="" key="german-heart">
-        <img
-          id="myGermanHeart"
-          src={germanHeartGIF}
-          alt="my german heart beating"
+const ExistenceCanvas = ({ layers }) => {
+(
+  <section id="EX-canvas">
+    {layers.map((layer, index) => (
+      <ParallaxLayer
+        offset={5}
+        speed={index * 0.1}
+        className="canvas-layer"
+        key={`EX-${index}`}
+      >
+        <Img
+          fluid={layer.childImageSharp.fluid}
+          objectPosition="0% 0%"
+          alt={`Existence ${index}`}
+          className="collage-layer"
         />
       </ParallaxLayer>
-    </section>
-  )
-}
+    ))}
+    <ParallaxLayer offset={5} speed={0.1} className="" key="german-heart">
+      <img
+        id="myGermanHeart"
+        src={germanHeartGIF}
+        alt="my german heart beating"
+      />
+    </ParallaxLayer>
+  </section>
+)}
+
+export default ExistenceCanvas

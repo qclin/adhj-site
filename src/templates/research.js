@@ -2,7 +2,7 @@ import React from "react"
 import ProjectImages from "../components/project-images"
 import Video from "../components/video"
 
-export default ({ project, videos, images }) => {
+const ResearchPage = ({ project, videos, images }) => {
   return (
     <main>
       <section className="pv6">
@@ -26,3 +26,6 @@ export default ({ project, videos, images }) => {
     </main>
   )
 }
+
+
+export default ResearchPage

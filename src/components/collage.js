@@ -9,7 +9,7 @@ import MYCanvas from "./collage/Myths"
 import TTCanvas from "./collage/TimeTravels"
 import EXCanvas from "./collage/Existence"
 
-export default function({ canvas }) {
+const Collage = ({ canvas }) => {
   const { collage } = useStaticQuery(graphql`
     query collageQuery {
       collage: allS3ImageAsset(
@@ -45,6 +45,8 @@ export default function({ canvas }) {
     </Parallax>
   )
 }
+
+export default Collage; 
 
 function groupByTheme(nodes) {
   return nodes.reduce((acc, obj) => {

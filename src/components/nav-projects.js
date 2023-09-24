@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { THEMES } from "../utils/enums"
 
-export default function({ theme, isProjectPage }) {
+const ProjectNavigation = ({ theme, isProjectPage }) =>  {
   const { projects } = useStaticQuery(graphql`
     query ProjectLinkQuery {
       projects: allAirtable(
@@ -95,7 +95,10 @@ export default function({ theme, isProjectPage }) {
     </nav>
   )
 }
+  
+
+export default ProjectNavigation; 
 
 function getThemeKey(theme) {
-  return Object.keys(THEMES).filter(key => THEMES[key] === theme)
+  return Object.keys(THEMES).find(key => THEMES[key] === theme)
 }

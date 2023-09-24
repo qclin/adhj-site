@@ -64,7 +64,7 @@ export const query = graphql`
   }
 `
 
-export default ({ pageContext: { identifier, images }, data }) => {
+const ProjectPage =  ({ pageContext: { identifier, images }, data }) => {
   const titleHtml = useRef()
   const project = data.project.nodes[0].data
   const media = data.videos.nodes
@@ -154,3 +154,6 @@ function keyByImageId(array) {
     return acc
   }, {})
 }
+
+
+export default ProjectPage

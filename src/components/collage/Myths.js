@@ -2,7 +2,7 @@ import React from "react"
 import Img from "gatsby-image"
 import { ParallaxLayer } from "@react-spring/parallax"
 
-export default function({ layers }) {
+const MythCanvas = ({ layers }) => {
   var MYLights = [...Array(10).keys()]
 
   return (
@@ -32,3 +32,6 @@ export default function({ layers }) {
     </section>
   )
 }
+
+
+export default MythCanvas

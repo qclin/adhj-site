@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 
-export default function() {
+const NewsPage = () =>  {
   const { news } = useStaticQuery(graphql`
     query newsQuery {
       news: allAirtable(
@@ -44,3 +44,5 @@ export default function() {
     </Layout>
   )
 }
+
+export default NewsPage

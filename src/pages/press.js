@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 
-export default function() {
+const PressPage = () => {
   const [show, setShow] = useState(false)
   const [pdf, setPDF] = useState("")
 
@@ -96,3 +96,6 @@ export default function() {
     </Layout>
   )
 }
+
+
+export default PressPage
