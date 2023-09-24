@@ -1,5 +1,5 @@
 import React from "react"
-import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons.cjs"
+import { Parallax, ParallaxLayer } from "@react-spring/parallax"
 
 export default function({ canvas }) {
   const url = name => `"../../collage-layers/${name}.png`

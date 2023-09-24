@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import { Parallax } from "react-spring/renderprops-addons.cjs"
+import { Parallax } from "@react-spring/parallax"
 import ASCanvas from "./collage/ArtificialStupidity"
 import AGCanvas from "./collage/Agitation"
 import ENCanvas from "./collage/Environment"

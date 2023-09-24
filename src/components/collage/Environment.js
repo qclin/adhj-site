@@ -2,7 +2,7 @@ import React from "react"
 import Img from "gatsby-image"
 import { remove } from "lodash"
 
-import { ParallaxLayer } from "react-spring/renderprops-addons.cjs"
+import { ParallaxLayer } from "@react-spring/parallax"
 
 export default function({ layers }) {
   const stump = remove(layers, layer => layer.Key.includes("ANIMATION"))

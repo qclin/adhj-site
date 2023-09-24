@@ -1,6 +1,6 @@
 import React from "react"
 import Img from "gatsby-image"
-import { ParallaxLayer } from "react-spring/renderprops-addons.cjs"
+import { ParallaxLayer } from "@react-spring/parallax"
 
 export default function({ layers }) {
   var MYLights = [...Array(10).keys()]
