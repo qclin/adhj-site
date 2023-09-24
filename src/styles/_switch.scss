@@ -1,7 +1,7 @@
 .switch {
   position: relative;
   display: none;
-  width: 95px;
+  width: 110px;
   height: 30px;
   z-index: 2;
   margin-left: 0;
@@ -29,22 +29,33 @@
 
 .slider:before {
   position: absolute;
-  content: "research";
+  content: "";
   left: 0;
+  width: 26px;
   height: 26px;
   padding: 0 8px;
   color: white; 
-  font-family: stratos,sans-serif;
-  background-color: $txt-dark;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-  left: 10px; 
+  background-color: $txt-dark;
+}
+
+.slider:after{
+  font-family: stratos,sans-serif;
+  margin-left: 28px; 
+  content: 'research';
 }
 
 input:checked + .slider:before {
   color: $txt-dark;
   background-color: #fff;
-  content: "project";
+  content: "";
+}
+
+input:checked + .slider::after{
+  content: 'project';
+  margin-left: 0px;
+  margin-right: 25px; 
 }
 
 input:checked + .slider {
@@ -57,9 +68,9 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(8px);
-  -ms-transform: translateX(8px);
-  transform: translateX(8px);
+  -webkit-transform: translateX(75px);
+  -ms-transform: translateX(75px);
+  transform: translateX(75px)
 }
 
 /* Rounded sliders */
