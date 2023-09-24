@@ -9,7 +9,7 @@ export default function({ theme, isProjectPage }) {
         filter: { table: { eq: "PROJECTS" }
                   data: { IDENTIFIER: { ne: null } }
                 }
-        sort: { fields: data___YEAR, order: DESC }
+        sort: {data: {YEAR: DESC}}
         
       ) {
         nodes {

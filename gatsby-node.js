@@ -4,7 +4,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const sourcedData = await graphql(`
     query {
-      images: allS3ImageAsset(sort: { order: ASC, fields: Key }) {
+      images: allS3ImageAsset(sort: {Key: ASC}) {
         nodes {
           Key
           childImageSharp {

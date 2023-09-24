@@ -8,7 +8,7 @@ export default function() {
     query newsQuery {
       news: allAirtable(
         filter: { table: { eq: "NEWS" }, data: { TITLE: { ne: null } } }
-        sort: { fields: data___YEAR, order: DESC }
+        sort: {data: {YEAR: DESC}}
       ) {
         nodes {
           data {

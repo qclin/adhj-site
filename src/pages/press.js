@@ -11,7 +11,7 @@ export default function() {
     query pressQuery {
       press: allAirtable(
         filter: { table: { eq: "PRESS" }, data: { TITLE: { ne: null } } }
-        sort: { fields: data___YEAR, order: DESC }
+        sort: {data: {YEAR: DESC}}
       ) {
         nodes {
           data {

@@ -8,7 +8,7 @@ export default function() {
     query drawingsQuery {
       drawings: allAirtable(
         filter: { table: { eq: "DRAWINGS" }, data: { TITLE: { ne: null } } }
-        sort: { fields: data___YEAR, order: DESC }
+        sort: {data: {YEAR: DESC}}
       ) {
         nodes {
           data {
@@ -20,7 +20,7 @@ export default function() {
         }
       }
       images: allS3ImageAsset(
-        sort: { order: ASC, fields: Key }
+        sort: {Key: ASC}
         filter: { Key: { regex: "/00_DRAWINGS/" } }
       ) {
         nodes {

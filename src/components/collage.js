@@ -13,7 +13,7 @@ export default function({ canvas }) {
   const { collage } = useStaticQuery(graphql`
     query collageQuery {
       collage: allS3ImageAsset(
-        sort: { order: DESC, fields: Key }
+        sort: {Key: DESC}
         filter: { Key: { regex: "/01_COLLAGE/" } }
       ) {
         nodes {
