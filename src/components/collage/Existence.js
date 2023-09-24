@@ -1,10 +1,10 @@
 import React from "react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 import germanHeartGIF from "./WIPHeart_GIF_4.gif"
 import { ParallaxLayer } from "@react-spring/parallax"
 
 const ExistenceCanvas = ({ layers }) => {
-(
+return (
   <section id="EX-canvas">
     {layers.map((layer, index) => (
       <ParallaxLayer
@@ -13,12 +13,11 @@ const ExistenceCanvas = ({ layers }) => {
         className="canvas-layer"
         key={`EX-${index}`}
       >
-        <Img
-          fluid={layer.childImageSharp.fluid}
+        <GatsbyImage
+          image={layer.childImageSharp.gatsbyImageData}
           objectPosition="0% 0%"
           alt={`Existence ${index}`}
-          className="collage-layer"
-        />
+          className="collage-layer" />
       </ParallaxLayer>
     ))}
     <ParallaxLayer offset={5} speed={0.1} className="" key="german-heart">

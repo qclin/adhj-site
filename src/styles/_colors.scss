@@ -58,7 +58,7 @@ $fluorescent-green-alpha: rgba(6, 255, 18, 0);
 .bg-EN {
   @include sideGradient($fluorescent-green, $fluorescent-green-alpha);
 }
-.bg-MY {
+.bg-DIA {
   @include sideGradient($orangey-red, $orangey-red-alpha);
 }
 
@@ -77,7 +77,7 @@ $fluorescent-green-alpha: rgba(6, 255, 18, 0);
 .selected-EN {
   @include selectedShadow($fluorescent-green);
 }
-.selected-MY {
+.selected-DIA {
   @include selectedShadow($orangey-red);
 }
 .selected-TT {

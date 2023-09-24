@@ -1,5 +1,5 @@
 import React from "react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 import remove from "lodash/remove"
 
 import { ParallaxLayer } from "@react-spring/parallax"
@@ -19,17 +19,16 @@ const ArtificialStupidityCanvas = ({ layers }) => {
             className="canvas-layer"
             key={`AS-${index}`}
           >
-            <Img
-              fluid={layer.childImageSharp.fluid}
+            <GatsbyImage
+              image={layer.childImageSharp.gatsbyImageData}
               objectPosition="0% 0%"
               alt={`Artificial Stupidity ${index}`}
-              className="collage-layer"
-            />
+              className="collage-layer" />
           </ParallaxLayer>
         )
       )}
     </section>
-  )
+  );
 }
 
 const JawLayers = ({ layers }) => {
@@ -40,14 +39,13 @@ const JawLayers = ({ layers }) => {
       className="jaws"
       key={`AS-animation-${index}`}
     >
-      <Img
-        fluid={layer.childImageSharp.fluid}
+      <GatsbyImage
+        image={layer.childImageSharp.gatsbyImageData}
         objectPosition="0% 0%"
         alt={`Artificial Stupidity Jaws`}
-        className=""
-      />
+        className="" />
     </ParallaxLayer>
-  ))
+  ));
 }
 
 

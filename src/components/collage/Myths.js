@@ -1,5 +1,5 @@
 import React from "react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 import { ParallaxLayer } from "@react-spring/parallax"
 
 const MythCanvas = ({ layers }) => {
@@ -14,23 +14,22 @@ const MythCanvas = ({ layers }) => {
           className="canvas-layer"
           key={`MY-${index}`}
         >
-          <Img
-            fluid={layer.childImageSharp.fluid}
+          <GatsbyImage
+            image={layer.childImageSharp.gatsbyImageData}
             objectPosition="0% 0%"
             alt={`Myth ${index}`}
-            className="collage-layer"
-          />
+            className="collage-layer" />
         </ParallaxLayer>
       ))}
       <ParallaxLayer offset={3}>
         <div className="relative h-100">
-          {MYLights.map(item => (
-            <div className="animate-flicker myth-lights"></div>
+          {MYLights.map((_, index) => (
+            <div className="animate-flicker myth-lights" key={`light-${index}`}></div>
           ))}
         </div>
       </ParallaxLayer>
     </section>
-  )
+  );
 }
 
 

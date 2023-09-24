@@ -1,43 +1,36 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 import Layout from "../components/layout"
 
 const DrawingsCollection = () => {
-  const { drawings, images } = useStaticQuery(graphql`
-    query drawingsQuery {
-      drawings: allAirtable(
-        filter: { table: { eq: "DRAWINGS" }, data: { TITLE: { ne: null } } }
-        sort: {data: {YEAR: DESC}}
-      ) {
-        nodes {
-          data {
-            IDENTIFIER
-            TITLE
-            YEAR
-          }
-          recordId
-        }
+  const { drawings, images } = useStaticQuery(graphql`query drawingsQuery {
+  drawings: allAirtable(
+    filter: {table: {eq: "DRAWINGS"}, data: {TITLE: {ne: null}}}
+    sort: {data: {YEAR: DESC}}
+  ) {
+    nodes {
+      data {
+        IDENTIFIER
+        TITLE
+        YEAR
       }
-      images: allS3ImageAsset(
-        sort: {Key: ASC}
-        filter: { Key: { regex: "/00_DRAWINGS/" } }
-      ) {
-        nodes {
-          Key
-          childImageSharp {
-            fluid(sizes: "100") {
-              src
-              srcSet
-              aspectRatio
-              sizes
-            }
-          }
-          id
-        }
-      }
+      recordId
     }
-  `)
+  }
+  images: allS3ImageAsset(
+    sort: {Key: ASC}
+    filter: {Key: {regex: "/00_DRAWINGS/"}}
+  ) {
+    nodes {
+      Key
+      childImageSharp {
+          gatsbyImageData(sizes: "100", placeholder: BLURRED, layout: FULL_WIDTH)
+      }
+      id
+    }
+  }
+}`)
 
   var drawingInfo = drawings.nodes.reduce((acc, obj) => {
     var id = obj.data.IDENTIFIER
@@ -58,10 +51,9 @@ const DrawingsCollection = () => {
           {Object.keys(imageSet).map((fileName, idx) => (
             <div className="w-100 w-40-ns dib ma2 mb4 mr4" key={idx}>
               <figure className="mb2">
-                <Img
-                  fluid={imageSet[fileName].childImageSharp.fluid}
-                  alt={`drawings${idx}`}
-                />
+                <GatsbyImage
+                  image={imageSet[fileName].childImageSharp.gatsbyImageData}
+                  alt={`drawings${idx}`} />
               </figure>
               <figcaption>
                 {drawingInfo[fileName] ? (
@@ -78,7 +70,7 @@ const DrawingsCollection = () => {
         </section>
       </main>
     </Layout>
-  )
+  );
 }
 
 

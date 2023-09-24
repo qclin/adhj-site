@@ -29,6 +29,7 @@ const ProjectNavigation = ({ theme, isProjectPage }) =>  {
 
   const [truncated, setTruncated] = useState(false)
   const themedProjects = projects.nodes.filter(ea => ea.data.THEME === theme)
+  
   useEffect(() => {
     setTruncated(
       listWrapper.current.offsetWidth < listWrapper.current.scrollWidth
@@ -95,7 +96,7 @@ const ProjectNavigation = ({ theme, isProjectPage }) =>  {
     </nav>
   )
 }
-  
+
 
 export default ProjectNavigation; 
 

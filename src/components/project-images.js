@@ -8,6 +8,8 @@ export default function ProjectImages({
   isResearch = false,
 }) {
   const hasSeries = images.some(item => item.Key.includes("series"))
+
+  console.log("[ProjectImages] -- ", hasSeries, images);
   if (isResearch || !hasSeries) {
     return (
       <section className="center">
@@ -27,6 +29,8 @@ export default function ProjectImages({
   const imagesByKey = toObj(singleImages)
   const sortedList = mergeTwo(singleNames, seriesNames)
 
+
+  console.log("sortedList ", sortedList);
   return (
     <>
       {sortedList.map(fileName =>

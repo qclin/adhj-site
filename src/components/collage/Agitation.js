@@ -1,5 +1,5 @@
 import React from "react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 import remove from "lodash/remove"
 
 import { ParallaxLayer } from "@react-spring/parallax"
@@ -16,16 +16,15 @@ const AgitationCanvas = ({ layers }) => {
           className={"canvas-layer AG" + index}
           key={`AG-${index}`}
         >
-          <Img
-            fluid={layer.childImageSharp.fluid}
+          <GatsbyImage
+            image={layer.childImageSharp.gatsbyImageData}
             objectPosition="0% 0%"
             alt={`Agitation ${index}`}
-            className="collage-layer"
-          />
+            className="collage-layer" />
         </ParallaxLayer>
       ))}
     </section>
-  )
+  );
 }
 
 export default AgitationCanvas 

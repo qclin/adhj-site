@@ -1,5 +1,5 @@
 import React from "react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -19,9 +19,9 @@ export default function ImageCarousel({ images }) {
     <Slider {...settings}>
       {images.map(item => (
         <figure key={item.Key}>
-          <Img fluid={item.childImageSharp.fluid} alt={item.Key} />
+          <GatsbyImage image={item.childImageSharp.gatsbyImageData} alt={item.Key} />
         </figure>
       ))}
     </Slider>
-  )
+  );
 }

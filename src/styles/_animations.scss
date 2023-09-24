@@ -144,8 +144,8 @@
     );
 
     &:nth-child(#{$i}) {
-      left: random(100) / 100 * 100%;
-      top: random(100) / 100 * 100%;
+      left: calc(random(100) / 100) * 100%;
+      top: calc(random(100) / 100) * 100%;
     }
 
     &:nth-child(3n) {

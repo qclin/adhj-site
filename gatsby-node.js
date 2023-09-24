@@ -8,11 +8,7 @@ exports.createPages = async ({ graphql, actions }) => {
         nodes {
           Key
           childImageSharp {
-            fluid(sizes: "100") {
-              src
-              srcSet
-              aspectRatio
-            }
+              gatsbyImageData(sizes: "100", placeholder: BLURRED, layout: FULL_WIDTH)
           }
           id
         }

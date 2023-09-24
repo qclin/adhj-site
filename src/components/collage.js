@@ -10,27 +10,20 @@ import TTCanvas from "./collage/TimeTravels"
 import EXCanvas from "./collage/Existence"
 
 const Collage = ({ canvas }) => {
-  const { collage } = useStaticQuery(graphql`
-    query collageQuery {
-      collage: allS3ImageAsset(
-        sort: {Key: DESC}
-        filter: { Key: { regex: "/01_COLLAGE/" } }
-      ) {
-        nodes {
-          Key
-          childImageSharp {
-            fluid(sizes: "100") {
-              src
-              srcSet
-              aspectRatio
-              sizes
-            }
-          }
-          id
-        }
+  const { collage } = useStaticQuery(graphql`query collageQuery {
+  collage: allS3ImageAsset(
+    sort: {Key: DESC}
+    filter: {Key: {regex: "/01_COLLAGE/"}}
+  ) {
+    nodes {
+      Key
+      childImageSharp {
+        gatsbyImageData(sizes: "100", layout: FULL_WIDTH)
       }
+      id
     }
-  `)
+  }
+}`)
 
   var collageObj = groupByTheme(collage.nodes)
 

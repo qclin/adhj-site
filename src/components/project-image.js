@@ -1,20 +1,24 @@
 import React from "react"
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 export default function ProjectImage({ image, isResearch = false }) {
   const wrapperStyle = isResearch
     ? "w-25-ns pa2 dib image-figure"
     : "w-60-ns margin-auto image-figure"
 
+    const imageData = getImage(image); 
+    console.log("ProjectImage ---- ", imageData, image);
   return (
     <figure
       className={
-        image.childImageSharp.fluid.aspectRatio > 1
+        image.childImageSharp.gatsbyImageData.aspectRatio > 1
           ? "landscapes " + wrapperStyle
           : "portrait " + wrapperStyle
       }
     >
-      <Img fluid={image.childImageSharp.fluid} alt={image.Key} />
+      <GatsbyImage image={image.childImageSharp.gatsbyImageData}
+
+      alt={image.Key} />
     </figure>
-  )
+  );
 }

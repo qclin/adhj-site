@@ -1,5 +1,5 @@
 import React from "react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 import remove from "lodash/remove"
 
 import { ParallaxLayer } from "@react-spring/parallax"
@@ -18,21 +18,19 @@ const TimeTravelCanvas = ({ layers })  => {
           className="canvas-layer"
           key={`TT-${index}`}
         >
-          <Img
-            fluid={layer.childImageSharp.fluid}
+          <GatsbyImage
+            image={layer.childImageSharp.gatsbyImageData}
             objectPosition="0% 0%"
             alt={`Time Travels ${index}`}
-            className="collage-layer"
-          />
+            className="collage-layer" />
         </ParallaxLayer>
       ))}
       <ParallaxLayer offset={4} speed={0}>
-        <Img
+        <GatsbyImage
+          image={crystal[0].childImageSharp.gatsbyImageData}
           className="crystal"
-          fluid={crystal[0].childImageSharp.fluid}
           objectPosition="0% 0%"
-          alt={`Time Travels crystal`}
-        />
+          alt={`Time Travels crystal`} />
       </ParallaxLayer>
       <ParallaxLayer
         offset={4}
@@ -40,15 +38,14 @@ const TimeTravelCanvas = ({ layers })  => {
         className="canvas-layer"
         key="TT-top-layer"
       >
-        <Img
-          fluid={topLayer[0].childImageSharp.fluid}
+        <GatsbyImage
+          image={topLayer[0].childImageSharp.gatsbyImageData}
           objectPosition="0% 0%"
           alt="Time Travels"
-          className="collage-layer"
-        />
+          className="collage-layer" />
       </ParallaxLayer>
     </section>
-  )
+  );
 }
 
 

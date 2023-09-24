@@ -1,5 +1,5 @@
 import React from "react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 import remove from "lodash/remove"
 
 import { ParallaxLayer } from "@react-spring/parallax"
@@ -15,24 +15,22 @@ const EnvironmentCanvas = ({ layers }) => {
           className="canvas-layer"
           key={`EN-${index}`}
         >
-          <Img
-            fluid={layer.childImageSharp.fluid}
+          <GatsbyImage
+            image={layer.childImageSharp.gatsbyImageData}
             objectPosition="0% 0%"
             alt={`Environment ${index}`}
-            className="collage-layer"
-          />
+            className="collage-layer" />
         </ParallaxLayer>
       ))}
       <ParallaxLayer offset={2} speed={0}>
-        <Img
+        <GatsbyImage
+          image={stump[0].childImageSharp.gatsbyImageData}
           className="stump"
-          fluid={stump[0].childImageSharp.fluid}
           objectPosition="0% 0%"
-          alt={`Environment Sculpture`}
-        />
+          alt={`Environment Sculpture`} />
       </ParallaxLayer>
     </section>
-  )
+  );
 }
 
 
