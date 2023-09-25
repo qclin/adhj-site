@@ -1,5 +1,5 @@
 import React from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 export default function ProjectImage({ image, isResearch = false }) {
   const wrapperStyle = isResearch

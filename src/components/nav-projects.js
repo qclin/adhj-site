@@ -81,14 +81,14 @@ const onScroll = useCallback(() => {
         left: listWrapper.current.scrollLeft - 200,
         behavior: 'smooth',
     });
-}, [listWrapper.current]);
+}, [listWrapper]);
 
 const handleRightClick = useCallback(() => {
   listWrapper.current?.scrollTo({
         left: listWrapper.current.scrollLeft + 200,
         behavior: 'smooth',
     });
-}, [listWrapper.current ]);
+}, [listWrapper]);
 
   return (
     <nav id="nav-projects" className="w-60-ns">
