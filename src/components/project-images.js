@@ -12,7 +12,7 @@ export default function ProjectImages({
   if (isResearch || !hasSeries) {
     return (
       <section className="center">
-        {images.map(item => (
+        {images?.map(item => (
           <ProjectImage image={item} key={item.Key} isResearch={isResearch} />
         ))}
       </section>
