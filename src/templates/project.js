@@ -75,11 +75,11 @@ const ProjectPage =  ({ pageContext: { images }, data }) => {
   const groupByMedia = groupBy(media, (item) => !Boolean(item.data.IsResearch) ? 'project' : 'research'); 
   const groupByImages = groupBy(images, (item) => item.Key.includes("Media") ? 'project' : 'research')
 
-  const hasHeroVideo = groupByMedia.project.length > 0; 
+  const hasHeroVideo = groupByMedia.project?.length > 0; 
   const hasResearch = 
     (!media.isEmpty && groupByMedia.research?.length > 0) || groupByImages.research?.length > 0
 
-  const captions = keyByImageId(data.captions.nodes)
+  const captions = keyByImageId(data.captions.nodes)  
   
   return (
     <section
