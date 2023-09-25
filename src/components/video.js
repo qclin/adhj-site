@@ -40,11 +40,11 @@ const VideoPlayer = ({
       >
         {playing ? (
           <span>
-            <img src="../icons/Pause.png" alt="pause" />
+            <img src="../../icons/Pause.png" alt="pause" />
           </span>
         ) : (
           <span>
-            <img src="../icons/Play.png" alt="play" />
+            <img src="../../icons/Play.png" alt="play" />
           </span>
         )}
       </button>

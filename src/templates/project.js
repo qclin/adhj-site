@@ -6,6 +6,8 @@ import ThemeNavigation from "../components/nav-themes"
 import ProjectImages from "../components/project-images"
 import Video from "../components/video"
 import Research from "./research"
+import groupBy from "lodash/groupBy"; 
+import clsx from 'clsx'; 
 
 export const query = graphql`
   query ProjectQuery($identifier: String!) {
@@ -64,20 +66,21 @@ export const query = graphql`
   }
 `
 
-const ProjectPage =  ({ pageContext: { identifier, images }, data }) => {
+const ProjectPage =  ({ pageContext: { images }, data }) => {
   const titleHtml = useRef()
   const project = data.project.nodes[0].data
   const media = data.videos.nodes
-  const [showResearch, setShowResearch] = useState(false)
-  const researchVideos = media.filter(item => item.data.IsResearch)
-  const displayVideos = media.filter(item => !Boolean(item.data.IsResearch))
-  const displayImages = images.filter(item => item.Key.includes("Media"))
-  const researchImages = images.filter(item => item.Key.includes("Research"))
-  const hasResearch =
-    (!media.isEmpty && researchVideos.length > 0) || researchImages.length > 0
+  const [showResearch, setShowResearch] = useState(false)  
+
+  const groupByMedia = groupBy(media, (item) => !Boolean(item.data.IsResearch) ? 'project' : 'research'); 
+  const groupByImages = groupBy(images, (item) => item.Key.includes("Media") ? 'project' : 'research')
+
+  const hasHeroVideo = groupByMedia.project.length > 0; 
+  const hasResearch = 
+    (!media.isEmpty && groupByMedia.research?.length > 0) || groupByImages.research?.length > 0
 
   const captions = keyByImageId(data.captions.nodes)
-  console.log(displayVideos.length > 0)
+  
   return (
     <section
       className={showResearch ? "research projects" : "display projects"}
@@ -89,9 +92,9 @@ const ProjectPage =  ({ pageContext: { identifier, images }, data }) => {
           isMuted={showResearch}
         />
 
-        {displayVideos.length > 0 && (
+        {hasHeroVideo && (
           <section className="full-height display-videos project-content">
-            {displayVideos.map(
+            {groupByMedia.project.map(
               item =>
                 item.data.TYPE === "video" && (
                   <Video
@@ -104,7 +107,7 @@ const ProjectPage =  ({ pageContext: { identifier, images }, data }) => {
           </section>
         )}
         <header
-          className={displayVideos.length > 0 ? "tc" : "tc no-videos"}
+          className={clsx(!hasHeroVideo && 'no-videos', "tc")}
           ref={titleHtml}
         >
           <h1>
@@ -133,13 +136,13 @@ const ProjectPage =  ({ pageContext: { identifier, images }, data }) => {
           </div>
         </section>
         <section className="project-content pb4">
-          <ProjectImages images={displayImages} captions={captions} />
+          <ProjectImages images={groupByImages.project} captions={captions} />
         </section>
         {showResearch && (
           <Research
             project={project}
-            videos={researchVideos}
-            images={researchImages}
+            videos={groupByMedia.research}
+            images={groupByImages.research}
           />
         )}
       </Layout>

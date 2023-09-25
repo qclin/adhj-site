@@ -3,11 +3,9 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 export default function ProjectImage({ image, isResearch = false }) {
   const wrapperStyle = isResearch
-    ? "w-25-ns pa2 dib image-figure"
+    ? "w-25-ns pa2 dib image-figure"  
     : "w-60-ns margin-auto image-figure"
 
-    const imageData = getImage(image); 
-    console.log("ProjectImage ---- ", imageData, image);
   return (
     <figure
       className={

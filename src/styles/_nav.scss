@@ -16,12 +16,12 @@ nav.project-page {
 
 #expandTheme {
   background: #fff;
-  height: 32px;
+  height: 30px;
   line-height: 0px;
-  padding: 0px 5px;
+  padding: 0px 5px 6px;
   position: absolute;
   left: 1rem;
-  top: -1rem;
+  top: 0rem;
 }
 .project-page {
   #nav-projects {
@@ -157,7 +157,7 @@ nav.project-page {
     position: fixed;
     right: 0;
     top: 1.5rem;
-    padding: 0;
+    padding-right: .5rem;
   }
 }
 

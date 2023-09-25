@@ -2,6 +2,7 @@ import React, { useState } from "react"
 
 import { THEMES } from "../utils/enums"
 import ProjectNavigation from "../components/nav-projects"
+import clsx from 'clsx'; 
 
 const ThemeNavigation = ({
   isProjectPage = false,
@@ -11,12 +12,9 @@ const ThemeNavigation = ({
 }) => {
   const [theme, setTheme] = useState(selectedTheme)
 
-  const showThemeList = () => {
-    setTheme(null)
-  }
-  const notSelectedStyle = theme
-    ? "not-selected theme-items tl"
-    : "neutral theme-items tl"
+  const notSelectedStyle = clsx(theme
+    ? "not-selected "
+    : "neutral ", 'theme-items tl');
 
   return (
     <nav className={isProjectPage ? "fixed project-page" : "tc home-page"}>
@@ -29,7 +27,7 @@ const ThemeNavigation = ({
             <button
               id="expandTheme"
               className="no-style"
-              onClick={() => showThemeList()}
+              onClick={() => setTheme(null)}
             >
               +
             </button>
@@ -58,6 +56,7 @@ const ThemeNavigation = ({
               </li>
             ))}
           </ul>
+       
         </div>
       )}
     </nav>

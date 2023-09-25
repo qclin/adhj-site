@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { THEMES } from "../utils/enums"
+import clsx from 'clsx'; 
 
 const ProjectNavigation = ({ theme, isProjectPage }) =>  {
   const { projects } = useStaticQuery(graphql`
@@ -29,7 +30,7 @@ const ProjectNavigation = ({ theme, isProjectPage }) =>  {
 
   const [truncated, setTruncated] = useState(false)
   const themedProjects = projects.nodes.filter(ea => ea.data.THEME === theme)
-  
+
   useEffect(() => {
     setTruncated(
       listWrapper.current.offsetWidth < listWrapper.current.scrollWidth
@@ -52,7 +53,7 @@ const ProjectNavigation = ({ theme, isProjectPage }) =>  {
   const handleRightClick = () => {
     listWrapper.current.scrollLeft += 100
   }
-  const projectPageStyle = isProjectPage ? "project-page" : ""
+  
   return (
     <nav id="nav-projects" className="w-60-ns">
       {truncated && (
@@ -66,7 +67,7 @@ const ProjectNavigation = ({ theme, isProjectPage }) =>  {
       )}
 
       <div
-        className={theme && `bg-${getThemeKey(theme)} list ` + projectPageStyle}
+        className={clsx(theme && `bg-${getThemeKey(theme)} list`, isProjectPage && "project-page")}
       >
         <ul className="scrollbar-container" ref={listWrapper}>
           {themedProjects.map((item, i) => (

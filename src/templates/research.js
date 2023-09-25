@@ -2,13 +2,13 @@ import React from "react"
 import ProjectImages from "../components/project-images"
 import Video from "../components/video"
 
-const ResearchPage = ({ project, videos, images }) => {
+const ResearchPage = ({ videos, images }) => {
   return (
     <main>
       <section className="pv6">
         <ProjectImages images={images} isResearch />
         <section className="mv4">
-          {videos.map(
+          {videos?.map(
             item =>
               item.data.TYPE === "video" && (
                 <Video
